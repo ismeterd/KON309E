@@ -1,0 +1,794 @@
+ARM GAS  /tmp/cc5VCbCM.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"experiment1_p2.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "experiment1_p2.c"
+  18              		.global	delaytime
+  19              		.bss
+  20              		.align	2
+  23              	delaytime:
+  24 0000 00000000 		.space	4
+  25              		.global	state
+  26              		.align	2
+  29              	state:
+  30 0004 00000000 		.space	4
+  31              		.global	button1Pressed
+  32              		.align	2
+  35              	button1Pressed:
+  36 0008 00000000 		.space	4
+  37              		.global	button2Pressed
+  38              		.align	2
+  41              	button2Pressed:
+  42 000c 00000000 		.space	4
+  43              		.text
+  44              		.align	1
+  45              		.global	main
+  46              		.syntax unified
+  47              		.code	16
+  48              		.thumb_func
+  50              	main:
+  51              	.LFB0:
+   1:experiment1_p2.c **** /*
+   2:experiment1_p2.c ****  *      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   3:experiment1_p2.c ****  *                  Experiment 1 - Part 2
+   4:experiment1_p2.c ****  *      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   5:experiment1_p2.c ****  *
+   6:experiment1_p2.c ****  *      # Connections
+   7:experiment1_p2.c ****  *      ---------------------------------------------
+   8:experiment1_p2.c ****  *      * Button 1 -> PIO0_21
+   9:experiment1_p2.c ****  *      * Button 2 -> PIO0_20
+  10:experiment1_p2.c ****  *      * Red Led -> PIO0_17
+  11:experiment1_p2.c ****  *      * Yellow Led -> PIO0_18
+  12:experiment1_p2.c ****  *      * Green Led -> PIO0_19
+  13:experiment1_p2.c ****  *
+  14:experiment1_p2.c ****  *      # Scenario
+  15:experiment1_p2.c ****  *      ---------------------------------------------
+ARM GAS  /tmp/cc5VCbCM.s 			page 2
+
+
+  16:experiment1_p2.c ****  *      * Start red LED will be ON (initial state).
+  17:experiment1_p2.c ****  *      *  When B1 is pressed, the LEDs will cycle as:
+  18:experiment1_p2.c ****  *          - Red ON, Yellow OFF, Green OFF
+  19:experiment1_p2.c ****  *          - Red OFF, Yellow ON, Green OFF
+  20:experiment1_p2.c ****  *          - Red OFF, Yellow OFF, Green ON
+  21:experiment1_p2.c ****  *          - Red ON, Yellow ON, Green ON
+  22:experiment1_p2.c ****  *          - Red OFF, Yellow OFF, Green OFF
+  23:experiment1_p2.c ****  *      * When B2 is pressed, the LEDs will cycle in the
+  24:experiment1_p2.c ****  *      same sequence but will skip two places:
+  25:experiment1_p2.c ****  *          - Red ON, Yellow OFF, Green OFF
+  26:experiment1_p2.c ****  *          - Red OFF, Yellow OFF, Green ON
+  27:experiment1_p2.c ****  *          - Red OFF, Yellow OFF, Green OFF
+  28:experiment1_p2.c ****  *          - Red OFF, Yellow ON, Green OFF
+  29:experiment1_p2.c ****  *          - Red ON, Yellow ON, Green ON
+  30:experiment1_p2.c ****  *
+  31:experiment1_p2.c ****  *      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  32:experiment1_p2.c ****  */
+  33:experiment1_p2.c **** 
+  34:experiment1_p2.c **** #include <stdint.h> // Declarations of uint32_t etc.
+  35:experiment1_p2.c **** #include "lpc824.h" // Declarations of LPC824 register names.
+  36:experiment1_p2.c **** 
+  37:experiment1_p2.c **** #define SYSTEM_CORE_CLOCK 30000000UL   //Declare system clock as 30MHz
+  38:experiment1_p2.c **** // (The clock speed has been set in "init.c" file to 30MHz.)
+  39:experiment1_p2.c **** 
+  40:experiment1_p2.c **** static inline uint32_t SysTickConfig(uint32_t ticks);
+  41:experiment1_p2.c **** void SysTick_Handler(void);  //our systick interrupt handler
+  42:experiment1_p2.c **** void delay_ms(uint32_t ms);//delay (ms)
+  43:experiment1_p2.c **** 
+  44:experiment1_p2.c **** volatile uint32_t delaytime; // This is decremented by SysTick_Handler.
+  45:experiment1_p2.c **** volatile int state = 0;
+  46:experiment1_p2.c **** volatile int button1Pressed = 0;
+  47:experiment1_p2.c **** volatile int button2Pressed = 0;
+  48:experiment1_p2.c **** 
+  49:experiment1_p2.c **** int main(void)
+  50:experiment1_p2.c **** {
+  52              		.loc 1 50 1
+  53              		.cfi_startproc
+  54              		@ args = 0, pretend = 0, frame = 0
+  55              		@ frame_needed = 1, uses_anonymous_args = 0
+  56 0000 80B5     		push	{r7, lr}
+  57              		.cfi_def_cfa_offset 8
+  58              		.cfi_offset 7, -8
+  59              		.cfi_offset 14, -4
+  60 0002 00AF     		add	r7, sp, #0
+  61              		.cfi_def_cfa_register 7
+  51:experiment1_p2.c ****     delaytime=0;
+  62              		.loc 1 51 14
+  63 0004 624B     		ldr	r3, .L21
+  64 0006 0022     		movs	r2, #0
+  65 0008 1A60     		str	r2, [r3]
+  52:experiment1_p2.c ****     // System Clock Control Register
+  53:experiment1_p2.c ****     // This register enables the clocks to individual system and peripheral blocks.
+  54:experiment1_p2.c ****     // Bit 6 -> GPIO
+  55:experiment1_p2.c ****     // Bit 7 -> SWM (Switch Matrix)
+  56:experiment1_p2.c ****     // Bit 18 -> IOCON
+  57:experiment1_p2.c ****     // 0100 0000 0000 1100 0000
+  58:experiment1_p2.c ****     // 0x400C0
+ARM GAS  /tmp/cc5VCbCM.s 			page 3
+
+
+  59:experiment1_p2.c ****     SYSCON_SYSAHBCLKCTRL |= 0x400C0; // Enable IOCON, SWM & GPIO clocks.
+  66              		.loc 1 59 5
+  67 000a 624B     		ldr	r3, .L21+4
+  68 000c 1A68     		ldr	r2, [r3]
+  69 000e 614B     		ldr	r3, .L21+4
+  70              		.loc 1 59 26
+  71 0010 6149     		ldr	r1, .L21+8
+  72 0012 0A43     		orrs	r2, r1
+  73 0014 1A60     		str	r2, [r3]
+  60:experiment1_p2.c **** 
+  61:experiment1_p2.c ****     // Peripheral Reset Control Register
+  62:experiment1_p2.c ****     // Bit 10 -> GPIO_RST_N
+  63:experiment1_p2.c ****     // 0100 0000 0000
+  64:experiment1_p2.c ****     SYSCON_PRESETCTRL &= ~(0x400);  // Peripheral reset control to gpio/gpio int
+  74              		.loc 1 64 5
+  75 0016 614B     		ldr	r3, .L21+12
+  76 0018 1A68     		ldr	r2, [r3]
+  77 001a 604B     		ldr	r3, .L21+12
+  78              		.loc 1 64 23
+  79 001c 6049     		ldr	r1, .L21+16
+  80 001e 0A40     		ands	r2, r1
+  81 0020 1A60     		str	r2, [r3]
+  65:experiment1_p2.c ****     SYSCON_PRESETCTRL |=   0x400;   // AO: Check.
+  82              		.loc 1 65 5
+  83 0022 5E4B     		ldr	r3, .L21+12
+  84 0024 1A68     		ldr	r2, [r3]
+  85 0026 5D4B     		ldr	r3, .L21+12
+  86              		.loc 1 65 23
+  87 0028 8021     		movs	r1, #128
+  88 002a C900     		lsls	r1, r1, #3
+  89 002c 0A43     		orrs	r2, r1
+  90 002e 1A60     		str	r2, [r3]
+  66:experiment1_p2.c **** 
+  67:experiment1_p2.c ****     // GPIO Direction Port Register
+  68:experiment1_p2.c ****     // 0 input - 1 output
+  69:experiment1_p2.c ****     //Make Pin 9 an output. On Alakart, Pin #9 is the blue LED:
+  70:experiment1_p2.c ****     // 0000 0000 0000
+  71:experiment1_p2.c ****     // 0000 0000 0001
+  72:experiment1_p2.c ****     // 0010 0000 0000
+  73:experiment1_p2.c ****     GPIO_DIR0 &= (!(1<<21)); //Pin 21 input (B1)
+  91              		.loc 1 73 5
+  92 0030 5C4B     		ldr	r3, .L21+20
+  93 0032 1B68     		ldr	r3, [r3]
+  94 0034 5B4B     		ldr	r3, .L21+20
+  95              		.loc 1 73 15
+  96 0036 0022     		movs	r2, #0
+  97 0038 1A60     		str	r2, [r3]
+  74:experiment1_p2.c ****     GPIO_DIR0 &= (!(1<<20)); //Pin 20 input (B2)
+  98              		.loc 1 74 5
+  99 003a 5A4B     		ldr	r3, .L21+20
+ 100 003c 1B68     		ldr	r3, [r3]
+ 101 003e 594B     		ldr	r3, .L21+20
+ 102              		.loc 1 74 15
+ 103 0040 0022     		movs	r2, #0
+ 104 0042 1A60     		str	r2, [r3]
+  75:experiment1_p2.c **** 
+  76:experiment1_p2.c ****     GPIO_DIR0 |= (1<<17);
+ARM GAS  /tmp/cc5VCbCM.s 			page 4
+
+
+ 105              		.loc 1 76 5
+ 106 0044 574B     		ldr	r3, .L21+20
+ 107 0046 1A68     		ldr	r2, [r3]
+ 108 0048 564B     		ldr	r3, .L21+20
+ 109              		.loc 1 76 15
+ 110 004a 8021     		movs	r1, #128
+ 111 004c 8902     		lsls	r1, r1, #10
+ 112 004e 0A43     		orrs	r2, r1
+ 113 0050 1A60     		str	r2, [r3]
+  77:experiment1_p2.c ****     GPIO_DIR0 |= (1<<18);
+ 114              		.loc 1 77 5
+ 115 0052 544B     		ldr	r3, .L21+20
+ 116 0054 1A68     		ldr	r2, [r3]
+ 117 0056 534B     		ldr	r3, .L21+20
+ 118              		.loc 1 77 15
+ 119 0058 8021     		movs	r1, #128
+ 120 005a C902     		lsls	r1, r1, #11
+ 121 005c 0A43     		orrs	r2, r1
+ 122 005e 1A60     		str	r2, [r3]
+  78:experiment1_p2.c ****     GPIO_DIR0 |= (1<<19);
+ 123              		.loc 1 78 5
+ 124 0060 504B     		ldr	r3, .L21+20
+ 125 0062 1A68     		ldr	r2, [r3]
+ 126 0064 4F4B     		ldr	r3, .L21+20
+ 127              		.loc 1 78 15
+ 128 0066 8021     		movs	r1, #128
+ 129 0068 0903     		lsls	r1, r1, #12
+ 130 006a 0A43     		orrs	r2, r1
+ 131 006c 1A60     		str	r2, [r3]
+  79:experiment1_p2.c **** 
+  80:experiment1_p2.c ****     SysTickConfig(SYSTEM_CORE_CLOCK/1000);  //setup systick clock interrupt @1ms
+ 132              		.loc 1 80 5
+ 133 006e 4E4B     		ldr	r3, .L21+24
+ 134 0070 1800     		movs	r0, r3
+ 135 0072 00F0D1F8 		bl	SysTickConfig
+  81:experiment1_p2.c **** 
+  82:experiment1_p2.c ****     GPIO_B17 = 0; // red on
+ 136              		.loc 1 82 5
+ 137 0076 4D4B     		ldr	r3, .L21+28
+ 138              		.loc 1 82 14
+ 139 0078 0022     		movs	r2, #0
+ 140 007a 1A70     		strb	r2, [r3]
+  83:experiment1_p2.c ****     GPIO_B18 = 1; // yellow off
+ 141              		.loc 1 83 5
+ 142 007c 4C4B     		ldr	r3, .L21+32
+ 143              		.loc 1 83 14
+ 144 007e 0122     		movs	r2, #1
+ 145 0080 1A70     		strb	r2, [r3]
+  84:experiment1_p2.c ****     GPIO_B19 = 1; // green off
+ 146              		.loc 1 84 5
+ 147 0082 4C4B     		ldr	r3, .L21+36
+ 148              		.loc 1 84 14
+ 149 0084 0122     		movs	r2, #1
+ 150 0086 1A70     		strb	r2, [r3]
+ 151              	.L19:
+  85:experiment1_p2.c **** 
+  86:experiment1_p2.c ****     while (1)
+ARM GAS  /tmp/cc5VCbCM.s 			page 5
+
+
+  87:experiment1_p2.c ****     {
+  88:experiment1_p2.c ****         if (GPIO_B21 == 1) //when button 1 is pressed
+ 152              		.loc 1 88 13
+ 153 0088 4B4B     		ldr	r3, .L21+40
+ 154 008a 1B78     		ldrb	r3, [r3]
+ 155 008c DBB2     		uxtb	r3, r3
+ 156              		.loc 1 88 12
+ 157 008e 012B     		cmp	r3, #1
+ 158 0090 16D1     		bne	.L2
+  89:experiment1_p2.c ****         {
+  90:experiment1_p2.c ****             if(!button1Pressed)
+ 159              		.loc 1 90 16
+ 160 0092 4A4B     		ldr	r3, .L21+44
+ 161 0094 1B68     		ldr	r3, [r3]
+ 162              		.loc 1 90 15
+ 163 0096 002B     		cmp	r3, #0
+ 164 0098 07D1     		bne	.L3
+  91:experiment1_p2.c ****             {
+  92:experiment1_p2.c ****                 button1Pressed = 1;
+ 165              		.loc 1 92 32
+ 166 009a 484B     		ldr	r3, .L21+44
+ 167 009c 0122     		movs	r2, #1
+ 168 009e 1A60     		str	r2, [r3]
+  93:experiment1_p2.c ****                 state++;
+ 169              		.loc 1 93 22
+ 170 00a0 474B     		ldr	r3, .L21+48
+ 171 00a2 1B68     		ldr	r3, [r3]
+ 172 00a4 5A1C     		adds	r2, r3, #1
+ 173 00a6 464B     		ldr	r3, .L21+48
+ 174 00a8 1A60     		str	r2, [r3]
+ 175              	.L3:
+  94:experiment1_p2.c ****             }
+  95:experiment1_p2.c **** 
+  96:experiment1_p2.c ****             if (state > 4)
+ 176              		.loc 1 96 23
+ 177 00aa 454B     		ldr	r3, .L21+48
+ 178 00ac 1B68     		ldr	r3, [r3]
+ 179              		.loc 1 96 16
+ 180 00ae 042B     		cmp	r3, #4
+ 181 00b0 02DD     		ble	.L4
+  97:experiment1_p2.c ****             {
+  98:experiment1_p2.c ****                 state = 0;
+ 182              		.loc 1 98 23
+ 183 00b2 434B     		ldr	r3, .L21+48
+ 184 00b4 0022     		movs	r2, #0
+ 185 00b6 1A60     		str	r2, [r3]
+ 186              	.L4:
+  99:experiment1_p2.c ****             }
+ 100:experiment1_p2.c ****             delay_ms(50);
+ 187              		.loc 1 100 13
+ 188 00b8 3220     		movs	r0, #50
+ 189 00ba FFF7FEFF 		bl	delay_ms
+ 190 00be 02E0     		b	.L5
+ 191              	.L2:
+ 101:experiment1_p2.c ****         }
+ 102:experiment1_p2.c ****         else
+ 103:experiment1_p2.c ****         {
+ARM GAS  /tmp/cc5VCbCM.s 			page 6
+
+
+ 104:experiment1_p2.c ****             button1Pressed = 0;
+ 192              		.loc 1 104 28
+ 193 00c0 3E4B     		ldr	r3, .L21+44
+ 194 00c2 0022     		movs	r2, #0
+ 195 00c4 1A60     		str	r2, [r3]
+ 196              	.L5:
+ 105:experiment1_p2.c ****         }
+ 106:experiment1_p2.c **** 
+ 107:experiment1_p2.c ****         if (GPIO_B20 == 1) //when button 2 is pressed
+ 197              		.loc 1 107 13
+ 198 00c6 3F4B     		ldr	r3, .L21+52
+ 199 00c8 1B78     		ldrb	r3, [r3]
+ 200 00ca DBB2     		uxtb	r3, r3
+ 201              		.loc 1 107 12
+ 202 00cc 012B     		cmp	r3, #1
+ 203 00ce 1ED1     		bne	.L6
+ 108:experiment1_p2.c ****         {
+ 109:experiment1_p2.c ****             if(!button2Pressed)
+ 204              		.loc 1 109 16
+ 205 00d0 3D4B     		ldr	r3, .L21+56
+ 206 00d2 1B68     		ldr	r3, [r3]
+ 207              		.loc 1 109 15
+ 208 00d4 002B     		cmp	r3, #0
+ 209 00d6 07D1     		bne	.L7
+ 110:experiment1_p2.c ****             {
+ 111:experiment1_p2.c ****                 button2Pressed = 1;
+ 210              		.loc 1 111 32
+ 211 00d8 3B4B     		ldr	r3, .L21+56
+ 212 00da 0122     		movs	r2, #1
+ 213 00dc 1A60     		str	r2, [r3]
+ 112:experiment1_p2.c ****                 state += 2;
+ 214              		.loc 1 112 23
+ 215 00de 384B     		ldr	r3, .L21+48
+ 216 00e0 1B68     		ldr	r3, [r3]
+ 217 00e2 9A1C     		adds	r2, r3, #2
+ 218 00e4 364B     		ldr	r3, .L21+48
+ 219 00e6 1A60     		str	r2, [r3]
+ 220              	.L7:
+ 113:experiment1_p2.c ****             }
+ 114:experiment1_p2.c **** 
+ 115:experiment1_p2.c ****             if (state == 5)
+ 221              		.loc 1 115 23
+ 222 00e8 354B     		ldr	r3, .L21+48
+ 223 00ea 1B68     		ldr	r3, [r3]
+ 224              		.loc 1 115 16
+ 225 00ec 052B     		cmp	r3, #5
+ 226 00ee 03D1     		bne	.L8
+ 116:experiment1_p2.c ****             {
+ 117:experiment1_p2.c ****                 state = 0;
+ 227              		.loc 1 117 23
+ 228 00f0 334B     		ldr	r3, .L21+48
+ 229 00f2 0022     		movs	r2, #0
+ 230 00f4 1A60     		str	r2, [r3]
+ 231 00f6 06E0     		b	.L9
+ 232              	.L8:
+ 118:experiment1_p2.c ****             }
+ 119:experiment1_p2.c ****             else if (state == 6)
+ARM GAS  /tmp/cc5VCbCM.s 			page 7
+
+
+ 233              		.loc 1 119 28
+ 234 00f8 314B     		ldr	r3, .L21+48
+ 235 00fa 1B68     		ldr	r3, [r3]
+ 236              		.loc 1 119 21
+ 237 00fc 062B     		cmp	r3, #6
+ 238 00fe 02D1     		bne	.L9
+ 120:experiment1_p2.c ****             {
+ 121:experiment1_p2.c ****                 state = 1;
+ 239              		.loc 1 121 23
+ 240 0100 2F4B     		ldr	r3, .L21+48
+ 241 0102 0122     		movs	r2, #1
+ 242 0104 1A60     		str	r2, [r3]
+ 243              	.L9:
+ 122:experiment1_p2.c ****             }
+ 123:experiment1_p2.c ****             delay_ms(50);
+ 244              		.loc 1 123 13
+ 245 0106 3220     		movs	r0, #50
+ 246 0108 FFF7FEFF 		bl	delay_ms
+ 247 010c 02E0     		b	.L10
+ 248              	.L6:
+ 124:experiment1_p2.c ****         }
+ 125:experiment1_p2.c ****         else
+ 126:experiment1_p2.c ****         {
+ 127:experiment1_p2.c ****             button2Pressed = 0;
+ 249              		.loc 1 127 28
+ 250 010e 2E4B     		ldr	r3, .L21+56
+ 251 0110 0022     		movs	r2, #0
+ 252 0112 1A60     		str	r2, [r3]
+ 253              	.L10:
+ 128:experiment1_p2.c ****         }
+ 129:experiment1_p2.c **** 
+ 130:experiment1_p2.c ****         switch(state)
+ 254              		.loc 1 130 9
+ 255 0114 2A4B     		ldr	r3, .L21+48
+ 256 0116 1B68     		ldr	r3, [r3]
+ 257 0118 042B     		cmp	r3, #4
+ 258 011a 36D8     		bhi	.L20
+ 259 011c 9A00     		lsls	r2, r3, #2
+ 260 011e 2B4B     		ldr	r3, .L21+60
+ 261 0120 D318     		adds	r3, r2, r3
+ 262 0122 1B68     		ldr	r3, [r3]
+ 263 0124 9F46     		mov	pc, r3
+ 264              		.section	.rodata
+ 265              		.align	2
+ 266              	.L13:
+ 267 0000 26010000 		.word	.L17
+ 268 0004 3A010000 		.word	.L16
+ 269 0008 4E010000 		.word	.L15
+ 270 000c 62010000 		.word	.L14
+ 271 0010 76010000 		.word	.L12
+ 272              		.text
+ 273              	.L17:
+ 131:experiment1_p2.c ****         {
+ 132:experiment1_p2.c ****             case 0:
+ 133:experiment1_p2.c ****                 GPIO_B17 = 0; // red on
+ 274              		.loc 1 133 17
+ 275 0126 214B     		ldr	r3, .L21+28
+ARM GAS  /tmp/cc5VCbCM.s 			page 8
+
+
+ 276              		.loc 1 133 26
+ 277 0128 0022     		movs	r2, #0
+ 278 012a 1A70     		strb	r2, [r3]
+ 134:experiment1_p2.c ****                 GPIO_B18 = 1; // yellow off
+ 279              		.loc 1 134 17
+ 280 012c 204B     		ldr	r3, .L21+32
+ 281              		.loc 1 134 26
+ 282 012e 0122     		movs	r2, #1
+ 283 0130 1A70     		strb	r2, [r3]
+ 135:experiment1_p2.c ****                 GPIO_B19 = 1; // green off
+ 284              		.loc 1 135 17
+ 285 0132 204B     		ldr	r3, .L21+36
+ 286              		.loc 1 135 26
+ 287 0134 0122     		movs	r2, #1
+ 288 0136 1A70     		strb	r2, [r3]
+ 136:experiment1_p2.c ****                 break;
+ 289              		.loc 1 136 17
+ 290 0138 28E0     		b	.L18
+ 291              	.L16:
+ 137:experiment1_p2.c ****             case 1:
+ 138:experiment1_p2.c ****                 GPIO_B17 = 1; // red off
+ 292              		.loc 1 138 17
+ 293 013a 1C4B     		ldr	r3, .L21+28
+ 294              		.loc 1 138 26
+ 295 013c 0122     		movs	r2, #1
+ 296 013e 1A70     		strb	r2, [r3]
+ 139:experiment1_p2.c ****                 GPIO_B18 = 0; // yellow on
+ 297              		.loc 1 139 17
+ 298 0140 1B4B     		ldr	r3, .L21+32
+ 299              		.loc 1 139 26
+ 300 0142 0022     		movs	r2, #0
+ 301 0144 1A70     		strb	r2, [r3]
+ 140:experiment1_p2.c ****                 GPIO_B19 = 1; // green off
+ 302              		.loc 1 140 17
+ 303 0146 1B4B     		ldr	r3, .L21+36
+ 304              		.loc 1 140 26
+ 305 0148 0122     		movs	r2, #1
+ 306 014a 1A70     		strb	r2, [r3]
+ 141:experiment1_p2.c ****                 break;
+ 307              		.loc 1 141 17
+ 308 014c 1EE0     		b	.L18
+ 309              	.L15:
+ 142:experiment1_p2.c ****             case 2:
+ 143:experiment1_p2.c ****                 GPIO_B17 = 1; // red off
+ 310              		.loc 1 143 17
+ 311 014e 174B     		ldr	r3, .L21+28
+ 312              		.loc 1 143 26
+ 313 0150 0122     		movs	r2, #1
+ 314 0152 1A70     		strb	r2, [r3]
+ 144:experiment1_p2.c ****                 GPIO_B18 = 1; // yellow off
+ 315              		.loc 1 144 17
+ 316 0154 164B     		ldr	r3, .L21+32
+ 317              		.loc 1 144 26
+ 318 0156 0122     		movs	r2, #1
+ 319 0158 1A70     		strb	r2, [r3]
+ 145:experiment1_p2.c ****                 GPIO_B19 = 0; // green on
+ 320              		.loc 1 145 17
+ARM GAS  /tmp/cc5VCbCM.s 			page 9
+
+
+ 321 015a 164B     		ldr	r3, .L21+36
+ 322              		.loc 1 145 26
+ 323 015c 0022     		movs	r2, #0
+ 324 015e 1A70     		strb	r2, [r3]
+ 146:experiment1_p2.c ****                 break;
+ 325              		.loc 1 146 17
+ 326 0160 14E0     		b	.L18
+ 327              	.L14:
+ 147:experiment1_p2.c ****             case 3:
+ 148:experiment1_p2.c ****                 GPIO_B17 = 0; // red on
+ 328              		.loc 1 148 17
+ 329 0162 124B     		ldr	r3, .L21+28
+ 330              		.loc 1 148 26
+ 331 0164 0022     		movs	r2, #0
+ 332 0166 1A70     		strb	r2, [r3]
+ 149:experiment1_p2.c ****                 GPIO_B18 = 0; // yellow on
+ 333              		.loc 1 149 17
+ 334 0168 114B     		ldr	r3, .L21+32
+ 335              		.loc 1 149 26
+ 336 016a 0022     		movs	r2, #0
+ 337 016c 1A70     		strb	r2, [r3]
+ 150:experiment1_p2.c ****                 GPIO_B19 = 0; // green on
+ 338              		.loc 1 150 17
+ 339 016e 114B     		ldr	r3, .L21+36
+ 340              		.loc 1 150 26
+ 341 0170 0022     		movs	r2, #0
+ 342 0172 1A70     		strb	r2, [r3]
+ 151:experiment1_p2.c ****                 break;
+ 343              		.loc 1 151 17
+ 344 0174 0AE0     		b	.L18
+ 345              	.L12:
+ 152:experiment1_p2.c ****             case 4:
+ 153:experiment1_p2.c ****                 GPIO_B17 = 1; // red off
+ 346              		.loc 1 153 17
+ 347 0176 0D4B     		ldr	r3, .L21+28
+ 348              		.loc 1 153 26
+ 349 0178 0122     		movs	r2, #1
+ 350 017a 1A70     		strb	r2, [r3]
+ 154:experiment1_p2.c ****                 GPIO_B18 = 1; // yellow off
+ 351              		.loc 1 154 17
+ 352 017c 0C4B     		ldr	r3, .L21+32
+ 353              		.loc 1 154 26
+ 354 017e 0122     		movs	r2, #1
+ 355 0180 1A70     		strb	r2, [r3]
+ 155:experiment1_p2.c ****                 GPIO_B19 = 1; // green off
+ 356              		.loc 1 155 17
+ 357 0182 0C4B     		ldr	r3, .L21+36
+ 358              		.loc 1 155 26
+ 359 0184 0122     		movs	r2, #1
+ 360 0186 1A70     		strb	r2, [r3]
+ 156:experiment1_p2.c ****                 break;
+ 361              		.loc 1 156 17
+ 362 0188 00E0     		b	.L18
+ 363              	.L20:
+ 157:experiment1_p2.c ****             default:
+ 158:experiment1_p2.c ****                 break;
+ 364              		.loc 1 158 17
+ARM GAS  /tmp/cc5VCbCM.s 			page 10
+
+
+ 365 018a C046     		nop
+ 366              	.L18:
+  88:experiment1_p2.c ****         {
+ 367              		.loc 1 88 12
+ 368 018c 7CE7     		b	.L19
+ 369              	.L22:
+ 370 018e C046     		.align	2
+ 371              	.L21:
+ 372 0190 00000000 		.word	delaytime
+ 373 0194 80800440 		.word	1074036864
+ 374 0198 C0000400 		.word	262336
+ 375 019c 04800440 		.word	1074036740
+ 376 01a0 FFFBFFFF 		.word	-1025
+ 377 01a4 002000A0 		.word	-1610604544
+ 378 01a8 30750000 		.word	30000
+ 379 01ac 110000A0 		.word	-1610612719
+ 380 01b0 120000A0 		.word	-1610612718
+ 381 01b4 130000A0 		.word	-1610612717
+ 382 01b8 150000A0 		.word	-1610612715
+ 383 01bc 00000000 		.word	button1Pressed
+ 384 01c0 00000000 		.word	state
+ 385 01c4 140000A0 		.word	-1610612716
+ 386 01c8 00000000 		.word	button2Pressed
+ 387 01cc 00000000 		.word	.L13
+ 388              		.cfi_endproc
+ 389              	.LFE0:
+ 391              		.align	1
+ 392              		.global	SysTick_Handler
+ 393              		.syntax unified
+ 394              		.code	16
+ 395              		.thumb_func
+ 397              	SysTick_Handler:
+ 398              	.LFB1:
+ 159:experiment1_p2.c ****         }
+ 160:experiment1_p2.c ****     }
+ 161:experiment1_p2.c **** }
+ 162:experiment1_p2.c **** 
+ 163:experiment1_p2.c **** //The interrupt handler for SysTick system time-base timer.
+ 164:experiment1_p2.c **** void SysTick_Handler(void) {
+ 399              		.loc 1 164 28
+ 400              		.cfi_startproc
+ 401              		@ args = 0, pretend = 0, frame = 0
+ 402              		@ frame_needed = 1, uses_anonymous_args = 0
+ 403 01d0 80B5     		push	{r7, lr}
+ 404              		.cfi_def_cfa_offset 8
+ 405              		.cfi_offset 7, -8
+ 406              		.cfi_offset 14, -4
+ 407 01d2 00AF     		add	r7, sp, #0
+ 408              		.cfi_def_cfa_register 7
+ 165:experiment1_p2.c ****     if (delaytime!=0)
+ 409              		.loc 1 165 18
+ 410 01d4 054B     		ldr	r3, .L26
+ 411 01d6 1B68     		ldr	r3, [r3]
+ 412              		.loc 1 165 8
+ 413 01d8 002B     		cmp	r3, #0
+ 414 01da 04D0     		beq	.L25
+ 166:experiment1_p2.c ****     { // If delaytime has been set somewhere in the program,
+ARM GAS  /tmp/cc5VCbCM.s 			page 11
+
+
+ 167:experiment1_p2.c ****         --delaytime;     //  decrement it every time SysTick event occurs (1ms).
+ 415              		.loc 1 167 9
+ 416 01dc 034B     		ldr	r3, .L26
+ 417 01de 1B68     		ldr	r3, [r3]
+ 418 01e0 5A1E     		subs	r2, r3, #1
+ 419 01e2 024B     		ldr	r3, .L26
+ 420 01e4 1A60     		str	r2, [r3]
+ 421              	.L25:
+ 168:experiment1_p2.c ****     }
+ 169:experiment1_p2.c **** }
+ 422              		.loc 1 169 1
+ 423 01e6 C046     		nop
+ 424 01e8 BD46     		mov	sp, r7
+ 425              		@ sp needed
+ 426 01ea 80BD     		pop	{r7, pc}
+ 427              	.L27:
+ 428              		.align	2
+ 429              	.L26:
+ 430 01ec 00000000 		.word	delaytime
+ 431              		.cfi_endproc
+ 432              	.LFE1:
+ 434              		.align	1
+ 435              		.global	delay_ms
+ 436              		.syntax unified
+ 437              		.code	16
+ 438              		.thumb_func
+ 440              	delay_ms:
+ 441              	.LFB2:
+ 170:experiment1_p2.c **** 
+ 171:experiment1_p2.c **** void delay_ms(uint32_t ms) {//delay (ms)
+ 442              		.loc 1 171 28
+ 443              		.cfi_startproc
+ 444              		@ args = 0, pretend = 0, frame = 8
+ 445              		@ frame_needed = 1, uses_anonymous_args = 0
+ 446 01f0 80B5     		push	{r7, lr}
+ 447              		.cfi_def_cfa_offset 8
+ 448              		.cfi_offset 7, -8
+ 449              		.cfi_offset 14, -4
+ 450 01f2 82B0     		sub	sp, sp, #8
+ 451              		.cfi_def_cfa_offset 16
+ 452 01f4 00AF     		add	r7, sp, #0
+ 453              		.cfi_def_cfa_register 7
+ 454 01f6 7860     		str	r0, [r7, #4]
+ 172:experiment1_p2.c **** 
+ 173:experiment1_p2.c ****     delaytime=ms;        // Set the delay time to the number of millisecs of wait
+ 455              		.loc 1 173 14
+ 456 01f8 064B     		ldr	r3, .L30
+ 457 01fa 7A68     		ldr	r2, [r7, #4]
+ 458 01fc 1A60     		str	r2, [r3]
+ 174:experiment1_p2.c ****     while(delaytime!=0){}// Wait here until the delay time expires.
+ 459              		.loc 1 174 10
+ 460 01fe C046     		nop
+ 461              	.L29:
+ 462              		.loc 1 174 20 discriminator 1
+ 463 0200 044B     		ldr	r3, .L30
+ 464 0202 1B68     		ldr	r3, [r3]
+ 465 0204 002B     		cmp	r3, #0
+ARM GAS  /tmp/cc5VCbCM.s 			page 12
+
+
+ 466 0206 FBD1     		bne	.L29
+ 175:experiment1_p2.c **** 
+ 176:experiment1_p2.c **** }
+ 467              		.loc 1 176 1
+ 468 0208 C046     		nop
+ 469 020a C046     		nop
+ 470 020c BD46     		mov	sp, r7
+ 471 020e 02B0     		add	sp, sp, #8
+ 472              		@ sp needed
+ 473 0210 80BD     		pop	{r7, pc}
+ 474              	.L31:
+ 475 0212 C046     		.align	2
+ 476              	.L30:
+ 477 0214 00000000 		.word	delaytime
+ 478              		.cfi_endproc
+ 479              	.LFE2:
+ 481              		.align	1
+ 482              		.syntax unified
+ 483              		.code	16
+ 484              		.thumb_func
+ 486              	SysTickConfig:
+ 487              	.LFB3:
+ 177:experiment1_p2.c **** 
+ 178:experiment1_p2.c **** // System Tick Configuration:
+ 179:experiment1_p2.c **** // Initializes the System Timer and its interrupt, and
+ 180:experiment1_p2.c **** // Starts the System Tick Timer.
+ 181:experiment1_p2.c **** // ticks = Number of ticks between two interrupts.
+ 182:experiment1_p2.c **** 
+ 183:experiment1_p2.c **** static inline uint32_t SysTickConfig(uint32_t ticks)
+ 184:experiment1_p2.c **** {
+ 488              		.loc 1 184 1
+ 489              		.cfi_startproc
+ 490              		@ args = 0, pretend = 0, frame = 8
+ 491              		@ frame_needed = 1, uses_anonymous_args = 0
+ 492 0218 80B5     		push	{r7, lr}
+ 493              		.cfi_def_cfa_offset 8
+ 494              		.cfi_offset 7, -8
+ 495              		.cfi_offset 14, -4
+ 496 021a 82B0     		sub	sp, sp, #8
+ 497              		.cfi_def_cfa_offset 16
+ 498 021c 00AF     		add	r7, sp, #0
+ 499              		.cfi_def_cfa_register 7
+ 500 021e 7860     		str	r0, [r7, #4]
+ 185:experiment1_p2.c ****     if (ticks > 0xFFFFFFUL) // Timer is only 24 bits wide.
+ 501              		.loc 1 185 8
+ 502 0220 7A68     		ldr	r2, [r7, #4]
+ 503 0222 8023     		movs	r3, #128
+ 504 0224 5B04     		lsls	r3, r3, #17
+ 505 0226 9A42     		cmp	r2, r3
+ 506 0228 01D3     		bcc	.L33
+ 186:experiment1_p2.c ****     {
+ 187:experiment1_p2.c ****         return (1); //Reload value impossible
+ 507              		.loc 1 187 16
+ 508 022a 0123     		movs	r3, #1
+ 509 022c 0CE0     		b	.L34
+ 510              	.L33:
+ 188:experiment1_p2.c ****     }
+ARM GAS  /tmp/cc5VCbCM.s 			page 13
+
+
+ 189:experiment1_p2.c **** 
+ 190:experiment1_p2.c ****     SYST_RVR = (ticks & 0xFFFFFFUL) - 1;  //Set reload register
+ 511              		.loc 1 190 23
+ 512 022e 7B68     		ldr	r3, [r7, #4]
+ 513 0230 1B02     		lsls	r3, r3, #8
+ 514 0232 1A0A     		lsrs	r2, r3, #8
+ 515              		.loc 1 190 5
+ 516 0234 064B     		ldr	r3, .L35
+ 517              		.loc 1 190 37
+ 518 0236 013A     		subs	r2, r2, #1
+ 519              		.loc 1 190 14
+ 520 0238 1A60     		str	r2, [r3]
+ 191:experiment1_p2.c ****     SYST_CVR = 0;   //Load the initial count value.
+ 521              		.loc 1 191 5
+ 522 023a 064B     		ldr	r3, .L35+4
+ 523              		.loc 1 191 14
+ 524 023c 0022     		movs	r2, #0
+ 525 023e 1A60     		str	r2, [r3]
+ 192:experiment1_p2.c ****     SYST_CSR = 0x07;  // Counter ENABLE, INT ENABLE, CLK source=system clock.
+ 526              		.loc 1 192 5
+ 527 0240 054B     		ldr	r3, .L35+8
+ 528              		.loc 1 192 14
+ 529 0242 0722     		movs	r2, #7
+ 530 0244 1A60     		str	r2, [r3]
+ 193:experiment1_p2.c ****     return (0);
+ 531              		.loc 1 193 12
+ 532 0246 0023     		movs	r3, #0
+ 533              	.L34:
+ 194:experiment1_p2.c **** }         // AO!: Check OK.
+ 534              		.loc 1 194 1
+ 535 0248 1800     		movs	r0, r3
+ 536 024a BD46     		mov	sp, r7
+ 537 024c 02B0     		add	sp, sp, #8
+ 538              		@ sp needed
+ 539 024e 80BD     		pop	{r7, pc}
+ 540              	.L36:
+ 541              		.align	2
+ 542              	.L35:
+ 543 0250 14E000E0 		.word	-536813548
+ 544 0254 18E000E0 		.word	-536813544
+ 545 0258 10E000E0 		.word	-536813552
+ 546              		.cfi_endproc
+ 547              	.LFE3:
+ 549              	.Letext0:
+ 550              		.file 2 "/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eab
+ 551              		.file 3 "/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eab
+ARM GAS  /tmp/cc5VCbCM.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 experiment1_p2.c
+     /tmp/cc5VCbCM.s:23     .bss:00000000 delaytime
+     /tmp/cc5VCbCM.s:20     .bss:00000000 $d
+     /tmp/cc5VCbCM.s:29     .bss:00000004 state
+     /tmp/cc5VCbCM.s:35     .bss:00000008 button1Pressed
+     /tmp/cc5VCbCM.s:41     .bss:0000000c button2Pressed
+     /tmp/cc5VCbCM.s:44     .text:00000000 $t
+     /tmp/cc5VCbCM.s:50     .text:00000000 main
+     /tmp/cc5VCbCM.s:486    .text:00000218 SysTickConfig
+     /tmp/cc5VCbCM.s:440    .text:000001f0 delay_ms
+     /tmp/cc5VCbCM.s:265    .rodata:00000000 $d
+     /tmp/cc5VCbCM.s:372    .text:00000190 $d
+     /tmp/cc5VCbCM.s:391    .text:000001d0 $t
+     /tmp/cc5VCbCM.s:397    .text:000001d0 SysTick_Handler
+     /tmp/cc5VCbCM.s:430    .text:000001ec $d
+     /tmp/cc5VCbCM.s:434    .text:000001f0 $t
+     /tmp/cc5VCbCM.s:477    .text:00000214 $d
+     /tmp/cc5VCbCM.s:481    .text:00000218 $t
+     /tmp/cc5VCbCM.s:543    .text:00000250 $d
+
+NO UNDEFINED SYMBOLS
