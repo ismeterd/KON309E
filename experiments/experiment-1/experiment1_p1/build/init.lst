@@ -1,0 +1,487 @@
+ARM GAS  /tmp/ccQHYdEt.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"init.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "init.c"
+  18              		.global	Vectors
+  19              		.section	.vectors,"aw"
+  20              		.align	2
+  23              	Vectors:
+  24 0000 00200010 		.word	268443648
+  25 0004 00000000 		.word	init
+  26 0008 00000000 		.word	Default_Handler
+  27 000c 00000000 		.word	Default_Handler
+  28 0010 00000000 		.word	0
+  29 0014 00000000 		.word	0
+  30 0018 00000000 		.word	0
+  31 001c 00000000 		.word	0
+  32 0020 00000000 		.word	0
+  33 0024 00000000 		.word	0
+  34 0028 00000000 		.word	0
+  35 002c 00000000 		.word	Default_Handler
+  36 0030 00000000 		.word	0
+  37 0034 00000000 		.word	0
+  38 0038 00000000 		.word	Default_Handler
+  39 003c 00000000 		.word	Default_Handler
+  40 0040 00000000 		.word	Default_Handler
+  41 0044 00000000 		.word	Default_Handler
+  42 0048 00000000 		.word	Default_Handler
+  43 004c 00000000 		.word	Default_Handler
+  44 0050 00000000 		.word	Default_Handler
+  45 0054 00000000 		.word	Default_Handler
+  46 0058 00000000 		.word	Default_Handler
+  47 005c 00000000 		.word	Default_Handler
+  48 0060 00000000 		.word	Default_Handler
+  49 0064 00000000 		.word	Default_Handler
+  50 0068 00000000 		.word	Default_Handler
+  51 006c 00000000 		.word	Default_Handler
+  52 0070 00000000 		.word	Default_Handler
+  53 0074 00000000 		.word	Default_Handler
+  54 0078 00000000 		.word	Default_Handler
+  55 007c 00000000 		.word	Default_Handler
+  56 0080 00000000 		.word	Default_Handler
+  57 0084 00000000 		.word	Default_Handler
+  58 0088 00000000 		.word	Default_Handler
+  59 008c 00000000 		.word	Default_Handler
+ARM GAS  /tmp/ccQHYdEt.s 			page 2
+
+
+  60 0090 00000000 		.word	Default_Handler
+  61 0094 00000000 		.word	Default_Handler
+  62 0098 00000000 		.word	Default_Handler
+  63 009c 00000000 		.word	Default_Handler
+  64 00a0 00000000 		.word	Default_Handler
+  65 00a4 00000000 		.word	Default_Handler
+  66 00a8 00000000 		.word	Default_Handler
+  67 00ac 00000000 		.word	Default_Handler
+  68 00b0 00000000 		.word	Default_Handler
+  69 00b4 00000000 		.word	Default_Handler
+  70 00b8 00000000 		.word	Default_Handler
+  71              		.text
+  72              		.align	1
+  73              		.global	clock_init
+  74              		.syntax unified
+  75              		.code	16
+  76              		.thumb_func
+  78              	clock_init:
+  79              	.LFB0:
+   1:init.c        **** 
+   2:init.c        **** 
+   3:init.c        **** // The processor initialization for 'C' language for the LPC824 processor.
+   4:init.c        **** 
+   5:init.c        **** // Performs:
+   6:init.c        **** // - Writes the vectors (Stack pointer, Reset vector and all ISRs
+   7:init.c        **** //   (ISR: Interrupt Service Routines)
+   8:init.c        **** //
+   9:init.c        **** // - Configures the processor clock and sets the speed.
+  10:init.c        **** //
+  11:init.c        **** // - Initializes the variables with set values. Sets all other variables to '0'.
+  12:init.c        **** 
+  13:init.c        **** 
+  14:init.c        **** // Heavily modified from:
+  15:init.c        **** // http://eleceng.dit.ie/frank and follow the links
+  16:init.c        **** // Author: Frank Duignan
+  17:init.c        **** 
+  18:init.c        **** #include "lpc824.h"
+  19:init.c        **** 
+  20:init.c        **** void init(void);
+  21:init.c        **** void clock_init();
+  22:init.c        **** void Default_Handler(void);
+  23:init.c        **** //void SysTick_Handler(void);
+  24:init.c        **** void SysTick(void);
+  25:init.c        **** 
+  26:init.c        **** extern int main(void);
+  27:init.c        **** 
+  28:init.c        **** // The following are 'declared' in the linker script
+  29:init.c        **** extern unsigned char  INIT_DATA_VALUES;
+  30:init.c        **** extern unsigned char  INIT_DATA_START;
+  31:init.c        **** extern unsigned char  INIT_DATA_END;
+  32:init.c        **** extern unsigned char  BSS_START;
+  33:init.c        **** extern unsigned char  BSS_END;
+  34:init.c        **** 
+  35:init.c        **** // the section "vectors" is placed at the beginning of flash 
+  36:init.c        **** // by the linker script
+  37:init.c        **** const void * Vectors[] __attribute__((section(".vectors"))) ={
+  38:init.c        **** 	(void *)(RAM_START+RAM_SIZE), 	/* Top of stack */ 
+ARM GAS  /tmp/ccQHYdEt.s 			page 3
+
+
+  39:init.c        **** 	init,   			/* Reset Handler */
+  40:init.c        **** 	Default_Handler,		/* NMI */
+  41:init.c        **** 	Default_Handler,		/* Hard Fault */
+  42:init.c        **** 	0,	                	/* Reserved */
+  43:init.c        **** 	0,            			/* Reserved */
+  44:init.c        **** 	0,                  		/* Reserved */
+  45:init.c        **** 	0,                  		/* Reserved */
+  46:init.c        **** 	0,                  		/* Reserved */
+  47:init.c        **** 	0,                  		/* Reserved */
+  48:init.c        **** 	0,                  		/* Reserved */
+  49:init.c        **** 	Default_Handler,		/* SVC */
+  50:init.c        **** 	0,                 		/* Reserved */
+  51:init.c        **** 	0,                 		/* Reserved */
+  52:init.c        **** 	Default_Handler,   		/* PendSV */
+  53:init.c        **** 	//Default_Handler, 		/* SysTick */		
+  54:init.c        **** //	SysTick_Handler, 		/* SysTick */
+  55:init.c        **** /* External interrupt handlers follow */
+  56:init.c        **** 	Default_Handler,		/* 0 SPI0_IRQ */
+  57:init.c        **** 	Default_Handler,		/* 1 SPI1_IRQ */
+  58:init.c        **** 	Default_Handler,		/* 2 RESERVED */
+  59:init.c        **** 	Default_Handler,		/* 3 UART0_IRQ */
+  60:init.c        **** 	Default_Handler,		/* 4 UART1_IRQ */
+  61:init.c        **** 	Default_Handler,		/* 5 UART2_IRQ */
+  62:init.c        **** 	Default_Handler,		/* 6 RESERVED */
+  63:init.c        **** 	Default_Handler,		/* 7 I2C1_IRQ */
+  64:init.c        **** 	Default_Handler,		/* 8 I2C0_IRQ */
+  65:init.c        **** 	Default_Handler,		/* 9 SCT_IRQ */
+  66:init.c        **** 	Default_Handler,		/* 10 MRT_IRQ */
+  67:init.c        **** 	Default_Handler,		/* 11 CMP_IRQ */
+  68:init.c        **** 	Default_Handler,		/* 12 WDT_IRQ */
+  69:init.c        **** 	Default_Handler,		/* 13 BOD_IRQ */
+  70:init.c        **** 	Default_Handler,		/* 14 FLASH_IRQ */
+  71:init.c        **** 	Default_Handler,		/* 15 WKT_IRQ */
+  72:init.c        **** 	Default_Handler,		/* 16 ADC_SEQA_IRQ */
+  73:init.c        **** 	Default_Handler,		/* 17 ADC_SEQB_IRQ */
+  74:init.c        **** 	Default_Handler,		/* 18 ADC_THCMP_IRQ */
+  75:init.c        **** 	Default_Handler,		/* 19 ADC_OVR_IRQ */
+  76:init.c        **** 	Default_Handler,		/* 20 DMA_IRQ */
+  77:init.c        **** 	Default_Handler,		/* 21 I2C2_IRQ */
+  78:init.c        **** 	Default_Handler,		/* 22 I2C3_IRQ */
+  79:init.c        **** 	Default_Handler,		/* 23 RESERVED */
+  80:init.c        **** 	Default_Handler,		/* 24 PININT0_IRQ */
+  81:init.c        **** 	Default_Handler,		/* 25 PININT1_IRQ */
+  82:init.c        **** 	Default_Handler,		/* 26 PININT2_IRQ */
+  83:init.c        **** 	Default_Handler,		/* 27 PININT3_IRQ */
+  84:init.c        **** 	Default_Handler,		/* 28 PININT4_IRQ */
+  85:init.c        **** 	Default_Handler,		/* 29 PININT5_IRQ */
+  86:init.c        **** 	Default_Handler,		/* 30 PININT6_IRQ */
+  87:init.c        **** 	Default_Handler,		/* 31 PININT7_IRQ */
+  88:init.c        **** };
+  89:init.c        **** void clock_init() {
+  80              		.loc 1 89 19
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 1, uses_anonymous_args = 0
+  84 0000 80B5     		push	{r7, lr}
+  85              		.cfi_def_cfa_offset 8
+ARM GAS  /tmp/ccQHYdEt.s 			page 4
+
+
+  86              		.cfi_offset 7, -8
+  87              		.cfi_offset 14, -4
+  88 0002 00AF     		add	r7, sp, #0
+  89              		.cfi_def_cfa_register 7
+  90:init.c        ****   // This function sets the main clock to the PLL
+  91:init.c        ****   // The PLL input is the built in 12MHz RC oscillator
+  92:init.c        ****   // This is multiplied up to 60MHz for the main clock
+  93:init.c        ****   // MSEL=4 (i.e.M=5), PSEL = 1 (P=2) and divisor AHBCLKDIV=2
+  94:init.c        ****   // See Secs 5.7.4 and 5.3.1 of Ref Manual.
+  95:init.c        **** 
+  96:init.c        ****   SYSCON_PDRUNCFG |= (1 << 7);  // Power down the PLL before changing.
+  90              		.loc 1 96 3
+  91 0004 164B     		ldr	r3, .L3
+  92 0006 1A68     		ldr	r2, [r3]
+  93 0008 154B     		ldr	r3, .L3
+  94              		.loc 1 96 19
+  95 000a 8021     		movs	r1, #128
+  96 000c 0A43     		orrs	r2, r1
+  97 000e 1A60     		str	r2, [r3]
+  97:init.c        ****   SYSCON_SYSPLLCLKSEL = 0;      // Set internal RC oscillator as PLL input.
+  98              		.loc 1 97 3
+  99 0010 144B     		ldr	r3, .L3+4
+ 100              		.loc 1 97 23
+ 101 0012 0022     		movs	r2, #0
+ 102 0014 1A60     		str	r2, [r3]
+  98:init.c        ****   SYSCON_SYSPLLCTRL = 0x24;     // This line sets the clock frequency.
+ 103              		.loc 1 98 3
+ 104 0016 144B     		ldr	r3, .L3+8
+ 105              		.loc 1 98 21
+ 106 0018 2422     		movs	r2, #36
+ 107 001a 1A60     		str	r2, [r3]
+  99:init.c        ****   SYSCON_SYSPLLCLKUEN = 0;      // Latch the changes into the PLL 
+ 108              		.loc 1 99 3
+ 109 001c 134B     		ldr	r3, .L3+12
+ 110              		.loc 1 99 23
+ 111 001e 0022     		movs	r2, #0
+ 112 0020 1A60     		str	r2, [r3]
+ 100:init.c        ****   SYSCON_SYSPLLCLKUEN = 1; 
+ 113              		.loc 1 100 3
+ 114 0022 124B     		ldr	r3, .L3+12
+ 115              		.loc 1 100 23
+ 116 0024 0122     		movs	r2, #1
+ 117 0026 1A60     		str	r2, [r3]
+ 101:init.c        ****   SYSCON_PDRUNCFG &= ~(1 << 7); // Power up the PLL.
+ 118              		.loc 1 101 3
+ 119 0028 0D4B     		ldr	r3, .L3
+ 120 002a 1A68     		ldr	r2, [r3]
+ 121 002c 0C4B     		ldr	r3, .L3
+ 122              		.loc 1 101 19
+ 123 002e 8021     		movs	r1, #128
+ 124 0030 8A43     		bics	r2, r1
+ 125 0032 1A60     		str	r2, [r3]
+ 102:init.c        ****   while ((SYSCON_SYSPLLSTAT & (0x01U))==0);  // Wait until PLL locks.
+ 126              		.loc 1 102 9
+ 127 0034 C046     		nop
+ 128              	.L2:
+ 129              		.loc 1 102 11 discriminator 1
+ARM GAS  /tmp/ccQHYdEt.s 			page 5
+
+
+ 130 0036 0E4B     		ldr	r3, .L3+16
+ 131 0038 1B68     		ldr	r3, [r3]
+ 132              		.loc 1 102 29 discriminator 1
+ 133 003a 0122     		movs	r2, #1
+ 134 003c 1340     		ands	r3, r2
+ 135              		.loc 1 102 39 discriminator 1
+ 136 003e FAD0     		beq	.L2
+ 103:init.c        ****   SYSCON_MAINCLKSEL = 3;        // Use PLL as main clock of the system
+ 137              		.loc 1 103 3
+ 138 0040 0C4B     		ldr	r3, .L3+20
+ 139              		.loc 1 103 21
+ 140 0042 0322     		movs	r2, #3
+ 141 0044 1A60     		str	r2, [r3]
+ 104:init.c        ****   SYSCON_MAINCLKUEN = 0;        // Latch the changes into the main clock input.
+ 142              		.loc 1 104 3
+ 143 0046 0C4B     		ldr	r3, .L3+24
+ 144              		.loc 1 104 21
+ 145 0048 0022     		movs	r2, #0
+ 146 004a 1A60     		str	r2, [r3]
+ 105:init.c        ****   SYSCON_MAINCLKUEN = 1; 
+ 147              		.loc 1 105 3
+ 148 004c 0A4B     		ldr	r3, .L3+24
+ 149              		.loc 1 105 21
+ 150 004e 0122     		movs	r2, #1
+ 151 0050 1A60     		str	r2, [r3]
+ 106:init.c        ****   SYSCON_SYSAHBCLKDIV = 2;      // PLL=60 MHz, /2 => System Clock= 30MHz 
+ 152              		.loc 1 106 3
+ 153 0052 0A4B     		ldr	r3, .L3+28
+ 154              		.loc 1 106 23
+ 155 0054 0222     		movs	r2, #2
+ 156 0056 1A60     		str	r2, [r3]
+ 107:init.c        **** }
+ 157              		.loc 1 107 1
+ 158 0058 C046     		nop
+ 159 005a BD46     		mov	sp, r7
+ 160              		@ sp needed
+ 161 005c 80BD     		pop	{r7, pc}
+ 162              	.L4:
+ 163 005e C046     		.align	2
+ 164              	.L3:
+ 165 0060 38820440 		.word	1074037304
+ 166 0064 40800440 		.word	1074036800
+ 167 0068 08800440 		.word	1074036744
+ 168 006c 44800440 		.word	1074036804
+ 169 0070 0C800440 		.word	1074036748
+ 170 0074 70800440 		.word	1074036848
+ 171 0078 74800440 		.word	1074036852
+ 172 007c 78800440 		.word	1074036856
+ 173              		.cfi_endproc
+ 174              	.LFE0:
+ 176              		.align	1
+ 177              		.global	init
+ 178              		.syntax unified
+ 179              		.code	16
+ 180              		.thumb_func
+ 182              	init:
+ 183              	.LFB1:
+ARM GAS  /tmp/ccQHYdEt.s 			page 6
+
+
+ 108:init.c        **** 
+ 109:init.c        **** 
+ 110:init.c        **** void init() {
+ 184              		.loc 1 110 13
+ 185              		.cfi_startproc
+ 186              		@ args = 0, pretend = 0, frame = 16
+ 187              		@ frame_needed = 1, uses_anonymous_args = 0
+ 188 0080 80B5     		push	{r7, lr}
+ 189              		.cfi_def_cfa_offset 8
+ 190              		.cfi_offset 7, -8
+ 191              		.cfi_offset 14, -4
+ 192 0082 84B0     		sub	sp, sp, #16
+ 193              		.cfi_def_cfa_offset 24
+ 194 0084 00AF     		add	r7, sp, #0
+ 195              		.cfi_def_cfa_register 7
+ 111:init.c        ****   // 1.Initialize the processor clock,
+ 112:init.c        ****   // 2. Perform global/static data initialization
+ 113:init.c        ****   // 3. Call "main()"
+ 114:init.c        ****   
+ 115:init.c        ****   unsigned char *src;
+ 116:init.c        ****   unsigned char *dest;
+ 117:init.c        ****   unsigned len;
+ 118:init.c        **** 
+ 119:init.c        ****   clock_init(); // boost speed to 30MHz
+ 196              		.loc 1 119 3
+ 197 0086 FFF7FEFF 		bl	clock_init
+ 120:init.c        **** 
+ 121:init.c        ****   // Initialize variable values:
+ 122:init.c        ****   src= &INIT_DATA_VALUES;
+ 198              		.loc 1 122 6
+ 199 008a 164B     		ldr	r3, .L10
+ 200 008c FB60     		str	r3, [r7, #12]
+ 123:init.c        ****   dest= &INIT_DATA_START;
+ 201              		.loc 1 123 7
+ 202 008e 164B     		ldr	r3, .L10+4
+ 203 0090 BB60     		str	r3, [r7, #8]
+ 124:init.c        ****   len= &INIT_DATA_END-&INIT_DATA_START;
+ 204              		.loc 1 124 22
+ 205 0092 164A     		ldr	r2, .L10+8
+ 206 0094 144B     		ldr	r3, .L10+4
+ 207 0096 D31A     		subs	r3, r2, r3
+ 208              		.loc 1 124 6
+ 209 0098 7B60     		str	r3, [r7, #4]
+ 125:init.c        ****   while (len--)
+ 210              		.loc 1 125 9
+ 211 009a 07E0     		b	.L6
+ 212              	.L7:
+ 126:init.c        ****     *dest++ = *src++;
+ 213              		.loc 1 126 19
+ 214 009c FA68     		ldr	r2, [r7, #12]
+ 215 009e 531C     		adds	r3, r2, #1
+ 216 00a0 FB60     		str	r3, [r7, #12]
+ 217              		.loc 1 126 10
+ 218 00a2 BB68     		ldr	r3, [r7, #8]
+ 219 00a4 591C     		adds	r1, r3, #1
+ 220 00a6 B960     		str	r1, [r7, #8]
+ 221              		.loc 1 126 15
+ARM GAS  /tmp/ccQHYdEt.s 			page 7
+
+
+ 222 00a8 1278     		ldrb	r2, [r2]
+ 223              		.loc 1 126 13
+ 224 00aa 1A70     		strb	r2, [r3]
+ 225              	.L6:
+ 125:init.c        ****   while (len--)
+ 226              		.loc 1 125 13
+ 227 00ac 7B68     		ldr	r3, [r7, #4]
+ 228 00ae 5A1E     		subs	r2, r3, #1
+ 229 00b0 7A60     		str	r2, [r7, #4]
+ 125:init.c        ****   while (len--)
+ 230              		.loc 1 125 10
+ 231 00b2 002B     		cmp	r3, #0
+ 232 00b4 F2D1     		bne	.L7
+ 127:init.c        ****   
+ 128:init.c        ****   // zero out the uninitialized global/static variables
+ 129:init.c        ****   dest = &BSS_START;
+ 233              		.loc 1 129 8
+ 234 00b6 0E4B     		ldr	r3, .L10+12
+ 235 00b8 BB60     		str	r3, [r7, #8]
+ 130:init.c        ****   len = &BSS_END - &BSS_START;
+ 236              		.loc 1 130 18
+ 237 00ba 0E4A     		ldr	r2, .L10+16
+ 238 00bc 0C4B     		ldr	r3, .L10+12
+ 239 00be D31A     		subs	r3, r2, r3
+ 240              		.loc 1 130 7
+ 241 00c0 7B60     		str	r3, [r7, #4]
+ 131:init.c        ****   while (len--)
+ 242              		.loc 1 131 9
+ 243 00c2 04E0     		b	.L8
+ 244              	.L9:
+ 132:init.c        ****     *dest++=0;
+ 245              		.loc 1 132 10
+ 246 00c4 BB68     		ldr	r3, [r7, #8]
+ 247 00c6 5A1C     		adds	r2, r3, #1
+ 248 00c8 BA60     		str	r2, [r7, #8]
+ 249              		.loc 1 132 12
+ 250 00ca 0022     		movs	r2, #0
+ 251 00cc 1A70     		strb	r2, [r3]
+ 252              	.L8:
+ 131:init.c        ****   while (len--)
+ 253              		.loc 1 131 13
+ 254 00ce 7B68     		ldr	r3, [r7, #4]
+ 255 00d0 5A1E     		subs	r2, r3, #1
+ 256 00d2 7A60     		str	r2, [r7, #4]
+ 131:init.c        ****   while (len--)
+ 257              		.loc 1 131 10
+ 258 00d4 002B     		cmp	r3, #0
+ 259 00d6 F5D1     		bne	.L9
+ 133:init.c        **** 
+ 134:init.c        ****   // Processor initialization is finished. Call the main() function:
+ 135:init.c        ****   main();
+ 260              		.loc 1 135 3
+ 261 00d8 FFF7FEFF 		bl	main
+ 136:init.c        **** }
+ 262              		.loc 1 136 1
+ 263 00dc C046     		nop
+ 264 00de BD46     		mov	sp, r7
+ARM GAS  /tmp/ccQHYdEt.s 			page 8
+
+
+ 265 00e0 04B0     		add	sp, sp, #16
+ 266              		@ sp needed
+ 267 00e2 80BD     		pop	{r7, pc}
+ 268              	.L11:
+ 269              		.align	2
+ 270              	.L10:
+ 271 00e4 00000000 		.word	INIT_DATA_VALUES
+ 272 00e8 00000000 		.word	INIT_DATA_START
+ 273 00ec 00000000 		.word	INIT_DATA_END
+ 274 00f0 00000000 		.word	BSS_START
+ 275 00f4 00000000 		.word	BSS_END
+ 276              		.cfi_endproc
+ 277              	.LFE1:
+ 279              		.align	1
+ 280              		.global	Default_Handler
+ 281              		.syntax unified
+ 282              		.code	16
+ 283              		.thumb_func
+ 285              	Default_Handler:
+ 286              	.LFB2:
+ 137:init.c        **** 
+ 138:init.c        **** 
+ 139:init.c        **** // If an INT occurs but with no handler defined, then this function is called:
+ 140:init.c        **** void Default_Handler() {  
+ 287              		.loc 1 140 24
+ 288              		.cfi_startproc
+ 289              		@ args = 0, pretend = 0, frame = 0
+ 290              		@ frame_needed = 1, uses_anonymous_args = 0
+ 291 00f8 80B5     		push	{r7, lr}
+ 292              		.cfi_def_cfa_offset 8
+ 293              		.cfi_offset 7, -8
+ 294              		.cfi_offset 14, -4
+ 295 00fa 00AF     		add	r7, sp, #0
+ 296              		.cfi_def_cfa_register 7
+ 297              	.L13:
+ 141:init.c        ****   while(1);
+ 298              		.loc 1 141 8 discriminator 1
+ 299 00fc FEE7     		b	.L13
+ 300              		.cfi_endproc
+ 301              	.LFE2:
+ 303              	.Letext0:
+ARM GAS  /tmp/ccQHYdEt.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 init.c
+     /tmp/ccQHYdEt.s:23     .vectors:00000000 Vectors
+     /tmp/ccQHYdEt.s:20     .vectors:00000000 $d
+     /tmp/ccQHYdEt.s:182    .text:00000080 init
+     /tmp/ccQHYdEt.s:285    .text:000000f8 Default_Handler
+     /tmp/ccQHYdEt.s:72     .text:00000000 $t
+     /tmp/ccQHYdEt.s:78     .text:00000000 clock_init
+     /tmp/ccQHYdEt.s:165    .text:00000060 $d
+     /tmp/ccQHYdEt.s:176    .text:00000080 $t
+     /tmp/ccQHYdEt.s:271    .text:000000e4 $d
+     /tmp/ccQHYdEt.s:279    .text:000000f8 $t
+
+UNDEFINED SYMBOLS
+main
+INIT_DATA_VALUES
+INIT_DATA_START
+INIT_DATA_END
+BSS_START
+BSS_END

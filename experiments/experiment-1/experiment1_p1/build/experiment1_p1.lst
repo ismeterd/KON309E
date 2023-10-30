@@ -1,0 +1,638 @@
+ARM GAS  /tmp/ccPbseQc.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"experiment1_p1.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "experiment1_p1.c"
+  18              		.global	state
+  19              		.bss
+  20              		.align	2
+  23              	state:
+  24 0000 00000000 		.space	4
+  25              		.global	button1Pressed
+  26              		.align	2
+  29              	button1Pressed:
+  30 0004 00000000 		.space	4
+  31              		.global	button2Pressed
+  32              		.align	2
+  35              	button2Pressed:
+  36 0008 00000000 		.space	4
+  37              		.text
+  38              		.align	1
+  39              		.global	main
+  40              		.syntax unified
+  41              		.code	16
+  42              		.thumb_func
+  44              	main:
+  45              	.LFB0:
+   1:experiment1_p1.c **** /*
+   2:experiment1_p1.c ****  *      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   3:experiment1_p1.c ****  *                  Experiment 1 - Part 2
+   4:experiment1_p1.c ****  *      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   5:experiment1_p1.c ****  *
+   6:experiment1_p1.c ****  *      # Connections
+   7:experiment1_p1.c ****  *      ---------------------------------------------
+   8:experiment1_p1.c ****  *      * Button 1 -> PIO0_21
+   9:experiment1_p1.c ****  *      * Button 2 -> PIO0_20
+  10:experiment1_p1.c ****  *      * Red Led -> PIO0_17
+  11:experiment1_p1.c ****  *      * Yellow Led -> PIO0_18
+  12:experiment1_p1.c ****  *      * Green Led -> PIO0_19
+  13:experiment1_p1.c ****  *
+  14:experiment1_p1.c ****  *      # Scenario
+  15:experiment1_p1.c ****  *      ---------------------------------------------
+  16:experiment1_p1.c ****  *      * Start red LED will be ON (initial state).
+  17:experiment1_p1.c ****  *      *  When B1 is pressed, the LEDs will cycle as:
+  18:experiment1_p1.c ****  *          - Red ON, Yellow OFF, Green OFF
+  19:experiment1_p1.c ****  *          - Red OFF, Yellow ON, Green OFF
+ARM GAS  /tmp/ccPbseQc.s 			page 2
+
+
+  20:experiment1_p1.c ****  *          - Red OFF, Yellow OFF, Green ON
+  21:experiment1_p1.c ****  *          - Red ON, Yellow ON, Green ON
+  22:experiment1_p1.c ****  *          - Red OFF, Yellow OFF, Green OFF
+  23:experiment1_p1.c ****  *      * When B2 is pressed, the LEDs will cycle in the
+  24:experiment1_p1.c ****  *      same sequence but will skip two places:
+  25:experiment1_p1.c ****  *          - Red ON, Yellow OFF, Green OFF
+  26:experiment1_p1.c ****  *          - Red OFF, Yellow OFF, Green ON
+  27:experiment1_p1.c ****  *          - Red OFF, Yellow OFF, Green OFF
+  28:experiment1_p1.c ****  *          - Red OFF, Yellow ON, Green OFF
+  29:experiment1_p1.c ****  *          - Red ON, Yellow ON, Green ON
+  30:experiment1_p1.c ****  *
+  31:experiment1_p1.c ****  *      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  32:experiment1_p1.c ****  */
+  33:experiment1_p1.c **** 
+  34:experiment1_p1.c **** 
+  35:experiment1_p1.c **** void delay(int counts);//delay (ms)
+  36:experiment1_p1.c **** 
+  37:experiment1_p1.c **** volatile int state = 0;
+  38:experiment1_p1.c **** volatile int button1Pressed = 0;
+  39:experiment1_p1.c **** volatile int button2Pressed = 0;
+  40:experiment1_p1.c **** 
+  41:experiment1_p1.c **** int main(void)
+  42:experiment1_p1.c **** {
+  46              		.loc 1 42 1
+  47              		.cfi_startproc
+  48              		@ args = 0, pretend = 0, frame = 0
+  49              		@ frame_needed = 1, uses_anonymous_args = 0
+  50 0000 80B5     		push	{r7, lr}
+  51              		.cfi_def_cfa_offset 8
+  52              		.cfi_offset 7, -8
+  53              		.cfi_offset 14, -4
+  54 0002 00AF     		add	r7, sp, #0
+  55              		.cfi_def_cfa_register 7
+  43:experiment1_p1.c ****     // System Clock Control Register
+  44:experiment1_p1.c ****     // This register enables the clocks to individual system and peripheral blocks.
+  45:experiment1_p1.c ****     // Bit 6 -> GPIO
+  46:experiment1_p1.c ****     // Bit 7 -> SWM (Switch Matrix)
+  47:experiment1_p1.c ****     // Bit 18 -> IOCON
+  48:experiment1_p1.c ****     // 0100 0000 0000 1100 0000
+  49:experiment1_p1.c ****     // 0040
+  50:experiment1_p1.c ****     // 0x400C0
+  51:experiment1_p1.c **** 
+  52:experiment1_p1.c **** //    SYSCON_BASE		0x40048000
+  53:experiment1_p1.c **** //    #define SYSCON_SYSAHBCLKCTRL	REGISTER_32(SYSCON_BASE + 0x80)
+  54:experiment1_p1.c **** 
+  55:experiment1_p1.c **** //    SYSCON_SYSAHBCLKCTRL |= 0x400C0; // Enable IOCON, SWM & GPIO clocks.
+  56:experiment1_p1.c ****     *((volatile unsigned int *)(0x40048080)) |= 0x00000040;
+  56              		.loc 1 56 5
+  57 0004 5B4B     		ldr	r3, .L17
+  58 0006 1A68     		ldr	r2, [r3]
+  59 0008 5A4B     		ldr	r3, .L17
+  60              		.loc 1 56 46
+  61 000a 4021     		movs	r1, #64
+  62 000c 0A43     		orrs	r2, r1
+  63 000e 1A60     		str	r2, [r3]
+  57:experiment1_p1.c **** 
+  58:experiment1_p1.c **** 
+ARM GAS  /tmp/ccPbseQc.s 			page 3
+
+
+  59:experiment1_p1.c **** 
+  60:experiment1_p1.c ****     // Peripheral Reset Control Register
+  61:experiment1_p1.c ****     // Bit 10 -> GPIO_RST_N
+  62:experiment1_p1.c ****     // 0100 0000 0000
+  63:experiment1_p1.c **** 
+  64:experiment1_p1.c **** //#define SYSCON_PRESETCTRL	REGISTER_32(SYSCON_BASE + 0x04)
+  65:experiment1_p1.c **** //    SYSCON_BASE		0x40048000
+  66:experiment1_p1.c **** //    SYSCON_PRESETCTRL &= ~(0x400);  // Peripheral reset control to gpio/gpio int
+  67:experiment1_p1.c **** //    SYSCON_PRESETCTRL |= 0x400;   // AO: Check.
+  68:experiment1_p1.c **** 
+  69:experiment1_p1.c ****     *((volatile unsigned int *)(0x40048004)) &= ~(0x400);
+  64              		.loc 1 69 5
+  65 0010 594B     		ldr	r3, .L17+4
+  66 0012 1A68     		ldr	r2, [r3]
+  67 0014 584B     		ldr	r3, .L17+4
+  68              		.loc 1 69 46
+  69 0016 5949     		ldr	r1, .L17+8
+  70 0018 0A40     		ands	r2, r1
+  71 001a 1A60     		str	r2, [r3]
+  70:experiment1_p1.c ****     *((volatile unsigned int *)(0x40048004)) |= 0x400;
+  72              		.loc 1 70 5
+  73 001c 564B     		ldr	r3, .L17+4
+  74 001e 1A68     		ldr	r2, [r3]
+  75 0020 554B     		ldr	r3, .L17+4
+  76              		.loc 1 70 46
+  77 0022 8021     		movs	r1, #128
+  78 0024 C900     		lsls	r1, r1, #3
+  79 0026 0A43     		orrs	r2, r1
+  80 0028 1A60     		str	r2, [r3]
+  71:experiment1_p1.c **** 
+  72:experiment1_p1.c **** 
+  73:experiment1_p1.c ****     // GPIO Direction Port Register
+  74:experiment1_p1.c ****     // 0 input - 1 output
+  75:experiment1_p1.c ****     //Make Pin 9 an output. On Alakart, Pin #9 is the blue LED:
+  76:experiment1_p1.c ****     // 0000 0000 0000
+  77:experiment1_p1.c ****     // 0000 0000 0001
+  78:experiment1_p1.c ****     // 0010 0000 0000
+  79:experiment1_p1.c **** 
+  80:experiment1_p1.c **** //#define GPIO_DIR0			REGISTER_32(GPIO_BASE + 0x2000)
+  81:experiment1_p1.c **** //#define GPIO_BASE		0xa0000000
+  82:experiment1_p1.c **** 
+  83:experiment1_p1.c ****     *((volatile unsigned int *)(0xA0002000)) &= ~(0x00300000);
+  81              		.loc 1 83 5
+  82 002a 554B     		ldr	r3, .L17+12
+  83 002c 1A68     		ldr	r2, [r3]
+  84 002e 544B     		ldr	r3, .L17+12
+  85              		.loc 1 83 46
+  86 0030 5449     		ldr	r1, .L17+16
+  87 0032 0A40     		ands	r2, r1
+  88 0034 1A60     		str	r2, [r3]
+  84:experiment1_p1.c **** //    GPIO_DIR0 &= (!(1<<21)); //Pin 21 input (B1)
+  85:experiment1_p1.c **** //    *((volatile unsigned int *)(0xa0002015)) = 0;
+  86:experiment1_p1.c **** //    GPIO_DIR0 &= (!(1<<20)); //Pin 20 input (B2)
+  87:experiment1_p1.c **** //    *((volatile unsigned int *)(0xa0002014)) = 0;
+  88:experiment1_p1.c **** 
+  89:experiment1_p1.c **** 
+  90:experiment1_p1.c ****     *((volatile unsigned int *)(0xA0002000)) |= (0x000E0000);
+ARM GAS  /tmp/ccPbseQc.s 			page 4
+
+
+  89              		.loc 1 90 5
+  90 0036 524B     		ldr	r3, .L17+12
+  91 0038 1A68     		ldr	r2, [r3]
+  92 003a 514B     		ldr	r3, .L17+12
+  93              		.loc 1 90 46
+  94 003c E021     		movs	r1, #224
+  95 003e 0903     		lsls	r1, r1, #12
+  96 0040 0A43     		orrs	r2, r1
+  97 0042 1A60     		str	r2, [r3]
+  91:experiment1_p1.c **** //    GPIO_DIR0 |= (1<<17);
+  92:experiment1_p1.c **** //    *((volatile unsigned int *)(0xa0002011)) = 1;
+  93:experiment1_p1.c **** //    *((volatile unsigned int *)(0xA0002000)) |= 0x20000;
+  94:experiment1_p1.c **** //    GPIO_DIR0 |= (1<<18);
+  95:experiment1_p1.c **** //    *((volatile unsigned int *)(0xa0002012)) = 1;
+  96:experiment1_p1.c **** //    GPIO_DIR0 |= (1<<19);
+  97:experiment1_p1.c **** //    *((volatile unsigned int *)(0xa0002013)) = 1;
+  98:experiment1_p1.c **** 
+  99:experiment1_p1.c **** 
+ 100:experiment1_p1.c **** 
+ 101:experiment1_p1.c **** 
+ 102:experiment1_p1.c **** //#define GPIO_B17			REGISTER_8(GPIO_BASE + 17)
+ 103:experiment1_p1.c **** //#define GPIO_BASE		0xa0000000
+ 104:experiment1_p1.c **** //    GPIO_B17 = 0; // red on
+ 105:experiment1_p1.c ****     *((volatile unsigned char *)(0xA0000011)) = 0;
+  98              		.loc 1 105 5
+  99 0044 504B     		ldr	r3, .L17+20
+ 100              		.loc 1 105 47
+ 101 0046 0022     		movs	r2, #0
+ 102 0048 1A70     		strb	r2, [r3]
+ 106:experiment1_p1.c **** 
+ 107:experiment1_p1.c **** //    GPIO_B18 = 1; // yellow off
+ 108:experiment1_p1.c ****     *((volatile unsigned char *)(0xA0000012)) = 1;
+ 103              		.loc 1 108 5
+ 104 004a 504B     		ldr	r3, .L17+24
+ 105              		.loc 1 108 47
+ 106 004c 0122     		movs	r2, #1
+ 107 004e 1A70     		strb	r2, [r3]
+ 109:experiment1_p1.c **** 
+ 110:experiment1_p1.c **** //    GPIO_B19 = 1; // green off
+ 111:experiment1_p1.c ****     *((volatile unsigned char *)(0xA0000013)) = 1;
+ 108              		.loc 1 111 5
+ 109 0050 4F4B     		ldr	r3, .L17+28
+ 110              		.loc 1 111 47
+ 111 0052 0122     		movs	r2, #1
+ 112 0054 1A70     		strb	r2, [r3]
+ 113              	.L16:
+ 112:experiment1_p1.c **** 
+ 113:experiment1_p1.c **** 
+ 114:experiment1_p1.c **** //    GPIO_B20 -> 0xa0000014 -> *((volatile unsigned int *)(0xa0000014))
+ 115:experiment1_p1.c **** //    GPIO_B21 -> 0xa0000015 -> *((volatile unsigned int *)(0xa0000015))
+ 116:experiment1_p1.c **** 
+ 117:experiment1_p1.c ****     while (1)
+ 118:experiment1_p1.c ****     {
+ 119:experiment1_p1.c ****         if (*((volatile unsigned char *)(0xA0000015)) == 1) //when button 1 is pressed
+ 114              		.loc 1 119 13
+ 115 0056 4F4B     		ldr	r3, .L17+32
+ 116 0058 1B78     		ldrb	r3, [r3]
+ARM GAS  /tmp/ccPbseQc.s 			page 5
+
+
+ 117 005a DBB2     		uxtb	r3, r3
+ 118              		.loc 1 119 12
+ 119 005c 012B     		cmp	r3, #1
+ 120 005e 17D1     		bne	.L2
+ 120:experiment1_p1.c ****         {
+ 121:experiment1_p1.c ****             if(!button1Pressed)
+ 121              		.loc 1 121 16
+ 122 0060 4D4B     		ldr	r3, .L17+36
+ 123 0062 1B68     		ldr	r3, [r3]
+ 124              		.loc 1 121 15
+ 125 0064 002B     		cmp	r3, #0
+ 126 0066 07D1     		bne	.L3
+ 122:experiment1_p1.c ****             {
+ 123:experiment1_p1.c ****                 button1Pressed = 1;
+ 127              		.loc 1 123 32
+ 128 0068 4B4B     		ldr	r3, .L17+36
+ 129 006a 0122     		movs	r2, #1
+ 130 006c 1A60     		str	r2, [r3]
+ 124:experiment1_p1.c ****                 state++;
+ 131              		.loc 1 124 22
+ 132 006e 4B4B     		ldr	r3, .L17+40
+ 133 0070 1B68     		ldr	r3, [r3]
+ 134 0072 5A1C     		adds	r2, r3, #1
+ 135 0074 494B     		ldr	r3, .L17+40
+ 136 0076 1A60     		str	r2, [r3]
+ 137              	.L3:
+ 125:experiment1_p1.c ****             }
+ 126:experiment1_p1.c **** 
+ 127:experiment1_p1.c ****             if (state > 4)
+ 138              		.loc 1 127 23
+ 139 0078 484B     		ldr	r3, .L17+40
+ 140 007a 1B68     		ldr	r3, [r3]
+ 141              		.loc 1 127 16
+ 142 007c 042B     		cmp	r3, #4
+ 143 007e 02DD     		ble	.L4
+ 128:experiment1_p1.c ****             {
+ 129:experiment1_p1.c ****                 state = 0;
+ 144              		.loc 1 129 23
+ 145 0080 464B     		ldr	r3, .L17+40
+ 146 0082 0022     		movs	r2, #0
+ 147 0084 1A60     		str	r2, [r3]
+ 148              	.L4:
+ 130:experiment1_p1.c ****             }
+ 131:experiment1_p1.c ****             delay(100000);
+ 149              		.loc 1 131 13
+ 150 0086 464B     		ldr	r3, .L17+44
+ 151 0088 1800     		movs	r0, r3
+ 152 008a FFF7FEFF 		bl	delay
+ 153 008e 02E0     		b	.L5
+ 154              	.L2:
+ 132:experiment1_p1.c ****         }
+ 133:experiment1_p1.c ****         else
+ 134:experiment1_p1.c ****         {
+ 135:experiment1_p1.c ****             button1Pressed = 0;
+ 155              		.loc 1 135 28
+ 156 0090 414B     		ldr	r3, .L17+36
+ 157 0092 0022     		movs	r2, #0
+ARM GAS  /tmp/ccPbseQc.s 			page 6
+
+
+ 158 0094 1A60     		str	r2, [r3]
+ 159              	.L5:
+ 136:experiment1_p1.c ****         }
+ 137:experiment1_p1.c **** 
+ 138:experiment1_p1.c ****         if (*((volatile unsigned char *)(0xA0000014)) == 1) //when button 2 is pressed
+ 160              		.loc 1 138 13
+ 161 0096 434B     		ldr	r3, .L17+48
+ 162 0098 1B78     		ldrb	r3, [r3]
+ 163 009a DBB2     		uxtb	r3, r3
+ 164              		.loc 1 138 12
+ 165 009c 012B     		cmp	r3, #1
+ 166 009e 1FD1     		bne	.L6
+ 139:experiment1_p1.c ****         {
+ 140:experiment1_p1.c ****             if(!button2Pressed)
+ 167              		.loc 1 140 16
+ 168 00a0 414B     		ldr	r3, .L17+52
+ 169 00a2 1B68     		ldr	r3, [r3]
+ 170              		.loc 1 140 15
+ 171 00a4 002B     		cmp	r3, #0
+ 172 00a6 07D1     		bne	.L7
+ 141:experiment1_p1.c ****             {
+ 142:experiment1_p1.c ****                 button2Pressed = 1;
+ 173              		.loc 1 142 32
+ 174 00a8 3F4B     		ldr	r3, .L17+52
+ 175 00aa 0122     		movs	r2, #1
+ 176 00ac 1A60     		str	r2, [r3]
+ 143:experiment1_p1.c ****                 state += 2;
+ 177              		.loc 1 143 23
+ 178 00ae 3B4B     		ldr	r3, .L17+40
+ 179 00b0 1B68     		ldr	r3, [r3]
+ 180 00b2 9A1C     		adds	r2, r3, #2
+ 181 00b4 394B     		ldr	r3, .L17+40
+ 182 00b6 1A60     		str	r2, [r3]
+ 183              	.L7:
+ 144:experiment1_p1.c ****             }
+ 145:experiment1_p1.c **** 
+ 146:experiment1_p1.c ****             if (state == 5)
+ 184              		.loc 1 146 23
+ 185 00b8 384B     		ldr	r3, .L17+40
+ 186 00ba 1B68     		ldr	r3, [r3]
+ 187              		.loc 1 146 16
+ 188 00bc 052B     		cmp	r3, #5
+ 189 00be 03D1     		bne	.L8
+ 147:experiment1_p1.c ****             {
+ 148:experiment1_p1.c ****                 state = 0;
+ 190              		.loc 1 148 23
+ 191 00c0 364B     		ldr	r3, .L17+40
+ 192 00c2 0022     		movs	r2, #0
+ 193 00c4 1A60     		str	r2, [r3]
+ 194 00c6 06E0     		b	.L9
+ 195              	.L8:
+ 149:experiment1_p1.c ****             }
+ 150:experiment1_p1.c ****             else if (state == 6)
+ 196              		.loc 1 150 28
+ 197 00c8 344B     		ldr	r3, .L17+40
+ 198 00ca 1B68     		ldr	r3, [r3]
+ 199              		.loc 1 150 21
+ARM GAS  /tmp/ccPbseQc.s 			page 7
+
+
+ 200 00cc 062B     		cmp	r3, #6
+ 201 00ce 02D1     		bne	.L9
+ 151:experiment1_p1.c ****             {
+ 152:experiment1_p1.c ****                 state = 1;
+ 202              		.loc 1 152 23
+ 203 00d0 324B     		ldr	r3, .L17+40
+ 204 00d2 0122     		movs	r2, #1
+ 205 00d4 1A60     		str	r2, [r3]
+ 206              	.L9:
+ 153:experiment1_p1.c ****             }
+ 154:experiment1_p1.c ****             delay(100000);
+ 207              		.loc 1 154 13
+ 208 00d6 324B     		ldr	r3, .L17+44
+ 209 00d8 1800     		movs	r0, r3
+ 210 00da FFF7FEFF 		bl	delay
+ 211 00de 02E0     		b	.L10
+ 212              	.L6:
+ 155:experiment1_p1.c ****         }
+ 156:experiment1_p1.c ****         else
+ 157:experiment1_p1.c ****         {
+ 158:experiment1_p1.c ****             button2Pressed = 0;
+ 213              		.loc 1 158 28
+ 214 00e0 314B     		ldr	r3, .L17+52
+ 215 00e2 0022     		movs	r2, #0
+ 216 00e4 1A60     		str	r2, [r3]
+ 217              	.L10:
+ 159:experiment1_p1.c ****         }
+ 160:experiment1_p1.c **** 
+ 161:experiment1_p1.c ****         //    GPIO_B17 -> 0xa0000011 -> *((volatile unsigned int *)(0xa0000011))
+ 162:experiment1_p1.c ****         //    GPIO_B18 -> 0xa0000012 -> *((volatile unsigned int *)(0xa0000012))
+ 163:experiment1_p1.c ****         //    GPIO_B19 -> 0xa0000013 -> *((volatile unsigned int *)(0xa0000013))
+ 164:experiment1_p1.c **** 
+ 165:experiment1_p1.c ****         if(state == 0) {
+ 218              		.loc 1 165 18
+ 219 00e6 2D4B     		ldr	r3, .L17+40
+ 220 00e8 1B68     		ldr	r3, [r3]
+ 221              		.loc 1 165 11
+ 222 00ea 002B     		cmp	r3, #0
+ 223 00ec 09D1     		bne	.L11
+ 166:experiment1_p1.c ****             *((volatile unsigned char *)(0xA0000011)) = 0;
+ 224              		.loc 1 166 13
+ 225 00ee 264B     		ldr	r3, .L17+20
+ 226              		.loc 1 166 55
+ 227 00f0 0022     		movs	r2, #0
+ 228 00f2 1A70     		strb	r2, [r3]
+ 167:experiment1_p1.c ****             *((volatile unsigned char *)(0xA0000012)) = 1;
+ 229              		.loc 1 167 13
+ 230 00f4 254B     		ldr	r3, .L17+24
+ 231              		.loc 1 167 55
+ 232 00f6 0122     		movs	r2, #1
+ 233 00f8 1A70     		strb	r2, [r3]
+ 168:experiment1_p1.c ****             *((volatile unsigned char *)(0xA0000013)) = 1;
+ 234              		.loc 1 168 13
+ 235 00fa 254B     		ldr	r3, .L17+28
+ 236              		.loc 1 168 55
+ 237 00fc 0122     		movs	r2, #1
+ 238 00fe 1A70     		strb	r2, [r3]
+ARM GAS  /tmp/ccPbseQc.s 			page 8
+
+
+ 239 0100 A9E7     		b	.L16
+ 240              	.L11:
+ 169:experiment1_p1.c ****         } else if(state == 1) {
+ 241              		.loc 1 169 25
+ 242 0102 264B     		ldr	r3, .L17+40
+ 243 0104 1B68     		ldr	r3, [r3]
+ 244              		.loc 1 169 18
+ 245 0106 012B     		cmp	r3, #1
+ 246 0108 09D1     		bne	.L13
+ 170:experiment1_p1.c ****             *((volatile unsigned char *)(0xA0000011)) = 1;
+ 247              		.loc 1 170 13
+ 248 010a 1F4B     		ldr	r3, .L17+20
+ 249              		.loc 1 170 55
+ 250 010c 0122     		movs	r2, #1
+ 251 010e 1A70     		strb	r2, [r3]
+ 171:experiment1_p1.c ****             *((volatile unsigned char *)(0xA0000012)) = 0;
+ 252              		.loc 1 171 13
+ 253 0110 1E4B     		ldr	r3, .L17+24
+ 254              		.loc 1 171 55
+ 255 0112 0022     		movs	r2, #0
+ 256 0114 1A70     		strb	r2, [r3]
+ 172:experiment1_p1.c ****             *((volatile unsigned char *)(0xA0000013)) = 1;
+ 257              		.loc 1 172 13
+ 258 0116 1E4B     		ldr	r3, .L17+28
+ 259              		.loc 1 172 55
+ 260 0118 0122     		movs	r2, #1
+ 261 011a 1A70     		strb	r2, [r3]
+ 262 011c 9BE7     		b	.L16
+ 263              	.L13:
+ 173:experiment1_p1.c ****         } else if(state == 2) {
+ 264              		.loc 1 173 25
+ 265 011e 1F4B     		ldr	r3, .L17+40
+ 266 0120 1B68     		ldr	r3, [r3]
+ 267              		.loc 1 173 18
+ 268 0122 022B     		cmp	r3, #2
+ 269 0124 09D1     		bne	.L14
+ 174:experiment1_p1.c ****             *((volatile unsigned char *)(0xA0000011)) = 1;
+ 270              		.loc 1 174 13
+ 271 0126 184B     		ldr	r3, .L17+20
+ 272              		.loc 1 174 55
+ 273 0128 0122     		movs	r2, #1
+ 274 012a 1A70     		strb	r2, [r3]
+ 175:experiment1_p1.c ****             *((volatile unsigned char *)(0xA0000012)) = 1;
+ 275              		.loc 1 175 13
+ 276 012c 174B     		ldr	r3, .L17+24
+ 277              		.loc 1 175 55
+ 278 012e 0122     		movs	r2, #1
+ 279 0130 1A70     		strb	r2, [r3]
+ 176:experiment1_p1.c ****             *((volatile unsigned char *)(0xA0000013)) = 0;
+ 280              		.loc 1 176 13
+ 281 0132 174B     		ldr	r3, .L17+28
+ 282              		.loc 1 176 55
+ 283 0134 0022     		movs	r2, #0
+ 284 0136 1A70     		strb	r2, [r3]
+ 285 0138 8DE7     		b	.L16
+ 286              	.L14:
+ 177:experiment1_p1.c ****         } else if(state == 3) {
+ARM GAS  /tmp/ccPbseQc.s 			page 9
+
+
+ 287              		.loc 1 177 25
+ 288 013a 184B     		ldr	r3, .L17+40
+ 289 013c 1B68     		ldr	r3, [r3]
+ 290              		.loc 1 177 18
+ 291 013e 032B     		cmp	r3, #3
+ 292 0140 09D1     		bne	.L15
+ 178:experiment1_p1.c ****             *((volatile unsigned char *)(0xA0000011)) = 0;
+ 293              		.loc 1 178 13
+ 294 0142 114B     		ldr	r3, .L17+20
+ 295              		.loc 1 178 55
+ 296 0144 0022     		movs	r2, #0
+ 297 0146 1A70     		strb	r2, [r3]
+ 179:experiment1_p1.c ****             *((volatile unsigned char *)(0xA0000012)) = 0;
+ 298              		.loc 1 179 13
+ 299 0148 104B     		ldr	r3, .L17+24
+ 300              		.loc 1 179 55
+ 301 014a 0022     		movs	r2, #0
+ 302 014c 1A70     		strb	r2, [r3]
+ 180:experiment1_p1.c ****             *((volatile unsigned char *)(0xA0000013)) = 0;
+ 303              		.loc 1 180 13
+ 304 014e 104B     		ldr	r3, .L17+28
+ 305              		.loc 1 180 55
+ 306 0150 0022     		movs	r2, #0
+ 307 0152 1A70     		strb	r2, [r3]
+ 308 0154 7FE7     		b	.L16
+ 309              	.L15:
+ 181:experiment1_p1.c ****         } else if(state == 4) {
+ 310              		.loc 1 181 25
+ 311 0156 114B     		ldr	r3, .L17+40
+ 312 0158 1B68     		ldr	r3, [r3]
+ 313              		.loc 1 181 18
+ 314 015a 042B     		cmp	r3, #4
+ 315 015c 00D0     		beq	.LCB215
+ 316 015e 7AE7     		b	.L16	@long jump
+ 317              	.LCB215:
+ 182:experiment1_p1.c ****             *((volatile unsigned char *)(0xA0000011)) = 1;
+ 318              		.loc 1 182 13
+ 319 0160 094B     		ldr	r3, .L17+20
+ 320              		.loc 1 182 55
+ 321 0162 0122     		movs	r2, #1
+ 322 0164 1A70     		strb	r2, [r3]
+ 183:experiment1_p1.c ****             *((volatile unsigned char *)(0xA0000012)) = 1;
+ 323              		.loc 1 183 13
+ 324 0166 094B     		ldr	r3, .L17+24
+ 325              		.loc 1 183 55
+ 326 0168 0122     		movs	r2, #1
+ 327 016a 1A70     		strb	r2, [r3]
+ 184:experiment1_p1.c ****             *((volatile unsigned char *)(0xA0000013)) = 1;
+ 328              		.loc 1 184 13
+ 329 016c 084B     		ldr	r3, .L17+28
+ 330              		.loc 1 184 55
+ 331 016e 0122     		movs	r2, #1
+ 332 0170 1A70     		strb	r2, [r3]
+ 119:experiment1_p1.c ****         {
+ 333              		.loc 1 119 12
+ 334 0172 70E7     		b	.L16
+ 335              	.L18:
+ARM GAS  /tmp/ccPbseQc.s 			page 10
+
+
+ 336              		.align	2
+ 337              	.L17:
+ 338 0174 80800440 		.word	1074036864
+ 339 0178 04800440 		.word	1074036740
+ 340 017c FFFBFFFF 		.word	-1025
+ 341 0180 002000A0 		.word	-1610604544
+ 342 0184 FFFFCFFF 		.word	-3145729
+ 343 0188 110000A0 		.word	-1610612719
+ 344 018c 120000A0 		.word	-1610612718
+ 345 0190 130000A0 		.word	-1610612717
+ 346 0194 150000A0 		.word	-1610612715
+ 347 0198 00000000 		.word	button1Pressed
+ 348 019c 00000000 		.word	state
+ 349 01a0 A0860100 		.word	100000
+ 350 01a4 140000A0 		.word	-1610612716
+ 351 01a8 00000000 		.word	button2Pressed
+ 352              		.cfi_endproc
+ 353              	.LFE0:
+ 355              		.align	1
+ 356              		.global	delay
+ 357              		.syntax unified
+ 358              		.code	16
+ 359              		.thumb_func
+ 361              	delay:
+ 362              	.LFB1:
+ 185:experiment1_p1.c ****         } else {
+ 186:experiment1_p1.c ****             // do nothing
+ 187:experiment1_p1.c ****         }
+ 188:experiment1_p1.c ****     }
+ 189:experiment1_p1.c **** }
+ 190:experiment1_p1.c **** 
+ 191:experiment1_p1.c **** void delay(int counts)
+ 192:experiment1_p1.c **** {
+ 363              		.loc 1 192 1
+ 364              		.cfi_startproc
+ 365              		@ args = 0, pretend = 0, frame = 16
+ 366              		@ frame_needed = 1, uses_anonymous_args = 0
+ 367 01ac 80B5     		push	{r7, lr}
+ 368              		.cfi_def_cfa_offset 8
+ 369              		.cfi_offset 7, -8
+ 370              		.cfi_offset 14, -4
+ 371 01ae 84B0     		sub	sp, sp, #16
+ 372              		.cfi_def_cfa_offset 24
+ 373 01b0 00AF     		add	r7, sp, #0
+ 374              		.cfi_def_cfa_register 7
+ 375 01b2 7860     		str	r0, [r7, #4]
+ 193:experiment1_p1.c ****     int wait;
+ 194:experiment1_p1.c ****     for (wait=counts; wait>0; --wait){
+ 376              		.loc 1 194 14
+ 377 01b4 7B68     		ldr	r3, [r7, #4]
+ 378 01b6 FB60     		str	r3, [r7, #12]
+ 379              		.loc 1 194 5
+ 380 01b8 02E0     		b	.L20
+ 381              	.L21:
+ 382              		.loc 1 194 31 discriminator 3
+ 383 01ba FB68     		ldr	r3, [r7, #12]
+ 384 01bc 013B     		subs	r3, r3, #1
+ARM GAS  /tmp/ccPbseQc.s 			page 11
+
+
+ 385 01be FB60     		str	r3, [r7, #12]
+ 386              	.L20:
+ 387              		.loc 1 194 27 discriminator 1
+ 388 01c0 FB68     		ldr	r3, [r7, #12]
+ 389 01c2 002B     		cmp	r3, #0
+ 390 01c4 F9DC     		bgt	.L21
+ 195:experiment1_p1.c ****     }
+ 196:experiment1_p1.c **** 
+ 197:experiment1_p1.c **** }
+ 391              		.loc 1 197 1
+ 392 01c6 C046     		nop
+ 393 01c8 C046     		nop
+ 394 01ca BD46     		mov	sp, r7
+ 395 01cc 04B0     		add	sp, sp, #16
+ 396              		@ sp needed
+ 397 01ce 80BD     		pop	{r7, pc}
+ 398              		.cfi_endproc
+ 399              	.LFE1:
+ 401              	.Letext0:
+ARM GAS  /tmp/ccPbseQc.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 experiment1_p1.c
+     /tmp/ccPbseQc.s:23     .bss:00000000 state
+     /tmp/ccPbseQc.s:20     .bss:00000000 $d
+     /tmp/ccPbseQc.s:29     .bss:00000004 button1Pressed
+     /tmp/ccPbseQc.s:35     .bss:00000008 button2Pressed
+     /tmp/ccPbseQc.s:38     .text:00000000 $t
+     /tmp/ccPbseQc.s:44     .text:00000000 main
+     /tmp/ccPbseQc.s:361    .text:000001ac delay
+     /tmp/ccPbseQc.s:338    .text:00000174 $d
+     /tmp/ccPbseQc.s:355    .text:000001ac $t
+
+NO UNDEFINED SYMBOLS
