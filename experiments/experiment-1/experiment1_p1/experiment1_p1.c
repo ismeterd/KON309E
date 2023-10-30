@@ -1,7 +1,8 @@
 /*
  *      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *                  Experiment 1 - Part 2
+ *                  Experiment 1 - Part 1
  *      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *      Register level of Part 2
  *
  *      # Connections
  *      ---------------------------------------------
@@ -32,7 +33,7 @@
  */
 
 
-void delay(int counts);//delay (ms)
+void delay(int counts);
 
 volatile int state = 0;
 volatile int button1Pressed = 0;
@@ -45,70 +46,37 @@ int main(void)
     // Bit 6 -> GPIO
     // Bit 7 -> SWM (Switch Matrix)
     // Bit 18 -> IOCON
-    // 0100 0000 0000 1100 0000
-    // 0040
-    // 0x400C0
+    // 0100 0000 0000 1100 0000 -> 0x400C0
+//    SYSCON_BASE Adress -> 0x40048000
+//    SYSCON_SYSAHBCLKCTRL -> SYSCON_BASE + 0x80
 
-//    SYSCON_BASE		0x40048000
-//    #define SYSCON_SYSAHBCLKCTRL	REGISTER_32(SYSCON_BASE + 0x80)
-
-//    SYSCON_SYSAHBCLKCTRL |= 0x400C0; // Enable IOCON, SWM & GPIO clocks.
-    *((volatile unsigned int *)(0x40048080)) |= 0x00000040;
+    *((volatile unsigned int *)(0x40048080)) |= 0x00000040; // only GPIO
 
 
     // Peripheral Reset Control Register
     // Bit 10 -> GPIO_RST_N
     // 0100 0000 0000
+//    SYSCON_BASE -> 0x40048000
+//    SYSCON_PRESETCTRL -> 0x04
 
-//#define SYSCON_PRESETCTRL	REGISTER_32(SYSCON_BASE + 0x04)
-//    SYSCON_BASE		0x40048000
-//    SYSCON_PRESETCTRL &= ~(0x400);  // Peripheral reset control to gpio/gpio int
-//    SYSCON_PRESETCTRL |= 0x400;   // AO: Check.
+    *((volatile unsigned int *)(0x40048004)) &= ~(0x400); // Peripheral reset control to gpio/gpio int
+    *((volatile unsigned int *)(0x40048004)) |= 0x400; // AO: Check.
 
-    *((volatile unsigned int *)(0x40048004)) &= ~(0x400);
-    *((volatile unsigned int *)(0x40048004)) |= 0x400;
 
     // GPIO Direction Port Register
     // 0 input - 1 output
-    //Make Pin 9 an output. On Alakart, Pin #9 is the blue LED:
-    // 0000 0000 0000
-    // 0000 0000 0001
-    // 0010 0000 0000
+//    GPIO BASE -> 0xa0000000
+//    GPIO_DIR0 -> GPIO_BASE + 0x2000
 
-//#define GPIO_DIR0			REGISTER_32(GPIO_BASE + 0x2000)
-//#define GPIO_BASE		0xa0000000
-
-    *((volatile unsigned int *)(0xA0002000)) &= ~(0x00300000);
-//    GPIO_DIR0 &= (!(1<<21)); //Pin 21 input (B1)
-//    *((volatile unsigned int *)(0xa0002015)) = 0;
-//    GPIO_DIR0 &= (!(1<<20)); //Pin 20 input (B2)
-//    *((volatile unsigned int *)(0xa0002014)) = 0;
+    *((volatile unsigned int *)(0xA0002000)) &= ~(0x00300000); // Pin 20 (B2) and 21 (B1) input.
+    *((volatile unsigned int *)(0xA0002000)) |= (0x000E0000); // Pin 17, 18, 19 output(LEDS).
 
 
-    *((volatile unsigned int *)(0xA0002000)) |= (0x000E0000);
-//    GPIO_DIR0 |= (1<<17);
-//    *((volatile unsigned int *)(0xa0002011)) = 1;
-//    *((volatile unsigned int *)(0xA0002000)) |= 0x20000;
-//    GPIO_DIR0 |= (1<<18);
-//    *((volatile unsigned int *)(0xa0002012)) = 1;
-//    GPIO_DIR0 |= (1<<19);
-//    *((volatile unsigned int *)(0xa0002013)) = 1;
-
-
-//#define GPIO_B17			REGISTER_8(GPIO_BASE + 17)
-//#define GPIO_BASE		0xa0000000
-//    GPIO_B17 = 0; // red on
-    *((volatile unsigned char *)(0xA0000011)) = 0;
-
-//    GPIO_B18 = 1; // yellow off
-    *((volatile unsigned char *)(0xA0000012)) = 1;
-
-//    GPIO_B19 = 1; // green off
-    *((volatile unsigned char *)(0xA0000013)) = 1;
-
-
-//    GPIO_B20 -> 0xa0000014 -> *((volatile unsigned int *)(0xa0000014))
-//    GPIO_B21 -> 0xa0000015 -> *((volatile unsigned int *)(0xa0000015))
+//    GPIO BASE -> 0xa0000000
+//    GPIO_Bn -> GPIO_BASE + n
+    *((volatile unsigned char *)(0xA0000011)) = 0; // GPIO_B17 = 0; // red on
+    *((volatile unsigned char *)(0xA0000012)) = 1; // GPIO_B18 = 1; // yellow off
+    *((volatile unsigned char *)(0xA0000013)) = 1; // GPIO_B19 = 1; // green off
 
     while (1)
     {
@@ -187,7 +155,5 @@ int main(void)
 void delay(int counts)
 {
     int wait;
-    for (wait=counts; wait>0; --wait){
-    }
-
+    for (wait=counts; wait>0; --wait){}
 }

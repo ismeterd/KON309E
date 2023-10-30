@@ -49,33 +49,29 @@ volatile int button2Pressed = 0;
 int main(void)
 {
     delaytime=0;
+
     // System Clock Control Register
     // This register enables the clocks to individual system and peripheral blocks.
     // Bit 6 -> GPIO
     // Bit 7 -> SWM (Switch Matrix)
     // Bit 18 -> IOCON
-    // 0100 0000 0000 1100 0000
-    // 0x400C0
+    // 0100 0000 0000 1100 0000 -> 0x400C0
     SYSCON_SYSAHBCLKCTRL |= 0x400C0; // Enable IOCON, SWM & GPIO clocks.
 
     // Peripheral Reset Control Register
     // Bit 10 -> GPIO_RST_N
-    // 0100 0000 0000
+    // 0100 0000 0000 -> 0x400
     SYSCON_PRESETCTRL &= ~(0x400);  // Peripheral reset control to gpio/gpio int
     SYSCON_PRESETCTRL |=   0x400;   // AO: Check.
 
     // GPIO Direction Port Register
     // 0 input - 1 output
-    //Make Pin 9 an output. On Alakart, Pin #9 is the blue LED:
-    // 0000 0000 0000
-    // 0000 0000 0001
-    // 0010 0000 0000
-    GPIO_DIR0 &= (!(1<<21)); //Pin 21 input (B1)
-    GPIO_DIR0 &= (!(1<<20)); //Pin 20 input (B2)
+    GPIO_DIR0 &= (!(1<<21)); // Pin 21 input (B1)
+    GPIO_DIR0 &= (!(1<<20)); // Pin 20 input (B2)
 
-    GPIO_DIR0 |= (1<<17);
-    GPIO_DIR0 |= (1<<18);
-    GPIO_DIR0 |= (1<<19);
+    GPIO_DIR0 |= (1<<17); // Pin 17 output (Red LED)
+    GPIO_DIR0 |= (1<<18); // Pin 17 output (Yellow LED)
+    GPIO_DIR0 |= (1<<19); // Pin 17 output (Green LED)
 
     SysTickConfig(SYSTEM_CORE_CLOCK/1000);  //setup systick clock interrupt @1ms
 
@@ -85,7 +81,7 @@ int main(void)
 
     while (1)
     {
-        if (GPIO_B21 == 1) //when button 1 is pressed
+        if (GPIO_B21 == 1) // when button 1 is pressed
         {
             if(!button1Pressed)
             {
@@ -104,7 +100,7 @@ int main(void)
             button1Pressed = 0;
         }
 
-        if (GPIO_B20 == 1) //when button 2 is pressed
+        if (GPIO_B20 == 1) // when button 2 is pressed
         {
             if(!button2Pressed)
             {
@@ -161,18 +157,18 @@ int main(void)
 }
 
 //The interrupt handler for SysTick system time-base timer.
-void SysTick_Handler(void) {
+void SysTick_Handler(void)
+{
     if (delaytime!=0)
     { // If delaytime has been set somewhere in the program,
         --delaytime;     //  decrement it every time SysTick event occurs (1ms).
     }
 }
 
-void delay_ms(uint32_t ms) {//delay (ms)
-
+void delay_ms(uint32_t ms)
+{
     delaytime=ms;        // Set the delay time to the number of millisecs of wait
     while(delaytime!=0){}// Wait here until the delay time expires.
-
 }
 
 // System Tick Configuration:
