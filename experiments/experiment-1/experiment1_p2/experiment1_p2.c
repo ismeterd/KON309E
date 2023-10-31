@@ -81,9 +81,9 @@ int main(void)
 
     while (1)
     {
-        if (GPIO_B21 == 1) // when button 1 is pressed
+        if (GPIO_B21 == 1 && GPIO_B20 == 0) // when button 1 is pressed
         {
-            if(!button1Pressed)
+            if(!button1Pressed && !button2Pressed) // control previous state
             {
                 button1Pressed = 1;
                 state++;
@@ -94,15 +94,12 @@ int main(void)
                 state = 0;
             }
             delay_ms(50);
-        }
-        else
-        {
-            button1Pressed = 0;
+            button2Pressed = 0;
         }
 
-        if (GPIO_B20 == 1) // when button 2 is pressed
+        else if (GPIO_B21 == 0 && GPIO_B20 == 1) // when button 2 is pressed
         {
-            if(!button2Pressed)
+            if(!button1Pressed && !button2Pressed)
             {
                 button2Pressed = 1;
                 state += 2;
@@ -117,9 +114,15 @@ int main(void)
                 state = 1;
             }
             delay_ms(50);
+            button1Pressed = 0;
+        }
+        else if (GPIO_B21 == 1 && GPIO_B20 == 1) // when button 2 is pressed
+        {
+            delay_ms(50);
         }
         else
         {
+            button1Pressed = 0;
             button2Pressed = 0;
         }
 

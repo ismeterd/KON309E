@@ -80,9 +80,9 @@ int main(void)
 
     while (1)
     {
-        if (*((volatile unsigned char *)(0xA0000015)) == 1) //when button 1 is pressed
+        if (*((volatile unsigned char *)(0xA0000015)) == 1 && *((volatile unsigned char *)(0xA0000014)) == 0) //when button 1 is pressed
         {
-            if(!button1Pressed)
+            if(!button1Pressed && !button2Pressed)
             {
                 button1Pressed = 1;
                 state++;
@@ -93,15 +93,12 @@ int main(void)
                 state = 0;
             }
             delay(100000);
-        }
-        else
-        {
-            button1Pressed = 0;
+            button2Pressed = 0;
         }
 
-        if (*((volatile unsigned char *)(0xA0000014)) == 1) //when button 2 is pressed
+        else if (*((volatile unsigned char *)(0xA0000015)) == 0 && *((volatile unsigned char *)(0xA0000014)) == 1) //when button 2 is pressed
         {
-            if(!button2Pressed)
+            if(!button1Pressed && !button2Pressed)
             {
                 button2Pressed = 1;
                 state += 2;
@@ -116,9 +113,16 @@ int main(void)
                 state = 1;
             }
             delay(100000);
+            button1Pressed = 0;
+        }
+
+        else if (*((volatile unsigned char *)(0xA0000015)) == 1 && *((volatile unsigned char *)(0xA0000014)) == 1)
+        {
+            delay(100000);
         }
         else
         {
+            button1Pressed = 0;
             button2Pressed = 0;
         }
 
