@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/ismeterd/KON-309E/blob/master/images/logos/itu-eef-white.png" width="600" title="İTÜ Kontrol ve Otomasyon Mühendisliği">
+  <img src="images/logos/itu-eef-white.png" width="600" title="İTÜ Kontrol ve Otomasyon Mühendisliği">
 </p>
 
 
@@ -9,7 +9,7 @@ This repository contains assignments and solutions for the KON-309E course in th
 
 ## Development Board
 <p align="center">
-  <img src="https://github.com/ismeterd/KON-309E/blob/master/images/alakart_photos/alakart_transparent.png" width="600" title="Alakart Development Board"> 
+  <img src="images/alakart_photos/alakart_transparent.png" width="600" title="Alakart Development Board"> 
   <p align="center">Alakart Development Board</p>
 </p>
 <br>
