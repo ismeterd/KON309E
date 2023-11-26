@@ -1,0 +1,640 @@
+ARM GAS  /tmp/ccpUAICb.s 			page 1
+
+
+   1              		.cpu cortex-m0plus
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"main.c"
+  14              		.text
+  15              		.section	.text.clock_init,"ax",%progbits
+  16              		.align	1
+  17              		.global	clock_init
+  18              		.syntax unified
+  19              		.code	16
+  20              		.thumb_func
+  22              	clock_init:
+  23              		@ args = 0, pretend = 0, frame = 8
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 8E23     		movs	r3, #142
+  26 0002 73B5     		push	{r0, r1, r4, r5, r6, lr}
+  27 0004 0125     		movs	r5, #1
+  28              		@ sp needed
+  29 0006 0221     		movs	r1, #2
+  30 0008 0026     		movs	r6, #0
+  31 000a 0F4C     		ldr	r4, .L2
+  32 000c 9B00     		lsls	r3, r3, #2
+  33 000e E258     		ldr	r2, [r4, r3]
+  34 0010 6846     		mov	r0, sp
+  35 0012 AA43     		bics	r2, r5
+  36 0014 E250     		str	r2, [r4, r3]
+  37 0016 E258     		ldr	r2, [r4, r3]
+  38 0018 8A43     		bics	r2, r1
+  39 001a E250     		str	r2, [r4, r3]
+  40 001c 0B4B     		ldr	r3, .L2+4
+  41 001e 1E60     		str	r6, [r3]
+  42 0020 6B46     		mov	r3, sp
+  43 0022 1E71     		strb	r6, [r3, #4]
+  44 0024 0A4B     		ldr	r3, .L2+8
+  45 0026 0093     		str	r3, [sp]
+  46 0028 FFF7FEFF 		bl	CLOCK_InitSystemPll
+  47 002c C020     		movs	r0, #192
+  48 002e 8000     		lsls	r0, r0, #2
+  49 0030 FFF7FEFF 		bl	CLOCK_SetMainClkSrc
+  50 0034 FF22     		movs	r2, #255
+  51 0036 074B     		ldr	r3, .L2+12
+  52 0038 1E60     		str	r6, [r3]
+  53 003a A36F     		ldr	r3, [r4, #120]
+  54 003c 9343     		bics	r3, r2
+  55 003e 1D43     		orrs	r5, r3
+  56 0040 A567     		str	r5, [r4, #120]
+  57 0042 FFF7FEFF 		bl	SystemCoreClockUpdate
+  58 0046 73BD     		pop	{r0, r1, r4, r5, r6, pc}
+ARM GAS  /tmp/ccpUAICb.s 			page 2
+
+
+  59              	.L3:
+  60              		.align	2
+  61              	.L2:
+  62 0048 00800440 		.word	1074036736
+  63 004c 40800440 		.word	1074036800
+  64 0050 00879303 		.word	60000000
+  65 0054 E0800440 		.word	1074036960
+  67              		.section	.text.SysTick_Handler,"ax",%progbits
+  68              		.align	1
+  69              		.global	SysTick_Handler
+  70              		.syntax unified
+  71              		.code	16
+  72              		.thumb_func
+  74              	SysTick_Handler:
+  75              		@ args = 0, pretend = 0, frame = 0
+  76              		@ frame_needed = 0, uses_anonymous_args = 0
+  77              		@ link register save eliminated.
+  78 0000 034B     		ldr	r3, .L9
+  79 0002 1A68     		ldr	r2, [r3]
+  80 0004 002A     		cmp	r2, #0
+  81 0006 02D0     		beq	.L4
+  82 0008 1A68     		ldr	r2, [r3]
+  83 000a 013A     		subs	r2, r2, #1
+  84 000c 1A60     		str	r2, [r3]
+  85              	.L4:
+  86              		@ sp needed
+  87 000e 7047     		bx	lr
+  88              	.L10:
+  89              		.align	2
+  90              	.L9:
+  91 0010 00000000 		.word	g_systickCounter
+  93              		.section	.text.delay_ms,"ax",%progbits
+  94              		.align	1
+  95              		.global	delay_ms
+  96              		.syntax unified
+  97              		.code	16
+  98              		.thumb_func
+ 100              	delay_ms:
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              		@ link register save eliminated.
+ 104 0000 024B     		ldr	r3, .L14
+ 105 0002 1860     		str	r0, [r3]
+ 106              	.L12:
+ 107 0004 1A68     		ldr	r2, [r3]
+ 108 0006 002A     		cmp	r2, #0
+ 109 0008 FCD1     		bne	.L12
+ 110              		@ sp needed
+ 111 000a 7047     		bx	lr
+ 112              	.L15:
+ 113              		.align	2
+ 114              	.L14:
+ 115 000c 00000000 		.word	g_systickCounter
+ 117              		.global	__aeabi_uidiv
+ 118              		.section	.text.startup.main,"ax",%progbits
+ 119              		.align	1
+ 120              		.global	main
+ARM GAS  /tmp/ccpUAICb.s 			page 3
+
+
+ 121              		.syntax unified
+ 122              		.code	16
+ 123              		.thumb_func
+ 125              	main:
+ 126              		@ Volatile: function does not return.
+ 127              		@ args = 0, pretend = 0, frame = 48
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 130 0002 8FB0     		sub	sp, sp, #60
+ 131 0004 FFF7FEFF 		bl	InitPins
+ 132 0008 FFF7FEFF 		bl	clock_init
+ 133 000c FA21     		movs	r1, #250
+ 134 000e AA4B     		ldr	r3, .L55
+ 135 0010 8900     		lsls	r1, r1, #2
+ 136 0012 1868     		ldr	r0, [r3]
+ 137 0014 FFF7FEFF 		bl	__aeabi_uidiv
+ 138 0018 8023     		movs	r3, #128
+ 139 001a 0138     		subs	r0, r0, #1
+ 140 001c 5B04     		lsls	r3, r3, #17
+ 141 001e 9842     		cmp	r0, r3
+ 142 0020 0DD2     		bcs	.L17
+ 143 0022 C021     		movs	r1, #192
+ 144 0024 A54A     		ldr	r2, .L55+4
+ 145 0026 0906     		lsls	r1, r1, #24
+ 146 0028 5060     		str	r0, [r2, #4]
+ 147 002a A548     		ldr	r0, .L55+8
+ 148 002c 036A     		ldr	r3, [r0, #32]
+ 149 002e 1B02     		lsls	r3, r3, #8
+ 150 0030 1B0A     		lsrs	r3, r3, #8
+ 151 0032 0B43     		orrs	r3, r1
+ 152 0034 0362     		str	r3, [r0, #32]
+ 153 0036 0023     		movs	r3, #0
+ 154 0038 9360     		str	r3, [r2, #8]
+ 155 003a 0733     		adds	r3, r3, #7
+ 156 003c 1360     		str	r3, [r2]
+ 157              	.L17:
+ 158 003e 8024     		movs	r4, #128
+ 159 0040 A020     		movs	r0, #160
+ 160 0042 07AD     		add	r5, sp, #28
+ 161 0044 0021     		movs	r1, #0
+ 162 0046 6400     		lsls	r4, r4, #1
+ 163 0048 0006     		lsls	r0, r0, #24
+ 164 004a 2C80     		strh	r4, [r5]
+ 165 004c FFF7FEFF 		bl	GPIO_PortInit
+ 166 0050 A020     		movs	r0, #160
+ 167 0052 2B00     		movs	r3, r5
+ 168 0054 0922     		movs	r2, #9
+ 169 0056 0021     		movs	r1, #0
+ 170 0058 0006     		lsls	r0, r0, #24
+ 171 005a FFF7FEFF 		bl	GPIO_PinInit
+ 172 005e A020     		movs	r0, #160
+ 173 0060 2B00     		movs	r3, r5
+ 174 0062 0822     		movs	r2, #8
+ 175 0064 0021     		movs	r1, #0
+ 176 0066 0006     		lsls	r0, r0, #24
+ 177 0068 FFF7FEFF 		bl	GPIO_PinInit
+ 178 006c A020     		movs	r0, #160
+ARM GAS  /tmp/ccpUAICb.s 			page 4
+
+
+ 179 006e 2B00     		movs	r3, r5
+ 180 0070 0021     		movs	r1, #0
+ 181 0072 0722     		movs	r2, #7
+ 182 0074 0006     		lsls	r0, r0, #24
+ 183 0076 FFF7FEFF 		bl	GPIO_PinInit
+ 184 007a 924B     		ldr	r3, .L55+12
+ 185 007c 924F     		ldr	r7, .L55+16
+ 186 007e DA6F     		ldr	r2, [r3, #124]
+ 187 0080 0BA8     		add	r0, sp, #44
+ 188 0082 1443     		orrs	r4, r2
+ 189 0084 DC67     		str	r4, [r3, #124]
+ 190 0086 914B     		ldr	r3, .L55+20
+ 191 0088 3E00     		movs	r6, r7
+ 192 008a 3B60     		str	r3, [r7]
+ 193 008c FFF7FEFF 		bl	SCTIMER_GetDefaultConfig
+ 194 0090 0BA9     		add	r1, sp, #44
+ 195 0092 8F48     		ldr	r0, .L55+24
+ 196 0094 FFF7FEFF 		bl	SCTIMER_Init
+ 197 0098 8223     		movs	r3, #130
+ 198 009a 8E4F     		ldr	r7, .L55+28
+ 199 009c 04AA     		add	r2, sp, #16
+ 200 009e 5B00     		lsls	r3, r3, #1
+ 201 00a0 1382     		strh	r3, [r2, #16]
+ 202 00a2 3B68     		ldr	r3, [r7]
+ 203 00a4 08A9     		add	r1, sp, #32
+ 204 00a6 9374     		strb	r3, [r2, #18]
+ 205 00a8 8B4B     		ldr	r3, .L55+32
+ 206 00aa 0122     		movs	r2, #1
+ 207 00ac 0193     		str	r3, [sp, #4]
+ 208 00ae 0393     		str	r3, [sp, #12]
+ 209 00b0 3368     		ldr	r3, [r6]
+ 210 00b2 8748     		ldr	r0, .L55+24
+ 211 00b4 0093     		str	r3, [sp]
+ 212 00b6 894B     		ldr	r3, .L55+36
+ 213 00b8 FFF7FEFF 		bl	SCTIMER_SetupPwm
+ 214 00bc 0623     		movs	r3, #6
+ 215 00be 884D     		ldr	r5, .L55+40
+ 216 00c0 04AA     		add	r2, sp, #16
+ 217 00c2 FF33     		adds	r3, r3, #255
+ 218 00c4 9382     		strh	r3, [r2, #20]
+ 219 00c6 2B68     		ldr	r3, [r5]
+ 220 00c8 09A9     		add	r1, sp, #36
+ 221 00ca 9375     		strb	r3, [r2, #22]
+ 222 00cc 854B     		ldr	r3, .L55+44
+ 223 00ce 0122     		movs	r2, #1
+ 224 00d0 0193     		str	r3, [sp, #4]
+ 225 00d2 0493     		str	r3, [sp, #16]
+ 226 00d4 3368     		ldr	r3, [r6]
+ 227 00d6 7E48     		ldr	r0, .L55+24
+ 228 00d8 0093     		str	r3, [sp]
+ 229 00da 804B     		ldr	r3, .L55+36
+ 230 00dc FFF7FEFF 		bl	SCTIMER_SetupPwm
+ 231 00e0 0423     		movs	r3, #4
+ 232 00e2 814C     		ldr	r4, .L55+48
+ 233 00e4 04AA     		add	r2, sp, #16
+ 234 00e6 FF33     		adds	r3, r3, #255
+ 235 00e8 1383     		strh	r3, [r2, #24]
+ARM GAS  /tmp/ccpUAICb.s 			page 5
+
+
+ 236 00ea 2368     		ldr	r3, [r4]
+ 237 00ec 0AA9     		add	r1, sp, #40
+ 238 00ee 9376     		strb	r3, [r2, #26]
+ 239 00f0 7E4B     		ldr	r3, .L55+52
+ 240 00f2 0122     		movs	r2, #1
+ 241 00f4 0193     		str	r3, [sp, #4]
+ 242 00f6 3368     		ldr	r3, [r6]
+ 243 00f8 7548     		ldr	r0, .L55+24
+ 244 00fa 0093     		str	r3, [sp]
+ 245 00fc 774B     		ldr	r3, .L55+36
+ 246 00fe FFF7FEFF 		bl	SCTIMER_SetupPwm
+ 247 0102 0422     		movs	r2, #4
+ 248 0104 7249     		ldr	r1, .L55+24
+ 249 0106 4B68     		ldr	r3, [r1, #4]
+ 250 0108 9343     		bics	r3, r2
+ 251 010a 4B60     		str	r3, [r1, #4]
+ 252              	.L45:
+ 253 010c A023     		movs	r3, #160
+ 254 010e 1B06     		lsls	r3, r3, #24
+ 255 0110 5B7A     		ldrb	r3, [r3, #9]
+ 256 0112 774E     		ldr	r6, .L55+56
+ 257 0114 012B     		cmp	r3, #1
+ 258 0116 3DD1     		bne	.L19
+ 259 0118 764A     		ldr	r2, .L55+60
+ 260 011a 3378     		ldrb	r3, [r6]
+ 261 011c 1278     		ldrb	r2, [r2]
+ 262 011e 1343     		orrs	r3, r2
+ 263 0120 38D1     		bne	.L19
+ 264 0122 754E     		ldr	r6, .L55+64
+ 265 0124 3378     		ldrb	r3, [r6]
+ 266 0126 002B     		cmp	r3, #0
+ 267 0128 10D1     		bne	.L20
+ 268 012a 3220     		movs	r0, #50
+ 269 012c FFF7FEFF 		bl	delay_ms
+ 270 0130 A023     		movs	r3, #160
+ 271 0132 1B06     		lsls	r3, r3, #24
+ 272 0134 5B7A     		ldrb	r3, [r3, #9]
+ 273 0136 012B     		cmp	r3, #1
+ 274 0138 06D1     		bne	.L27
+ 275 013a 7049     		ldr	r1, .L55+68
+ 276 013c 0B78     		ldrb	r3, [r1]
+ 277 013e 5A1C     		adds	r2, r3, #1
+ 278 0140 D2B2     		uxtb	r2, r2
+ 279 0142 022A     		cmp	r2, #2
+ 280 0144 23D8     		bhi	.L23
+ 281 0146 0A70     		strb	r2, [r1]
+ 282              	.L27:
+ 283 0148 0123     		movs	r3, #1
+ 284 014a 3370     		strb	r3, [r6]
+ 285              	.L20:
+ 286 014c 6B4B     		ldr	r3, .L55+68
+ 287 014e 1E78     		ldrb	r6, [r3]
+ 288 0150 012E     		cmp	r6, #1
+ 289 0152 00D1     		bne	.LCB282
+ 290 0154 90E0     		b	.L43	@long jump
+ 291              	.LCB282:
+ 292 0156 022E     		cmp	r6, #2
+ARM GAS  /tmp/ccpUAICb.s 			page 6
+
+
+ 293 0158 00D1     		bne	.LCB284
+ 294 015a 99E0     		b	.L44	@long jump
+ 295              	.LCB284:
+ 296 015c 002E     		cmp	r6, #0
+ 297 015e D5D1     		bne	.L45
+ 298 0160 3A68     		ldr	r2, [r7]
+ 299 0162 039B     		ldr	r3, [sp, #12]
+ 300 0164 D2B2     		uxtb	r2, r2
+ 301 0166 1B68     		ldr	r3, [r3]
+ 302 0168 0421     		movs	r1, #4
+ 303 016a 5948     		ldr	r0, .L55+24
+ 304 016c FFF7FEFF 		bl	SCTIMER_UpdatePwmDutycycle
+ 305 0170 3200     		movs	r2, r6
+ 306 0172 049B     		ldr	r3, [sp, #16]
+ 307 0174 1B68     		ldr	r3, [r3]
+ 308              	.L54:
+ 309 0176 0521     		movs	r1, #5
+ 310 0178 5548     		ldr	r0, .L55+24
+ 311 017a FFF7FEFF 		bl	SCTIMER_UpdatePwmDutycycle
+ 312 017e 0022     		movs	r2, #0
+ 313 0180 5A4B     		ldr	r3, .L55+52
+ 314 0182 1B68     		ldr	r3, [r3]
+ 315              	.L48:
+ 316 0184 0321     		movs	r1, #3
+ 317 0186 5248     		ldr	r0, .L55+24
+ 318 0188 FFF7FEFF 		bl	SCTIMER_UpdatePwmDutycycle
+ 319 018c BEE7     		b	.L45
+ 320              	.L23:
+ 321 018e 023B     		subs	r3, r3, #2
+ 322 0190 0B70     		strb	r3, [r1]
+ 323 0192 D9E7     		b	.L27
+ 324              	.L19:
+ 325 0194 A023     		movs	r3, #160
+ 326 0196 1B06     		lsls	r3, r3, #24
+ 327 0198 1B7A     		ldrb	r3, [r3, #8]
+ 328 019a 012B     		cmp	r3, #1
+ 329 019c 30D1     		bne	.L25
+ 330 019e 564B     		ldr	r3, .L55+64
+ 331 01a0 544A     		ldr	r2, .L55+60
+ 332 01a2 1B78     		ldrb	r3, [r3]
+ 333 01a4 1278     		ldrb	r2, [r2]
+ 334 01a6 1343     		orrs	r3, r2
+ 335 01a8 2AD1     		bne	.L25
+ 336 01aa 3378     		ldrb	r3, [r6]
+ 337 01ac 002B     		cmp	r3, #0
+ 338 01ae CDD1     		bne	.L20
+ 339 01b0 3220     		movs	r0, #50
+ 340 01b2 FFF7FEFF 		bl	delay_ms
+ 341 01b6 A023     		movs	r3, #160
+ 342 01b8 1B06     		lsls	r3, r3, #24
+ 343 01ba 1B7A     		ldrb	r3, [r3, #8]
+ 344 01bc 012B     		cmp	r3, #1
+ 345 01be C3D1     		bne	.L27
+ 346 01c0 4E4B     		ldr	r3, .L55+68
+ 347 01c2 1B78     		ldrb	r3, [r3]
+ 348 01c4 012B     		cmp	r3, #1
+ 349 01c6 0BD0     		beq	.L28
+ARM GAS  /tmp/ccpUAICb.s 			page 7
+
+
+ 350 01c8 022B     		cmp	r3, #2
+ 351 01ca 11D0     		beq	.L29
+ 352 01cc 002B     		cmp	r3, #0
+ 353 01ce BBD1     		bne	.L27
+ 354 01d0 3B68     		ldr	r3, [r7]
+ 355 01d2 1433     		adds	r3, r3, #20
+ 356 01d4 632B     		cmp	r3, #99
+ 357 01d6 01DC     		bgt	.L30
+ 358              	.L49:
+ 359 01d8 3B60     		str	r3, [r7]
+ 360 01da B5E7     		b	.L27
+ 361              	.L30:
+ 362 01dc 6423     		movs	r3, #100
+ 363 01de FBE7     		b	.L49
+ 364              	.L28:
+ 365 01e0 2B68     		ldr	r3, [r5]
+ 366 01e2 1433     		adds	r3, r3, #20
+ 367 01e4 632B     		cmp	r3, #99
+ 368 01e6 01DC     		bgt	.L32
+ 369              	.L51:
+ 370 01e8 2B60     		str	r3, [r5]
+ 371 01ea ADE7     		b	.L27
+ 372              	.L32:
+ 373 01ec 6423     		movs	r3, #100
+ 374 01ee FBE7     		b	.L51
+ 375              	.L29:
+ 376 01f0 2368     		ldr	r3, [r4]
+ 377 01f2 1433     		adds	r3, r3, #20
+ 378 01f4 632B     		cmp	r3, #99
+ 379 01f6 01DC     		bgt	.L33
+ 380              	.L50:
+ 381 01f8 2360     		str	r3, [r4]
+ 382 01fa A5E7     		b	.L27
+ 383              	.L33:
+ 384 01fc 6423     		movs	r3, #100
+ 385 01fe FBE7     		b	.L50
+ 386              	.L25:
+ 387 0200 A023     		movs	r3, #160
+ 388 0202 1B06     		lsls	r3, r3, #24
+ 389 0204 DB79     		ldrb	r3, [r3, #7]
+ 390 0206 3C4A     		ldr	r2, .L55+64
+ 391 0208 012B     		cmp	r3, #1
+ 392 020a 2FD1     		bne	.L34
+ 393 020c 1178     		ldrb	r1, [r2]
+ 394 020e 3378     		ldrb	r3, [r6]
+ 395 0210 1943     		orrs	r1, r3
+ 396 0212 0591     		str	r1, [sp, #20]
+ 397 0214 2AD1     		bne	.L34
+ 398 0216 3220     		movs	r0, #50
+ 399 0218 FFF7FEFF 		bl	delay_ms
+ 400 021c A023     		movs	r3, #160
+ 401 021e 1B06     		lsls	r3, r3, #24
+ 402 0220 DB79     		ldrb	r3, [r3, #7]
+ 403 0222 012B     		cmp	r3, #1
+ 404 0224 0CD1     		bne	.L36
+ 405 0226 354B     		ldr	r3, .L55+68
+ 406 0228 1B78     		ldrb	r3, [r3]
+ARM GAS  /tmp/ccpUAICb.s 			page 8
+
+
+ 407 022a 012B     		cmp	r3, #1
+ 408 022c 0ED0     		beq	.L37
+ 409 022e 022B     		cmp	r3, #2
+ 410 0230 14D0     		beq	.L38
+ 411 0232 002B     		cmp	r3, #0
+ 412 0234 04D1     		bne	.L36
+ 413 0236 3A68     		ldr	r2, [r7]
+ 414 0238 143A     		subs	r2, r2, #20
+ 415 023a 002A     		cmp	r2, #0
+ 416 023c 04DD     		ble	.L39
+ 417 023e 3A60     		str	r2, [r7]
+ 418              	.L36:
+ 419 0240 0122     		movs	r2, #1
+ 420 0242 2C4B     		ldr	r3, .L55+60
+ 421 0244 1A70     		strb	r2, [r3]
+ 422 0246 81E7     		b	.L20
+ 423              	.L39:
+ 424 0248 3B60     		str	r3, [r7]
+ 425 024a F9E7     		b	.L36
+ 426              	.L37:
+ 427 024c 2B68     		ldr	r3, [r5]
+ 428 024e 143B     		subs	r3, r3, #20
+ 429 0250 002B     		cmp	r3, #0
+ 430 0252 01DD     		ble	.L41
+ 431              	.L52:
+ 432 0254 2B60     		str	r3, [r5]
+ 433 0256 F3E7     		b	.L36
+ 434              	.L41:
+ 435 0258 059B     		ldr	r3, [sp, #20]
+ 436 025a FBE7     		b	.L52
+ 437              	.L38:
+ 438 025c 2368     		ldr	r3, [r4]
+ 439 025e 143B     		subs	r3, r3, #20
+ 440 0260 002B     		cmp	r3, #0
+ 441 0262 01DD     		ble	.L42
+ 442              	.L53:
+ 443 0264 2360     		str	r3, [r4]
+ 444 0266 EBE7     		b	.L36
+ 445              	.L42:
+ 446 0268 059B     		ldr	r3, [sp, #20]
+ 447 026a FBE7     		b	.L53
+ 448              	.L34:
+ 449 026c 0023     		movs	r3, #0
+ 450 026e 1370     		strb	r3, [r2]
+ 451 0270 204A     		ldr	r2, .L55+60
+ 452 0272 3370     		strb	r3, [r6]
+ 453 0274 1370     		strb	r3, [r2]
+ 454 0276 69E7     		b	.L20
+ 455              	.L43:
+ 456 0278 039B     		ldr	r3, [sp, #12]
+ 457 027a 0022     		movs	r2, #0
+ 458 027c 1B68     		ldr	r3, [r3]
+ 459 027e 0421     		movs	r1, #4
+ 460 0280 1348     		ldr	r0, .L55+24
+ 461 0282 FFF7FEFF 		bl	SCTIMER_UpdatePwmDutycycle
+ 462 0286 2A68     		ldr	r2, [r5]
+ 463 0288 049B     		ldr	r3, [sp, #16]
+ARM GAS  /tmp/ccpUAICb.s 			page 9
+
+
+ 464 028a D2B2     		uxtb	r2, r2
+ 465 028c 1B68     		ldr	r3, [r3]
+ 466 028e 72E7     		b	.L54
+ 467              	.L44:
+ 468 0290 039B     		ldr	r3, [sp, #12]
+ 469 0292 0022     		movs	r2, #0
+ 470 0294 0421     		movs	r1, #4
+ 471 0296 1B68     		ldr	r3, [r3]
+ 472 0298 0D48     		ldr	r0, .L55+24
+ 473 029a FFF7FEFF 		bl	SCTIMER_UpdatePwmDutycycle
+ 474 029e 049B     		ldr	r3, [sp, #16]
+ 475 02a0 0022     		movs	r2, #0
+ 476 02a2 1B68     		ldr	r3, [r3]
+ 477 02a4 0521     		movs	r1, #5
+ 478 02a6 0A48     		ldr	r0, .L55+24
+ 479 02a8 FFF7FEFF 		bl	SCTIMER_UpdatePwmDutycycle
+ 480 02ac 0F4B     		ldr	r3, .L55+52
+ 481 02ae 2268     		ldr	r2, [r4]
+ 482 02b0 1B68     		ldr	r3, [r3]
+ 483 02b2 D2B2     		uxtb	r2, r2
+ 484 02b4 66E7     		b	.L48
+ 485              	.L56:
+ 486 02b6 C046     		.align	2
+ 487              	.L55:
+ 488 02b8 00000000 		.word	SystemCoreClock
+ 489 02bc 10E000E0 		.word	-536813552
+ 490 02c0 00ED00E0 		.word	-536810240
+ 491 02c4 04800440 		.word	1074036740
+ 492 02c8 00000000 		.word	sctimerClock
+ 493 02cc 80C3C901 		.word	30000000
+ 494 02d0 00400050 		.word	1342193664
+ 495 02d4 00000000 		.word	redDutyCyclePercent
+ 496 02d8 00000000 		.word	event0
+ 497 02dc C05D0000 		.word	24000
+ 498 02e0 00000000 		.word	greenDutyCyclePercent
+ 499 02e4 00000000 		.word	event1
+ 500 02e8 00000000 		.word	yellowDutyCyclePercent
+ 501 02ec 00000000 		.word	event2
+ 502 02f0 00000000 		.word	button2Pressed
+ 503 02f4 00000000 		.word	button3Pressed
+ 504 02f8 00000000 		.word	button1Pressed
+ 505 02fc 00000000 		.word	state
+ 507              		.global	yellowDutyCyclePercent
+ 508              		.section	.data.yellowDutyCyclePercent,"aw"
+ 509              		.align	2
+ 512              	yellowDutyCyclePercent:
+ 513 0000 14000000 		.word	20
+ 514              		.global	greenDutyCyclePercent
+ 515              		.section	.data.greenDutyCyclePercent,"aw"
+ 516              		.align	2
+ 519              	greenDutyCyclePercent:
+ 520 0000 14000000 		.word	20
+ 521              		.global	redDutyCyclePercent
+ 522              		.section	.data.redDutyCyclePercent,"aw"
+ 523              		.align	2
+ 526              	redDutyCyclePercent:
+ 527 0000 14000000 		.word	20
+ARM GAS  /tmp/ccpUAICb.s 			page 10
+
+
+ 528              		.global	sctimerClock
+ 529              		.section	.bss.sctimerClock,"aw",%nobits
+ 530              		.align	2
+ 533              	sctimerClock:
+ 534 0000 00000000 		.space	4
+ 535              		.global	event2
+ 536              		.section	.data.event2,"aw"
+ 537              		.align	2
+ 540              	event2:
+ 541 0000 02000000 		.word	2
+ 542              		.global	event1
+ 543              		.section	.data.event1,"aw"
+ 544              		.align	2
+ 547              	event1:
+ 548 0000 01000000 		.word	1
+ 549              		.global	event0
+ 550              		.section	.bss.event0,"aw",%nobits
+ 551              		.align	2
+ 554              	event0:
+ 555 0000 00000000 		.space	4
+ 556              		.global	state
+ 557              		.section	.bss.state,"aw",%nobits
+ 560              	state:
+ 561 0000 00       		.space	1
+ 562              		.global	button3Pressed
+ 563              		.section	.bss.button3Pressed,"aw",%nobits
+ 566              	button3Pressed:
+ 567 0000 00       		.space	1
+ 568              		.global	button2Pressed
+ 569              		.section	.bss.button2Pressed,"aw",%nobits
+ 572              	button2Pressed:
+ 573 0000 00       		.space	1
+ 574              		.global	button1Pressed
+ 575              		.section	.bss.button1Pressed,"aw",%nobits
+ 578              	button1Pressed:
+ 579 0000 00       		.space	1
+ 580              		.global	g_systickCounter
+ 581              		.section	.bss.g_systickCounter,"aw",%nobits
+ 582              		.align	2
+ 585              	g_systickCounter:
+ 586 0000 00000000 		.space	4
+ 587              		.ident	"GCC: (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 12.3.1 20230626"
+ARM GAS  /tmp/ccpUAICb.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+     /tmp/ccpUAICb.s:16     .text.clock_init:00000000 $t
+     /tmp/ccpUAICb.s:22     .text.clock_init:00000000 clock_init
+     /tmp/ccpUAICb.s:62     .text.clock_init:00000048 $d
+     /tmp/ccpUAICb.s:68     .text.SysTick_Handler:00000000 $t
+     /tmp/ccpUAICb.s:74     .text.SysTick_Handler:00000000 SysTick_Handler
+     /tmp/ccpUAICb.s:91     .text.SysTick_Handler:00000010 $d
+     /tmp/ccpUAICb.s:585    .bss.g_systickCounter:00000000 g_systickCounter
+     /tmp/ccpUAICb.s:94     .text.delay_ms:00000000 $t
+     /tmp/ccpUAICb.s:100    .text.delay_ms:00000000 delay_ms
+     /tmp/ccpUAICb.s:115    .text.delay_ms:0000000c $d
+     /tmp/ccpUAICb.s:119    .text.startup.main:00000000 $t
+     /tmp/ccpUAICb.s:125    .text.startup.main:00000000 main
+     /tmp/ccpUAICb.s:488    .text.startup.main:000002b8 $d
+     /tmp/ccpUAICb.s:533    .bss.sctimerClock:00000000 sctimerClock
+     /tmp/ccpUAICb.s:526    .data.redDutyCyclePercent:00000000 redDutyCyclePercent
+     /tmp/ccpUAICb.s:554    .bss.event0:00000000 event0
+     /tmp/ccpUAICb.s:519    .data.greenDutyCyclePercent:00000000 greenDutyCyclePercent
+     /tmp/ccpUAICb.s:547    .data.event1:00000000 event1
+     /tmp/ccpUAICb.s:512    .data.yellowDutyCyclePercent:00000000 yellowDutyCyclePercent
+     /tmp/ccpUAICb.s:540    .data.event2:00000000 event2
+     /tmp/ccpUAICb.s:572    .bss.button2Pressed:00000000 button2Pressed
+     /tmp/ccpUAICb.s:566    .bss.button3Pressed:00000000 button3Pressed
+     /tmp/ccpUAICb.s:578    .bss.button1Pressed:00000000 button1Pressed
+     /tmp/ccpUAICb.s:560    .bss.state:00000000 state
+     /tmp/ccpUAICb.s:509    .data.yellowDutyCyclePercent:00000000 $d
+     /tmp/ccpUAICb.s:516    .data.greenDutyCyclePercent:00000000 $d
+     /tmp/ccpUAICb.s:523    .data.redDutyCyclePercent:00000000 $d
+     /tmp/ccpUAICb.s:530    .bss.sctimerClock:00000000 $d
+     /tmp/ccpUAICb.s:537    .data.event2:00000000 $d
+     /tmp/ccpUAICb.s:544    .data.event1:00000000 $d
+     /tmp/ccpUAICb.s:551    .bss.event0:00000000 $d
+     /tmp/ccpUAICb.s:561    .bss.state:00000000 $d
+     /tmp/ccpUAICb.s:567    .bss.button3Pressed:00000000 $d
+     /tmp/ccpUAICb.s:573    .bss.button2Pressed:00000000 $d
+     /tmp/ccpUAICb.s:579    .bss.button1Pressed:00000000 $d
+     /tmp/ccpUAICb.s:582    .bss.g_systickCounter:00000000 $d
+
+UNDEFINED SYMBOLS
+CLOCK_InitSystemPll
+CLOCK_SetMainClkSrc
+SystemCoreClockUpdate
+__aeabi_uidiv
+InitPins
+GPIO_PortInit
+GPIO_PinInit
+SCTIMER_GetDefaultConfig
+SCTIMER_Init
+SCTIMER_SetupPwm
+SCTIMER_UpdatePwmDutycycle
+SystemCoreClock
