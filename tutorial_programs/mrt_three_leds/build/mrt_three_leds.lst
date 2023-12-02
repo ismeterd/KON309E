@@ -1,0 +1,252 @@
+ARM GAS  /tmp/ccClFUQV.s 			page 1
+
+
+   1              		.cpu cortex-m0plus
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"main.c"
+  14              		.text
+  15              		.align	1
+  16              		.global	MRT0_IRQHandler
+  17              		.syntax unified
+  18              		.code	16
+  19              		.thumb_func
+  21              	MRT0_IRQHandler:
+  22              		@ args = 0, pretend = 0, frame = 0
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24              		@ link register save eliminated.
+  25 0000 0123     		movs	r3, #1
+  26              		@ sp needed
+  27 0002 024A     		ldr	r2, .L2
+  28 0004 D360     		str	r3, [r2, #12]
+  29 0006 024A     		ldr	r2, .L2+4
+  30 0008 1370     		strb	r3, [r2]
+  31 000a 7047     		bx	lr
+  32              	.L3:
+  33              		.align	2
+  34              	.L2:
+  35 000c 00400040 		.word	1073758208
+  36 0010 00000000 		.word	.LANCHOR0
+  38              		.align	1
+  39              		.global	clock_init
+  40              		.syntax unified
+  41              		.code	16
+  42              		.thumb_func
+  44              	clock_init:
+  45              		@ args = 0, pretend = 0, frame = 8
+  46              		@ frame_needed = 0, uses_anonymous_args = 0
+  47 0014 8E23     		movs	r3, #142
+  48 0016 73B5     		push	{r0, r1, r4, r5, r6, lr}
+  49 0018 0125     		movs	r5, #1
+  50              		@ sp needed
+  51 001a 0221     		movs	r1, #2
+  52 001c 0026     		movs	r6, #0
+  53 001e 0F4C     		ldr	r4, .L5
+  54 0020 9B00     		lsls	r3, r3, #2
+  55 0022 E258     		ldr	r2, [r4, r3]
+  56 0024 6846     		mov	r0, sp
+  57 0026 AA43     		bics	r2, r5
+  58 0028 E250     		str	r2, [r4, r3]
+  59 002a E258     		ldr	r2, [r4, r3]
+  60 002c 8A43     		bics	r2, r1
+ARM GAS  /tmp/ccClFUQV.s 			page 2
+
+
+  61 002e E250     		str	r2, [r4, r3]
+  62 0030 0B4B     		ldr	r3, .L5+4
+  63 0032 1E60     		str	r6, [r3]
+  64 0034 6B46     		mov	r3, sp
+  65 0036 1E71     		strb	r6, [r3, #4]
+  66 0038 0A4B     		ldr	r3, .L5+8
+  67 003a 0093     		str	r3, [sp]
+  68 003c FFF7FEFF 		bl	CLOCK_InitSystemPll
+  69 0040 C020     		movs	r0, #192
+  70 0042 8000     		lsls	r0, r0, #2
+  71 0044 FFF7FEFF 		bl	CLOCK_SetMainClkSrc
+  72 0048 FF22     		movs	r2, #255
+  73 004a 074B     		ldr	r3, .L5+12
+  74 004c 1E60     		str	r6, [r3]
+  75 004e A36F     		ldr	r3, [r4, #120]
+  76 0050 9343     		bics	r3, r2
+  77 0052 1D43     		orrs	r5, r3
+  78 0054 A567     		str	r5, [r4, #120]
+  79 0056 FFF7FEFF 		bl	SystemCoreClockUpdate
+  80 005a 73BD     		pop	{r0, r1, r4, r5, r6, pc}
+  81              	.L6:
+  82              		.align	2
+  83              	.L5:
+  84 005c 00800440 		.word	1074036736
+  85 0060 40800440 		.word	1074036800
+  86 0064 00879303 		.word	60000000
+  87 0068 E0800440 		.word	1074036960
+  89              		.global	__aeabi_uidiv
+  90              		.section	.text.startup,"ax",%progbits
+  91              		.align	1
+  92              		.global	main
+  93              		.syntax unified
+  94              		.code	16
+  95              		.thumb_func
+  97              	main:
+  98              		@ args = 0, pretend = 0, frame = 8
+  99              		@ frame_needed = 0, uses_anonymous_args = 0
+ 100 0000 73B5     		push	{r0, r1, r4, r5, r6, lr}
+ 101 0002 8026     		movs	r6, #128
+ 102 0004 FFF7FEFF 		bl	clock_init
+ 103 0008 2F4B     		ldr	r3, .L22
+ 104 000a F600     		lsls	r6, r6, #3
+ 105 000c DA6F     		ldr	r2, [r3, #124]
+ 106 000e A020     		movs	r0, #160
+ 107 0010 3243     		orrs	r2, r6
+ 108 0012 DA67     		str	r2, [r3, #124]
+ 109 0014 4022     		movs	r2, #64
+ 110 0016 0124     		movs	r4, #1
+ 111 0018 D96F     		ldr	r1, [r3, #124]
+ 112 001a 01AD     		add	r5, sp, #4
+ 113 001c 0A43     		orrs	r2, r1
+ 114 001e DA67     		str	r2, [r3, #124]
+ 115 0020 0021     		movs	r1, #0
+ 116 0022 0006     		lsls	r0, r0, #24
+ 117 0024 2C80     		strh	r4, [r5]
+ 118 0026 FFF7FEFF 		bl	GPIO_PortInit
+ 119 002a A020     		movs	r0, #160
+ARM GAS  /tmp/ccClFUQV.s 			page 3
+
+
+ 120 002c 2B00     		movs	r3, r5
+ 121 002e 1122     		movs	r2, #17
+ 122 0030 0021     		movs	r1, #0
+ 123 0032 0006     		lsls	r0, r0, #24
+ 124 0034 FFF7FEFF 		bl	GPIO_PinInit
+ 125 0038 A020     		movs	r0, #160
+ 126 003a 2B00     		movs	r3, r5
+ 127 003c 1222     		movs	r2, #18
+ 128 003e 0021     		movs	r1, #0
+ 129 0040 0006     		lsls	r0, r0, #24
+ 130 0042 FFF7FEFF 		bl	GPIO_PinInit
+ 131 0046 A020     		movs	r0, #160
+ 132 0048 2B00     		movs	r3, r5
+ 133 004a 204D     		ldr	r5, .L22+4
+ 134 004c 1322     		movs	r2, #19
+ 135 004e 0021     		movs	r1, #0
+ 136 0050 0006     		lsls	r0, r0, #24
+ 137 0052 FFF7FEFF 		bl	GPIO_PinInit
+ 138 0056 6946     		mov	r1, sp
+ 139 0058 2800     		movs	r0, r5
+ 140 005a FFF7FEFF 		bl	MRT_Init
+ 141 005e 0622     		movs	r2, #6
+ 142 0060 AB68     		ldr	r3, [r5, #8]
+ 143 0062 0020     		movs	r0, #0
+ 144 0064 9343     		bics	r3, r2
+ 145 0066 AB60     		str	r3, [r5, #8]
+ 146 0068 FFF7FEFF 		bl	CLOCK_GetFreq
+ 147 006c 6421     		movs	r1, #100
+ 148 006e FFF7FEFF 		bl	__aeabi_uidiv
+ 149 0072 2860     		str	r0, [r5]
+ 150 0074 AB68     		ldr	r3, [r5, #8]
+ 151 0076 2343     		orrs	r3, r4
+ 152 0078 AB60     		str	r3, [r5, #8]
+ 153 007a 154B     		ldr	r3, .L22+8
+ 154 007c 1E60     		str	r6, [r3]
+ 155 007e A022     		movs	r2, #160
+ 156 0080 0021     		movs	r1, #0
+ 157 0082 144D     		ldr	r5, .L22+12
+ 158 0084 1206     		lsls	r2, r2, #24
+ 159 0086 6868     		ldr	r0, [r5, #4]
+ 160 0088 2B7A     		ldrb	r3, [r5, #8]
+ 161              	.L8:
+ 162 008a 2E78     		ldrb	r6, [r5]
+ 163 008c 002E     		cmp	r6, #0
+ 164 008e FCD0     		beq	.L8
+ 165 0090 0130     		adds	r0, r0, #1
+ 166 0092 3228     		cmp	r0, #50
+ 167 0094 04D1     		bne	.L9
+ 168 0096 0133     		adds	r3, r3, #1
+ 169 0098 DBB2     		uxtb	r3, r3
+ 170 009a 0020     		movs	r0, #0
+ 171 009c 042B     		cmp	r3, #4
+ 172 009e 05D0     		beq	.L10
+ 173              	.L9:
+ 174 00a0 022B     		cmp	r3, #2
+ 175 00a2 09D0     		beq	.L11
+ 176 00a4 032B     		cmp	r3, #3
+ARM GAS  /tmp/ccClFUQV.s 			page 4
+
+
+ 177 00a6 0BD0     		beq	.L12
+ 178 00a8 012B     		cmp	r3, #1
+ 179 00aa 03D1     		bne	.L13
+ 180              	.L10:
+ 181 00ac 2300     		movs	r3, r4
+ 182 00ae 5474     		strb	r4, [r2, #17]
+ 183 00b0 9174     		strb	r1, [r2, #18]
+ 184 00b2 D174     		strb	r1, [r2, #19]
+ 185              	.L13:
+ 186 00b4 2970     		strb	r1, [r5]
+ 187 00b6 E8E7     		b	.L8
+ 188              	.L11:
+ 189 00b8 5174     		strb	r1, [r2, #17]
+ 190 00ba 9474     		strb	r4, [r2, #18]
+ 191 00bc D174     		strb	r1, [r2, #19]
+ 192 00be F9E7     		b	.L13
+ 193              	.L12:
+ 194 00c0 5174     		strb	r1, [r2, #17]
+ 195 00c2 9174     		strb	r1, [r2, #18]
+ 196 00c4 D474     		strb	r4, [r2, #19]
+ 197 00c6 F5E7     		b	.L13
+ 198              	.L23:
+ 199              		.align	2
+ 200              	.L22:
+ 201 00c8 04800440 		.word	1074036740
+ 202 00cc 00400040 		.word	1073758208
+ 203 00d0 00E100E0 		.word	-536813312
+ 204 00d4 00000000 		.word	.LANCHOR0
+ 206              		.global	state
+ 207              		.global	counter
+ 208              		.bss
+ 209              		.align	2
+ 210              		.set	.LANCHOR0,. + 0
+ 213              	mrtIsrFlag:
+ 214 0000 00       		.space	1
+ 215 0001 000000   		.space	3
+ 218              	counter:
+ 219 0004 00000000 		.space	4
+ 222              	state:
+ 223 0008 00       		.space	1
+ 224              		.ident	"GCC: (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 12.3.1 20230626"
+ARM GAS  /tmp/ccClFUQV.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+     /tmp/ccClFUQV.s:15     .text:00000000 $t
+     /tmp/ccClFUQV.s:21     .text:00000000 MRT0_IRQHandler
+     /tmp/ccClFUQV.s:35     .text:0000000c $d
+     /tmp/ccClFUQV.s:38     .text:00000014 $t
+     /tmp/ccClFUQV.s:44     .text:00000014 clock_init
+     /tmp/ccClFUQV.s:84     .text:0000005c $d
+     /tmp/ccClFUQV.s:91     .text.startup:00000000 $t
+     /tmp/ccClFUQV.s:97     .text.startup:00000000 main
+     /tmp/ccClFUQV.s:201    .text.startup:000000c8 $d
+     /tmp/ccClFUQV.s:222    .bss:00000008 state
+     /tmp/ccClFUQV.s:218    .bss:00000004 counter
+     /tmp/ccClFUQV.s:209    .bss:00000000 $d
+     /tmp/ccClFUQV.s:213    .bss:00000000 mrtIsrFlag
+
+UNDEFINED SYMBOLS
+CLOCK_InitSystemPll
+CLOCK_SetMainClkSrc
+SystemCoreClockUpdate
+__aeabi_uidiv
+GPIO_PortInit
+GPIO_PinInit
+MRT_Init
+CLOCK_GetFreq
