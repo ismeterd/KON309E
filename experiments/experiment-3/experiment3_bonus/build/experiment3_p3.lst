@@ -1,0 +1,985 @@
+ARM GAS  /tmp/cc0rYA6r.s 			page 1
+
+
+   1              		.cpu cortex-m0plus
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"experiment3_bonus.c"
+  14              		.text
+  15              		.section	.rodata.pint_intr_callback.str1.1,"aMS",%progbits,1
+  16              	.LC0:
+  17 0000 1B5B306D 		.ascii	"\033[0m\000"
+  17      00
+  18              	.LC2:
+  19 0005 0A5B5049 		.ascii	"\012[PIN INTERRUPT]: PINT Pin Interrupt 1 event det"
+  19      4E20494E 
+  19      54455252 
+  19      5550545D 
+  19      3A205049 
+  20 0035 65637465 		.ascii	"ected.\015\012\000"
+  20      642E0D0A 
+  20      00
+  21              	.LC6:
+  22 003e 5B50494E 		.ascii	"[PIN INTERRUPT]:\011 LED brightness has changed -> "
+  22      20494E54 
+  22      45525255 
+  22      50545D3A 
+  22      09204C45 
+  23 006e 42726967 		.ascii	"Brightness: %d \015\012\000"
+  23      68746E65 
+  23      73733A20 
+  23      2564200D 
+  23      0A00
+  24              		.section	.text.pint_intr_callback,"ax",%progbits
+  25              		.align	1
+  26              		.global	pint_intr_callback
+  27              		.syntax unified
+  28              		.code	16
+  29              		.thumb_func
+  31              	pint_intr_callback:
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34 0000 10B5     		push	{r4, lr}
+  35 0002 0B48     		ldr	r0, .L3
+  36 0004 FFF7FEFF 		bl	DbgConsole_Printf
+  37 0008 0A48     		ldr	r0, .L3+4
+  38 000a FFF7FEFF 		bl	DbgConsole_Printf
+  39 000e 0A4B     		ldr	r3, .L3+8
+  40 0010 1A68     		ldr	r2, [r3]
+  41 0012 0132     		adds	r2, r2, #1
+  42 0014 1A60     		str	r2, [r3]
+  43 0016 1A68     		ldr	r2, [r3]
+ARM GAS  /tmp/cc0rYA6r.s 			page 2
+
+
+  44 0018 042A     		cmp	r2, #4
+  45 001a 01D1     		bne	.L2
+  46 001c 0022     		movs	r2, #0
+  47 001e 1A60     		str	r2, [r3]
+  48              	.L2:
+  49 0020 1A68     		ldr	r2, [r3]
+  50 0022 064B     		ldr	r3, .L3+12
+  51 0024 9200     		lsls	r2, r2, #2
+  52 0026 0648     		ldr	r0, .L3+16
+  53 0028 D158     		ldr	r1, [r2, r3]
+  54 002a FFF7FEFF 		bl	DbgConsole_Printf
+  55              		@ sp needed
+  56 002e 10BD     		pop	{r4, pc}
+  57              	.L4:
+  58              		.align	2
+  59              	.L3:
+  60 0030 00000000 		.word	.LC0
+  61 0034 05000000 		.word	.LC2
+  62 0038 00000000 		.word	brightnessCounter
+  63 003c 00000000 		.word	brightness
+  64 0040 3E000000 		.word	.LC6
+  66              		.section	.rodata.pint_intr2_callback.str1.1,"aMS",%progbits,1
+  67              	.LC9:
+  68 0000 0A5B5049 		.ascii	"\012[PIN INTERRUPT]: PINT Pin Interrupt 2 event det"
+  68      4E20494E 
+  68      54455252 
+  68      5550545D 
+  68      3A205049 
+  69 0030 65637465 		.ascii	"ected.\015\012\000"
+  69      642E0D0A 
+  69      00
+  70              	.LC12:
+  71 0039 0A095B57 		.ascii	"\012\011[WARNING]: Cycle time cannot be lower than "
+  71      41524E49 
+  71      4E475D3A 
+  71      20437963 
+  71      6C652074 
+  72 0066 31303020 		.ascii	"100 ms!\015\012\000"
+  72      6D73210D 
+  72      0A00
+  73              	.LC15:
+  74 0070 5B50494E 		.ascii	"[PIN INTERRUPT]:\011 Cycle Time has changed -> time"
+  74      20494E54 
+  74      45525255 
+  74      50545D3A 
+  74      09204379 
+  75 00a0 3A202564 		.ascii	": %d ms \015\012\000"
+  75      206D7320 
+  75      0D0A00
+  76              		.section	.text.pint_intr2_callback,"ax",%progbits
+  77              		.align	1
+  78              		.global	pint_intr2_callback
+  79              		.syntax unified
+  80              		.code	16
+  81              		.thumb_func
+  83              	pint_intr2_callback:
+  84              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/cc0rYA6r.s 			page 3
+
+
+  85              		@ frame_needed = 0, uses_anonymous_args = 0
+  86 0000 10B5     		push	{r4, lr}
+  87 0002 0E48     		ldr	r0, .L8
+  88 0004 FFF7FEFF 		bl	DbgConsole_Printf
+  89 0008 0D48     		ldr	r0, .L8+4
+  90 000a FFF7FEFF 		bl	DbgConsole_Printf
+  91 000e 0D4B     		ldr	r3, .L8+8
+  92 0010 1A68     		ldr	r2, [r3]
+  93 0012 013A     		subs	r2, r2, #1
+  94 0014 1A60     		str	r2, [r3]
+  95 0016 1A68     		ldr	r2, [r3]
+  96 0018 0132     		adds	r2, r2, #1
+  97 001a 05D1     		bne	.L6
+  98 001c 0022     		movs	r2, #0
+  99 001e 0A48     		ldr	r0, .L8+12
+ 100 0020 1A60     		str	r2, [r3]
+ 101 0022 FFF7FEFF 		bl	DbgConsole_Printf
+ 102              	.L5:
+ 103              		@ sp needed
+ 104 0026 10BD     		pop	{r4, pc}
+ 105              	.L6:
+ 106 0028 1A68     		ldr	r2, [r3]
+ 107 002a 084B     		ldr	r3, .L8+16
+ 108 002c 9200     		lsls	r2, r2, #2
+ 109 002e D158     		ldr	r1, [r2, r3]
+ 110 0030 0A23     		movs	r3, #10
+ 111 0032 0748     		ldr	r0, .L8+20
+ 112 0034 5943     		muls	r1, r3
+ 113 0036 FFF7FEFF 		bl	DbgConsole_Printf
+ 114 003a F4E7     		b	.L5
+ 115              	.L9:
+ 116              		.align	2
+ 117              	.L8:
+ 118 003c 00000000 		.word	.LC0
+ 119 0040 00000000 		.word	.LC9
+ 120 0044 00000000 		.word	timerCounter
+ 121 0048 39000000 		.word	.LC12
+ 122 004c 00000000 		.word	timer
+ 123 0050 70000000 		.word	.LC15
+ 125              		.section	.rodata.pint_intr3_callback.str1.1,"aMS",%progbits,1
+ 126              	.LC18:
+ 127 0000 0A5B5049 		.ascii	"\012[PIN INTERRUPT]: PINT Pin Interrupt 3 event det"
+ 127      4E20494E 
+ 127      54455252 
+ 127      5550545D 
+ 127      3A205049 
+ 128 0030 65637465 		.ascii	"ected.\015\012\000"
+ 128      642E0D0A 
+ 128      00
+ 129              		.section	.text.pint_intr3_callback,"ax",%progbits
+ 130              		.align	1
+ 131              		.global	pint_intr3_callback
+ 132              		.syntax unified
+ 133              		.code	16
+ 134              		.thumb_func
+ 136              	pint_intr3_callback:
+ 137              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/cc0rYA6r.s 			page 4
+
+
+ 138              		@ frame_needed = 0, uses_anonymous_args = 0
+ 139 0000 10B5     		push	{r4, lr}
+ 140 0002 0D48     		ldr	r0, .L13
+ 141 0004 FFF7FEFF 		bl	DbgConsole_Printf
+ 142 0008 0C48     		ldr	r0, .L13+4
+ 143 000a FFF7FEFF 		bl	DbgConsole_Printf
+ 144 000e 0C4B     		ldr	r3, .L13+8
+ 145 0010 1A68     		ldr	r2, [r3]
+ 146 0012 0132     		adds	r2, r2, #1
+ 147 0014 1A60     		str	r2, [r3]
+ 148 0016 1A68     		ldr	r2, [r3]
+ 149 0018 092A     		cmp	r2, #9
+ 150 001a 02D1     		bne	.L11
+ 151 001c 013A     		subs	r2, r2, #1
+ 152 001e 1A60     		str	r2, [r3]
+ 153              	.L10:
+ 154              		@ sp needed
+ 155 0020 10BD     		pop	{r4, pc}
+ 156              	.L11:
+ 157 0022 1A68     		ldr	r2, [r3]
+ 158 0024 074B     		ldr	r3, .L13+12
+ 159 0026 9200     		lsls	r2, r2, #2
+ 160 0028 D158     		ldr	r1, [r2, r3]
+ 161 002a 0A23     		movs	r3, #10
+ 162 002c 0648     		ldr	r0, .L13+16
+ 163 002e 5943     		muls	r1, r3
+ 164 0030 FFF7FEFF 		bl	DbgConsole_Printf
+ 165 0034 F4E7     		b	.L10
+ 166              	.L14:
+ 167 0036 C046     		.align	2
+ 168              	.L13:
+ 169 0038 00000000 		.word	.LC0
+ 170 003c 00000000 		.word	.LC18
+ 171 0040 00000000 		.word	timerCounter
+ 172 0044 00000000 		.word	timer
+ 173 0048 70000000 		.word	.LC15
+ 175              		.section	.rodata.MRT0_IRQHandler.str1.1,"aMS",%progbits,1
+ 176              	.LC28:
+ 177 0000 1B5B313B 		.ascii	"\033[1;31m\000"
+ 177      33316D00 
+ 178              	.LC30:
+ 179 0008 0A5B5449 		.ascii	"\012[TIMER INTERRUPT]: State is increment by one. ("
+ 179      4D455220 
+ 179      494E5445 
+ 179      52525550 
+ 179      545D3A20 
+ 180 0038 43757272 		.ascii	"Current LED: RED)\012\000"
+ 180      656E7420 
+ 180      4C45443A 
+ 180      20524544 
+ 180      290A00
+ 181              	.LC32:
+ 182 004b 1B5B313B 		.ascii	"\033[1;32m\000"
+ 182      33326D00 
+ 183              	.LC34:
+ 184 0053 0A5B5449 		.ascii	"\012[TIMER INTERRUPT]: State is increment by one. ("
+ 184      4D455220 
+ARM GAS  /tmp/cc0rYA6r.s 			page 5
+
+
+ 184      494E5445 
+ 184      52525550 
+ 184      545D3A20 
+ 185 0083 43757272 		.ascii	"Current LED: GREEN)\012\000"
+ 185      656E7420 
+ 185      4C45443A 
+ 185      20475245 
+ 185      454E290A 
+ 186              	.LC36:
+ 187 0098 1B5B313B 		.ascii	"\033[1;33m\000"
+ 187      33336D00 
+ 188              	.LC38:
+ 189 00a0 0A5B5449 		.ascii	"\012[TIMER INTERRUPT]: State is increment by one. ("
+ 189      4D455220 
+ 189      494E5445 
+ 189      52525550 
+ 189      545D3A20 
+ 190 00d0 43757272 		.ascii	"Current LED: YELLOW)\012\000"
+ 190      656E7420 
+ 190      4C45443A 
+ 190      2059454C 
+ 190      4C4F5729 
+ 191              		.section	.text.MRT0_IRQHandler,"ax",%progbits
+ 192              		.align	1
+ 193              		.global	MRT0_IRQHandler
+ 194              		.syntax unified
+ 195              		.code	16
+ 196              		.thumb_func
+ 198              	MRT0_IRQHandler:
+ 199              		@ args = 0, pretend = 0, frame = 0
+ 200              		@ frame_needed = 0, uses_anonymous_args = 0
+ 201 0000 0123     		movs	r3, #1
+ 202 0002 70B5     		push	{r4, r5, r6, lr}
+ 203 0004 3B4A     		ldr	r2, .L31
+ 204 0006 3C4D     		ldr	r5, .L31+4
+ 205 0008 D360     		str	r3, [r2, #12]
+ 206 000a 2B70     		strb	r3, [r5]
+ 207 000c 2B78     		ldrb	r3, [r5]
+ 208 000e 002B     		cmp	r3, #0
+ 209 0010 67D0     		beq	.L15
+ 210 0012 3A4C     		ldr	r4, .L31+8
+ 211 0014 3A4A     		ldr	r2, .L31+12
+ 212 0016 2168     		ldr	r1, [r4]
+ 213 0018 3A48     		ldr	r0, .L31+16
+ 214 001a 1368     		ldr	r3, [r2]
+ 215 001c 8900     		lsls	r1, r1, #2
+ 216 001e 0958     		ldr	r1, [r1, r0]
+ 217 0020 0133     		adds	r3, r3, #1
+ 218 0022 1360     		str	r3, [r2]
+ 219 0024 8B42     		cmp	r3, r1
+ 220 0026 01D9     		bls	.L17
+ 221 0028 0023     		movs	r3, #0
+ 222 002a 1360     		str	r3, [r2]
+ 223              	.L17:
+ 224 002c 2368     		ldr	r3, [r4]
+ 225 002e 1168     		ldr	r1, [r2]
+ 226 0030 9B00     		lsls	r3, r3, #2
+ARM GAS  /tmp/cc0rYA6r.s 			page 6
+
+
+ 227 0032 C358     		ldr	r3, [r0, r3]
+ 228 0034 344C     		ldr	r4, .L31+20
+ 229 0036 9942     		cmp	r1, r3
+ 230 0038 0ED1     		bne	.L18
+ 231 003a 0021     		movs	r1, #0
+ 232 003c 2378     		ldrb	r3, [r4]
+ 233 003e 1160     		str	r1, [r2]
+ 234 0040 0133     		adds	r3, r3, #1
+ 235 0042 DBB2     		uxtb	r3, r3
+ 236 0044 2370     		strb	r3, [r4]
+ 237 0046 032B     		cmp	r3, #3
+ 238 0048 1AD1     		bne	.L19
+ 239 004a 2170     		strb	r1, [r4]
+ 240              	.L20:
+ 241 004c 2F48     		ldr	r0, .L31+24
+ 242 004e FFF7FEFF 		bl	DbgConsole_Printf
+ 243 0052 2F48     		ldr	r0, .L31+28
+ 244              	.L29:
+ 245 0054 FFF7FEFF 		bl	DbgConsole_Printf
+ 246              	.L18:
+ 247 0058 2378     		ldrb	r3, [r4]
+ 248 005a 0021     		movs	r1, #0
+ 249 005c 2D4A     		ldr	r2, .L31+32
+ 250 005e 2E4E     		ldr	r6, .L31+36
+ 251 0060 2E4C     		ldr	r4, .L31+40
+ 252 0062 012B     		cmp	r3, #1
+ 253 0064 1BD0     		beq	.L23
+ 254 0066 022B     		cmp	r3, #2
+ 255 0068 3CD0     		beq	.L24
+ 256 006a 8B42     		cmp	r3, r1
+ 257 006c 1FD1     		bne	.L25
+ 258 006e 2C49     		ldr	r1, .L31+44
+ 259 0070 3360     		str	r3, [r6]
+ 260 0072 0868     		ldr	r0, [r1]
+ 261 0074 2B49     		ldr	r1, .L31+48
+ 262 0076 8000     		lsls	r0, r0, #2
+ 263 0078 4158     		ldr	r1, [r0, r1]
+ 264 007a 1160     		str	r1, [r2]
+ 265              	.L30:
+ 266 007c 2360     		str	r3, [r4]
+ 267 007e 16E0     		b	.L25
+ 268              	.L19:
+ 269 0080 022B     		cmp	r3, #2
+ 270 0082 07D0     		beq	.L21
+ 271 0084 E8D8     		bhi	.L18
+ 272 0086 002B     		cmp	r3, #0
+ 273 0088 E0D0     		beq	.L20
+ 274 008a 2748     		ldr	r0, .L31+52
+ 275 008c FFF7FEFF 		bl	DbgConsole_Printf
+ 276 0090 2648     		ldr	r0, .L31+56
+ 277 0092 DFE7     		b	.L29
+ 278              	.L21:
+ 279 0094 2648     		ldr	r0, .L31+60
+ 280 0096 FFF7FEFF 		bl	DbgConsole_Printf
+ 281 009a 2648     		ldr	r0, .L31+64
+ 282 009c DAE7     		b	.L29
+ 283              	.L23:
+ARM GAS  /tmp/cc0rYA6r.s 			page 7
+
+
+ 284 009e 204B     		ldr	r3, .L31+44
+ 285 00a0 1160     		str	r1, [r2]
+ 286 00a2 1868     		ldr	r0, [r3]
+ 287 00a4 1F4B     		ldr	r3, .L31+48
+ 288 00a6 8000     		lsls	r0, r0, #2
+ 289 00a8 C358     		ldr	r3, [r0, r3]
+ 290 00aa 2160     		str	r1, [r4]
+ 291 00ac 3360     		str	r3, [r6]
+ 292              	.L25:
+ 293 00ae 224B     		ldr	r3, .L31+68
+ 294 00b0 1268     		ldr	r2, [r2]
+ 295 00b2 0421     		movs	r1, #4
+ 296 00b4 1B68     		ldr	r3, [r3]
+ 297 00b6 2148     		ldr	r0, .L31+72
+ 298 00b8 D2B2     		uxtb	r2, r2
+ 299 00ba FFF7FEFF 		bl	SCTIMER_UpdatePwmDutycycle
+ 300 00be 204B     		ldr	r3, .L31+76
+ 301 00c0 3268     		ldr	r2, [r6]
+ 302 00c2 0521     		movs	r1, #5
+ 303 00c4 1B68     		ldr	r3, [r3]
+ 304 00c6 1D48     		ldr	r0, .L31+72
+ 305 00c8 D2B2     		uxtb	r2, r2
+ 306 00ca FFF7FEFF 		bl	SCTIMER_UpdatePwmDutycycle
+ 307 00ce 1D4B     		ldr	r3, .L31+80
+ 308 00d0 2268     		ldr	r2, [r4]
+ 309 00d2 1B68     		ldr	r3, [r3]
+ 310 00d4 0321     		movs	r1, #3
+ 311 00d6 1948     		ldr	r0, .L31+72
+ 312 00d8 D2B2     		uxtb	r2, r2
+ 313 00da FFF7FEFF 		bl	SCTIMER_UpdatePwmDutycycle
+ 314 00de 0023     		movs	r3, #0
+ 315 00e0 2B70     		strb	r3, [r5]
+ 316              	.L15:
+ 317              		@ sp needed
+ 318 00e2 70BD     		pop	{r4, r5, r6, pc}
+ 319              	.L24:
+ 320 00e4 0E4B     		ldr	r3, .L31+44
+ 321 00e6 1160     		str	r1, [r2]
+ 322 00e8 3160     		str	r1, [r6]
+ 323 00ea 1968     		ldr	r1, [r3]
+ 324 00ec 0D4B     		ldr	r3, .L31+48
+ 325 00ee 8900     		lsls	r1, r1, #2
+ 326 00f0 CB58     		ldr	r3, [r1, r3]
+ 327 00f2 C3E7     		b	.L30
+ 328              	.L32:
+ 329              		.align	2
+ 330              	.L31:
+ 331 00f4 00400040 		.word	1073758208
+ 332 00f8 00000000 		.word	mrtIsrFlag
+ 333 00fc 00000000 		.word	timerCounter
+ 334 0100 00000000 		.word	counter
+ 335 0104 00000000 		.word	timer
+ 336 0108 00000000 		.word	state
+ 337 010c 00000000 		.word	.LC28
+ 338 0110 08000000 		.word	.LC30
+ 339 0114 00000000 		.word	redDutyCyclePercent
+ 340 0118 00000000 		.word	greenDutyCyclePercent
+ARM GAS  /tmp/cc0rYA6r.s 			page 8
+
+
+ 341 011c 00000000 		.word	yellowDutyCyclePercent
+ 342 0120 00000000 		.word	brightnessCounter
+ 343 0124 00000000 		.word	brightness
+ 344 0128 4B000000 		.word	.LC32
+ 345 012c 53000000 		.word	.LC34
+ 346 0130 98000000 		.word	.LC36
+ 347 0134 A0000000 		.word	.LC38
+ 348 0138 00000000 		.word	event0
+ 349 013c 00400050 		.word	1342193664
+ 350 0140 00000000 		.word	event1
+ 351 0144 00000000 		.word	event2
+ 353              		.section	.text.uart_init,"ax",%progbits
+ 354              		.align	1
+ 355              		.global	uart_init
+ 356              		.syntax unified
+ 357              		.code	16
+ 358              		.thumb_func
+ 360              	uart_init:
+ 361              		@ args = 0, pretend = 0, frame = 0
+ 362              		@ frame_needed = 0, uses_anonymous_args = 0
+ 363 0000 70B5     		push	{r4, r5, r6, lr}
+ 364 0002 FFF7FEFF 		bl	CLOCK_GetMainClkFreq
+ 365              		@ sp needed
+ 366 0006 8023     		movs	r3, #128
+ 367 0008 0125     		movs	r5, #1
+ 368 000a 094A     		ldr	r2, .L34
+ 369 000c DB01     		lsls	r3, r3, #7
+ 370 000e D16F     		ldr	r1, [r2, #124]
+ 371 0010 0400     		movs	r4, r0
+ 372 0012 0B43     		orrs	r3, r1
+ 373 0014 D367     		str	r3, [r2, #124]
+ 374 0016 074B     		ldr	r3, .L34+4
+ 375 0018 0320     		movs	r0, #3
+ 376 001a 1D60     		str	r5, [r3]
+ 377 001c FFF7FEFF 		bl	RESET_PeripheralReset
+ 378 0020 E121     		movs	r1, #225
+ 379 0022 2A00     		movs	r2, r5
+ 380 0024 2300     		movs	r3, r4
+ 381 0026 4902     		lsls	r1, r1, #9
+ 382 0028 0020     		movs	r0, #0
+ 383 002a FFF7FEFF 		bl	DbgConsole_Init
+ 384 002e 70BD     		pop	{r4, r5, r6, pc}
+ 385              	.L35:
+ 386              		.align	2
+ 387              	.L34:
+ 388 0030 04800440 		.word	1074036740
+ 389 0034 94800440 		.word	1074036884
+ 391              		.section	.text.clock_init,"ax",%progbits
+ 392              		.align	1
+ 393              		.global	clock_init
+ 394              		.syntax unified
+ 395              		.code	16
+ 396              		.thumb_func
+ 398              	clock_init:
+ 399              		@ args = 0, pretend = 0, frame = 8
+ 400              		@ frame_needed = 0, uses_anonymous_args = 0
+ 401 0000 8E23     		movs	r3, #142
+ARM GAS  /tmp/cc0rYA6r.s 			page 9
+
+
+ 402 0002 73B5     		push	{r0, r1, r4, r5, r6, lr}
+ 403 0004 0125     		movs	r5, #1
+ 404              		@ sp needed
+ 405 0006 0221     		movs	r1, #2
+ 406 0008 0026     		movs	r6, #0
+ 407 000a 0F4C     		ldr	r4, .L37
+ 408 000c 9B00     		lsls	r3, r3, #2
+ 409 000e E258     		ldr	r2, [r4, r3]
+ 410 0010 6846     		mov	r0, sp
+ 411 0012 AA43     		bics	r2, r5
+ 412 0014 E250     		str	r2, [r4, r3]
+ 413 0016 E258     		ldr	r2, [r4, r3]
+ 414 0018 8A43     		bics	r2, r1
+ 415 001a E250     		str	r2, [r4, r3]
+ 416 001c 0B4B     		ldr	r3, .L37+4
+ 417 001e 1E60     		str	r6, [r3]
+ 418 0020 6B46     		mov	r3, sp
+ 419 0022 1E71     		strb	r6, [r3, #4]
+ 420 0024 0A4B     		ldr	r3, .L37+8
+ 421 0026 0093     		str	r3, [sp]
+ 422 0028 FFF7FEFF 		bl	CLOCK_InitSystemPll
+ 423 002c C020     		movs	r0, #192
+ 424 002e 8000     		lsls	r0, r0, #2
+ 425 0030 FFF7FEFF 		bl	CLOCK_SetMainClkSrc
+ 426 0034 FF22     		movs	r2, #255
+ 427 0036 074B     		ldr	r3, .L37+12
+ 428 0038 1E60     		str	r6, [r3]
+ 429 003a A36F     		ldr	r3, [r4, #120]
+ 430 003c 9343     		bics	r3, r2
+ 431 003e 1D43     		orrs	r5, r3
+ 432 0040 A567     		str	r5, [r4, #120]
+ 433 0042 FFF7FEFF 		bl	SystemCoreClockUpdate
+ 434 0046 73BD     		pop	{r0, r1, r4, r5, r6, pc}
+ 435              	.L38:
+ 436              		.align	2
+ 437              	.L37:
+ 438 0048 00800440 		.word	1074036736
+ 439 004c 40800440 		.word	1074036800
+ 440 0050 00879303 		.word	60000000
+ 441 0054 E0800440 		.word	1074036960
+ 443              		.global	__aeabi_uidiv
+ 444              		.section	.rodata.main.str1.1,"aMS",%progbits,1
+ 445              	.LC60:
+ 446 0000 5B494E46 		.ascii	"[INFO]: PINT Pin Interrupt events are configured.\015"
+ 446      4F5D3A20 
+ 446      50494E54 
+ 446      2050696E 
+ 446      20496E74 
+ 447 0032 0A00     		.ascii	"\012\000"
+ 448              	.LC64:
+ 449 0034 5B494E46 		.ascii	"[INFO]: Press Button to change brightness. (Current"
+ 449      4F5D3A20 
+ 449      50726573 
+ 449      73204275 
+ 449      74746F6E 
+ 450 0067 20427269 		.ascii	" Brightness: %d)\015\012\000"
+ 450      6768746E 
+ARM GAS  /tmp/cc0rYA6r.s 			page 10
+
+
+ 450      6573733A 
+ 450      20256429 
+ 450      0D0A00
+ 451              		.section	.text.startup.main,"ax",%progbits
+ 452              		.align	1
+ 453              		.global	main
+ 454              		.syntax unified
+ 455              		.code	16
+ 456              		.thumb_func
+ 458              	main:
+ 459              		@ args = 0, pretend = 0, frame = 32
+ 460              		@ frame_needed = 0, uses_anonymous_args = 0
+ 461 0000 70B5     		push	{r4, r5, r6, lr}
+ 462 0002 8AB0     		sub	sp, sp, #40
+ 463 0004 FFF7FEFF 		bl	clock_init
+ 464 0008 FA21     		movs	r1, #250
+ 465 000a 5C4B     		ldr	r3, .L42
+ 466 000c 8900     		lsls	r1, r1, #2
+ 467 000e 1868     		ldr	r0, [r3]
+ 468 0010 FFF7FEFF 		bl	__aeabi_uidiv
+ 469 0014 8023     		movs	r3, #128
+ 470 0016 0138     		subs	r0, r0, #1
+ 471 0018 5B04     		lsls	r3, r3, #17
+ 472 001a 9842     		cmp	r0, r3
+ 473 001c 0DD2     		bcs	.L40
+ 474 001e C021     		movs	r1, #192
+ 475 0020 574A     		ldr	r2, .L42+4
+ 476 0022 0906     		lsls	r1, r1, #24
+ 477 0024 5060     		str	r0, [r2, #4]
+ 478 0026 5748     		ldr	r0, .L42+8
+ 479 0028 036A     		ldr	r3, [r0, #32]
+ 480 002a 1B02     		lsls	r3, r3, #8
+ 481 002c 1B0A     		lsrs	r3, r3, #8
+ 482 002e 0B43     		orrs	r3, r1
+ 483 0030 0362     		str	r3, [r0, #32]
+ 484 0032 0023     		movs	r3, #0
+ 485 0034 9360     		str	r3, [r2, #8]
+ 486 0036 0733     		adds	r3, r3, #7
+ 487 0038 1360     		str	r3, [r2]
+ 488              	.L40:
+ 489 003a 8023     		movs	r3, #128
+ 490 003c 524A     		ldr	r2, .L42+12
+ 491 003e 534D     		ldr	r5, .L42+16
+ 492 0040 D16F     		ldr	r1, [r2, #124]
+ 493 0042 5B00     		lsls	r3, r3, #1
+ 494 0044 0B43     		orrs	r3, r1
+ 495 0046 2800     		movs	r0, r5
+ 496 0048 03A9     		add	r1, sp, #12
+ 497 004a D367     		str	r3, [r2, #124]
+ 498 004c FFF7FEFF 		bl	MRT_Init
+ 499 0050 0622     		movs	r2, #6
+ 500 0052 AB68     		ldr	r3, [r5, #8]
+ 501 0054 0020     		movs	r0, #0
+ 502 0056 9343     		bics	r3, r2
+ 503 0058 AB60     		str	r3, [r5, #8]
+ 504 005a FFF7FEFF 		bl	CLOCK_GetFreq
+ 505 005e 6421     		movs	r1, #100
+ARM GAS  /tmp/cc0rYA6r.s 			page 11
+
+
+ 506 0060 FFF7FEFF 		bl	__aeabi_uidiv
+ 507 0064 0124     		movs	r4, #1
+ 508 0066 2860     		str	r0, [r5]
+ 509 0068 AB68     		ldr	r3, [r5, #8]
+ 510 006a 2343     		orrs	r3, r4
+ 511 006c AB60     		str	r3, [r5, #8]
+ 512 006e 8022     		movs	r2, #128
+ 513 0070 474B     		ldr	r3, .L42+20
+ 514 0072 D200     		lsls	r2, r2, #3
+ 515 0074 1A60     		str	r2, [r3]
+ 516 0076 FFF7FEFF 		bl	uart_init
+ 517 007a 464D     		ldr	r5, .L42+24
+ 518 007c FFF7FEFF 		bl	InitPins
+ 519 0080 454E     		ldr	r6, .L42+28
+ 520 0082 464B     		ldr	r3, .L42+32
+ 521 0084 07A8     		add	r0, sp, #28
+ 522 0086 3360     		str	r3, [r6]
+ 523 0088 FFF7FEFF 		bl	SCTIMER_GetDefaultConfig
+ 524 008c 07A9     		add	r1, sp, #28
+ 525 008e 2800     		movs	r0, r5
+ 526 0090 FFF7FEFF 		bl	SCTIMER_Init
+ 527 0094 8223     		movs	r3, #130
+ 528 0096 6A46     		mov	r2, sp
+ 529 0098 5B00     		lsls	r3, r3, #1
+ 530 009a 1382     		strh	r3, [r2, #16]
+ 531 009c 404B     		ldr	r3, .L42+36
+ 532 009e 04A9     		add	r1, sp, #16
+ 533 00a0 1B68     		ldr	r3, [r3]
+ 534 00a2 2800     		movs	r0, r5
+ 535 00a4 9374     		strb	r3, [r2, #18]
+ 536 00a6 3F4B     		ldr	r3, .L42+40
+ 537 00a8 2200     		movs	r2, r4
+ 538 00aa 0193     		str	r3, [sp, #4]
+ 539 00ac 3368     		ldr	r3, [r6]
+ 540 00ae 0093     		str	r3, [sp]
+ 541 00b0 3D4B     		ldr	r3, .L42+44
+ 542 00b2 FFF7FEFF 		bl	SCTIMER_SetupPwm
+ 543 00b6 0623     		movs	r3, #6
+ 544 00b8 6A46     		mov	r2, sp
+ 545 00ba FF33     		adds	r3, r3, #255
+ 546 00bc 9382     		strh	r3, [r2, #20]
+ 547 00be 3B4B     		ldr	r3, .L42+48
+ 548 00c0 05A9     		add	r1, sp, #20
+ 549 00c2 1B68     		ldr	r3, [r3]
+ 550 00c4 2800     		movs	r0, r5
+ 551 00c6 9375     		strb	r3, [r2, #22]
+ 552 00c8 394B     		ldr	r3, .L42+52
+ 553 00ca 2200     		movs	r2, r4
+ 554 00cc 0193     		str	r3, [sp, #4]
+ 555 00ce 3368     		ldr	r3, [r6]
+ 556 00d0 0093     		str	r3, [sp]
+ 557 00d2 354B     		ldr	r3, .L42+44
+ 558 00d4 FFF7FEFF 		bl	SCTIMER_SetupPwm
+ 559 00d8 0423     		movs	r3, #4
+ 560 00da 6A46     		mov	r2, sp
+ 561 00dc FF33     		adds	r3, r3, #255
+ 562 00de 1383     		strh	r3, [r2, #24]
+ARM GAS  /tmp/cc0rYA6r.s 			page 12
+
+
+ 563 00e0 344B     		ldr	r3, .L42+56
+ 564 00e2 06A9     		add	r1, sp, #24
+ 565 00e4 1B68     		ldr	r3, [r3]
+ 566 00e6 2800     		movs	r0, r5
+ 567 00e8 9376     		strb	r3, [r2, #26]
+ 568 00ea 334B     		ldr	r3, .L42+60
+ 569 00ec 2200     		movs	r2, r4
+ 570 00ee 0193     		str	r3, [sp, #4]
+ 571 00f0 3368     		ldr	r3, [r6]
+ 572 00f2 0093     		str	r3, [sp]
+ 573 00f4 2C4B     		ldr	r3, .L42+44
+ 574 00f6 FFF7FEFF 		bl	SCTIMER_SetupPwm
+ 575 00fa 0422     		movs	r2, #4
+ 576 00fc 6B68     		ldr	r3, [r5, #4]
+ 577 00fe 2100     		movs	r1, r4
+ 578 0100 9343     		bics	r3, r2
+ 579 0102 2E48     		ldr	r0, .L42+64
+ 580 0104 2E4A     		ldr	r2, .L42+68
+ 581 0106 6B60     		str	r3, [r5, #4]
+ 582 0108 FFF7FEFF 		bl	SYSCON_AttachSignal
+ 583 010c 2D4B     		ldr	r3, .L42+72
+ 584 010e 0222     		movs	r2, #2
+ 585 0110 2100     		movs	r1, r4
+ 586 0112 2D48     		ldr	r0, .L42+76
+ 587 0114 FFF7FEFF 		bl	PINT_PinInterruptConfig
+ 588 0118 2100     		movs	r1, r4
+ 589 011a 2B48     		ldr	r0, .L42+76
+ 590 011c FFF7FEFF 		bl	PINT_EnableCallbackByIndex
+ 591 0120 0021     		movs	r1, #0
+ 592 0122 2A4A     		ldr	r2, .L42+80
+ 593 0124 2548     		ldr	r0, .L42+64
+ 594 0126 FFF7FEFF 		bl	SYSCON_AttachSignal
+ 595 012a 294B     		ldr	r3, .L42+84
+ 596 012c 0222     		movs	r2, #2
+ 597 012e 0021     		movs	r1, #0
+ 598 0130 2548     		ldr	r0, .L42+76
+ 599 0132 FFF7FEFF 		bl	PINT_PinInterruptConfig
+ 600 0136 0021     		movs	r1, #0
+ 601 0138 2348     		ldr	r0, .L42+76
+ 602 013a FFF7FEFF 		bl	PINT_EnableCallbackByIndex
+ 603 013e 0221     		movs	r1, #2
+ 604 0140 244A     		ldr	r2, .L42+88
+ 605 0142 1E48     		ldr	r0, .L42+64
+ 606 0144 FFF7FEFF 		bl	SYSCON_AttachSignal
+ 607 0148 0222     		movs	r2, #2
+ 608 014a 234B     		ldr	r3, .L42+92
+ 609 014c 1100     		movs	r1, r2
+ 610 014e 1E48     		ldr	r0, .L42+76
+ 611 0150 FFF7FEFF 		bl	PINT_PinInterruptConfig
+ 612 0154 0221     		movs	r1, #2
+ 613 0156 1C48     		ldr	r0, .L42+76
+ 614 0158 FFF7FEFF 		bl	PINT_EnableCallbackByIndex
+ 615 015c 1F48     		ldr	r0, .L42+96
+ 616 015e FFF7FEFF 		bl	DbgConsole_Printf
+ 617 0162 1F48     		ldr	r0, .L42+100
+ 618 0164 FFF7FEFF 		bl	DbgConsole_Printf
+ 619 0168 1E4B     		ldr	r3, .L42+104
+ARM GAS  /tmp/cc0rYA6r.s 			page 13
+
+
+ 620 016a 1F48     		ldr	r0, .L42+108
+ 621 016c 1A68     		ldr	r2, [r3]
+ 622 016e 1F4B     		ldr	r3, .L42+112
+ 623 0170 9200     		lsls	r2, r2, #2
+ 624 0172 D158     		ldr	r1, [r2, r3]
+ 625 0174 FFF7FEFF 		bl	DbgConsole_Printf
+ 626              	.L41:
+ 627 0178 FEE7     		b	.L41
+ 628              	.L43:
+ 629 017a C046     		.align	2
+ 630              	.L42:
+ 631 017c 00000000 		.word	SystemCoreClock
+ 632 0180 10E000E0 		.word	-536813552
+ 633 0184 00ED00E0 		.word	-536810240
+ 634 0188 04800440 		.word	1074036740
+ 635 018c 00400040 		.word	1073758208
+ 636 0190 00E100E0 		.word	-536813312
+ 637 0194 00400050 		.word	1342193664
+ 638 0198 00000000 		.word	sctimerClock
+ 639 019c 80C3C901 		.word	30000000
+ 640 01a0 00000000 		.word	redDutyCyclePercent
+ 641 01a4 00000000 		.word	event0
+ 642 01a8 10270000 		.word	10000
+ 643 01ac 00000000 		.word	greenDutyCyclePercent
+ 644 01b0 00000000 		.word	event1
+ 645 01b4 00000000 		.word	yellowDutyCyclePercent
+ 646 01b8 00000000 		.word	event2
+ 647 01bc 00800440 		.word	1074036736
+ 648 01c0 09008017 		.word	394264585
+ 649 01c4 00000000 		.word	pint_intr_callback
+ 650 01c8 004000A0 		.word	-1610596352
+ 651 01cc 08008017 		.word	394264584
+ 652 01d0 00000000 		.word	pint_intr2_callback
+ 653 01d4 07008017 		.word	394264583
+ 654 01d8 00000000 		.word	pint_intr3_callback
+ 655 01dc 00000000 		.word	.LC0
+ 656 01e0 00000000 		.word	.LC60
+ 657 01e4 00000000 		.word	brightnessCounter
+ 658 01e8 34000000 		.word	.LC64
+ 659 01ec 00000000 		.word	brightness
+ 661              		.section	.text.SysTick_Handler,"ax",%progbits
+ 662              		.align	1
+ 663              		.global	SysTick_Handler
+ 664              		.syntax unified
+ 665              		.code	16
+ 666              		.thumb_func
+ 668              	SysTick_Handler:
+ 669              		@ args = 0, pretend = 0, frame = 0
+ 670              		@ frame_needed = 0, uses_anonymous_args = 0
+ 671              		@ link register save eliminated.
+ 672 0000 034B     		ldr	r3, .L49
+ 673 0002 1A68     		ldr	r2, [r3]
+ 674 0004 002A     		cmp	r2, #0
+ 675 0006 02D0     		beq	.L44
+ 676 0008 1A68     		ldr	r2, [r3]
+ 677 000a 013A     		subs	r2, r2, #1
+ 678 000c 1A60     		str	r2, [r3]
+ARM GAS  /tmp/cc0rYA6r.s 			page 14
+
+
+ 679              	.L44:
+ 680              		@ sp needed
+ 681 000e 7047     		bx	lr
+ 682              	.L50:
+ 683              		.align	2
+ 684              	.L49:
+ 685 0010 00000000 		.word	g_systickCounter
+ 687              		.section	.text.delay_ms,"ax",%progbits
+ 688              		.align	1
+ 689              		.global	delay_ms
+ 690              		.syntax unified
+ 691              		.code	16
+ 692              		.thumb_func
+ 694              	delay_ms:
+ 695              		@ args = 0, pretend = 0, frame = 0
+ 696              		@ frame_needed = 0, uses_anonymous_args = 0
+ 697              		@ link register save eliminated.
+ 698 0000 024B     		ldr	r3, .L54
+ 699 0002 1860     		str	r0, [r3]
+ 700              	.L52:
+ 701 0004 1A68     		ldr	r2, [r3]
+ 702 0006 002A     		cmp	r2, #0
+ 703 0008 FCD1     		bne	.L52
+ 704              		@ sp needed
+ 705 000a 7047     		bx	lr
+ 706              	.L55:
+ 707              		.align	2
+ 708              	.L54:
+ 709 000c 00000000 		.word	g_systickCounter
+ 711              		.global	state
+ 712              		.section	.bss.state,"aw",%nobits
+ 715              	state:
+ 716 0000 00       		.space	1
+ 717              		.global	counter
+ 718              		.section	.bss.counter,"aw",%nobits
+ 719              		.align	2
+ 722              	counter:
+ 723 0000 00000000 		.space	4
+ 724              		.global	timer
+ 725              		.section	.data.timer,"aw"
+ 726              		.align	2
+ 729              	timer:
+ 730 0000 0A000000 		.word	10
+ 731 0004 14000000 		.word	20
+ 732 0008 1E000000 		.word	30
+ 733 000c 28000000 		.word	40
+ 734 0010 32000000 		.word	50
+ 735 0014 4B000000 		.word	75
+ 736 0018 64000000 		.word	100
+ 737 001c C8000000 		.word	200
+ 738 0020 F4010000 		.word	500
+ 739              		.global	timerCounter
+ 740              		.section	.data.timerCounter,"aw"
+ 741              		.align	2
+ 744              	timerCounter:
+ 745 0000 04000000 		.word	4
+ 746              		.global	brightness
+ARM GAS  /tmp/cc0rYA6r.s 			page 15
+
+
+ 747              		.section	.data.brightness,"aw"
+ 748              		.align	2
+ 751              	brightness:
+ 752 0000 05000000 		.word	5
+ 753 0004 0A000000 		.word	10
+ 754 0008 19000000 		.word	25
+ 755 000c 63000000 		.word	99
+ 756              		.global	brightnessCounter
+ 757              		.section	.bss.brightnessCounter,"aw",%nobits
+ 758              		.align	2
+ 761              	brightnessCounter:
+ 762 0000 00000000 		.space	4
+ 763              		.section	.bss.mrtIsrFlag,"aw",%nobits
+ 766              	mrtIsrFlag:
+ 767 0000 00       		.space	1
+ 768              		.global	yellowDutyCyclePercent
+ 769              		.section	.bss.yellowDutyCyclePercent,"aw",%nobits
+ 770              		.align	2
+ 773              	yellowDutyCyclePercent:
+ 774 0000 00000000 		.space	4
+ 775              		.global	greenDutyCyclePercent
+ 776              		.section	.bss.greenDutyCyclePercent,"aw",%nobits
+ 777              		.align	2
+ 780              	greenDutyCyclePercent:
+ 781 0000 00000000 		.space	4
+ 782              		.global	redDutyCyclePercent
+ 783              		.section	.data.redDutyCyclePercent,"aw"
+ 784              		.align	2
+ 787              	redDutyCyclePercent:
+ 788 0000 05000000 		.word	5
+ 789              		.global	sctimerClock
+ 790              		.section	.bss.sctimerClock,"aw",%nobits
+ 791              		.align	2
+ 794              	sctimerClock:
+ 795 0000 00000000 		.space	4
+ 796              		.global	event2
+ 797              		.section	.data.event2,"aw"
+ 798              		.align	2
+ 801              	event2:
+ 802 0000 02000000 		.word	2
+ 803              		.global	event1
+ 804              		.section	.data.event1,"aw"
+ 805              		.align	2
+ 808              	event1:
+ 809 0000 01000000 		.word	1
+ 810              		.global	event0
+ 811              		.section	.bss.event0,"aw",%nobits
+ 812              		.align	2
+ 815              	event0:
+ 816 0000 00000000 		.space	4
+ 817              		.global	g_systickCounter
+ 818              		.section	.bss.g_systickCounter,"aw",%nobits
+ 819              		.align	2
+ 822              	g_systickCounter:
+ 823 0000 00000000 		.space	4
+ 824              		.ident	"GCC: (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 12.3.1 20230626"
+ARM GAS  /tmp/cc0rYA6r.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 experiment3_bonus.c
+     /tmp/cc0rYA6r.s:25     .text.pint_intr_callback:00000000 $t
+     /tmp/cc0rYA6r.s:31     .text.pint_intr_callback:00000000 pint_intr_callback
+     /tmp/cc0rYA6r.s:60     .text.pint_intr_callback:00000030 $d
+     /tmp/cc0rYA6r.s:761    .bss.brightnessCounter:00000000 brightnessCounter
+     /tmp/cc0rYA6r.s:751    .data.brightness:00000000 brightness
+     /tmp/cc0rYA6r.s:77     .text.pint_intr2_callback:00000000 $t
+     /tmp/cc0rYA6r.s:83     .text.pint_intr2_callback:00000000 pint_intr2_callback
+     /tmp/cc0rYA6r.s:118    .text.pint_intr2_callback:0000003c $d
+     /tmp/cc0rYA6r.s:744    .data.timerCounter:00000000 timerCounter
+     /tmp/cc0rYA6r.s:729    .data.timer:00000000 timer
+     /tmp/cc0rYA6r.s:130    .text.pint_intr3_callback:00000000 $t
+     /tmp/cc0rYA6r.s:136    .text.pint_intr3_callback:00000000 pint_intr3_callback
+     /tmp/cc0rYA6r.s:169    .text.pint_intr3_callback:00000038 $d
+     /tmp/cc0rYA6r.s:192    .text.MRT0_IRQHandler:00000000 $t
+     /tmp/cc0rYA6r.s:198    .text.MRT0_IRQHandler:00000000 MRT0_IRQHandler
+     /tmp/cc0rYA6r.s:331    .text.MRT0_IRQHandler:000000f4 $d
+     /tmp/cc0rYA6r.s:766    .bss.mrtIsrFlag:00000000 mrtIsrFlag
+     /tmp/cc0rYA6r.s:722    .bss.counter:00000000 counter
+     /tmp/cc0rYA6r.s:715    .bss.state:00000000 state
+     /tmp/cc0rYA6r.s:787    .data.redDutyCyclePercent:00000000 redDutyCyclePercent
+     /tmp/cc0rYA6r.s:780    .bss.greenDutyCyclePercent:00000000 greenDutyCyclePercent
+     /tmp/cc0rYA6r.s:773    .bss.yellowDutyCyclePercent:00000000 yellowDutyCyclePercent
+     /tmp/cc0rYA6r.s:815    .bss.event0:00000000 event0
+     /tmp/cc0rYA6r.s:808    .data.event1:00000000 event1
+     /tmp/cc0rYA6r.s:801    .data.event2:00000000 event2
+     /tmp/cc0rYA6r.s:354    .text.uart_init:00000000 $t
+     /tmp/cc0rYA6r.s:360    .text.uart_init:00000000 uart_init
+     /tmp/cc0rYA6r.s:388    .text.uart_init:00000030 $d
+     /tmp/cc0rYA6r.s:392    .text.clock_init:00000000 $t
+     /tmp/cc0rYA6r.s:398    .text.clock_init:00000000 clock_init
+     /tmp/cc0rYA6r.s:438    .text.clock_init:00000048 $d
+     /tmp/cc0rYA6r.s:452    .text.startup.main:00000000 $t
+     /tmp/cc0rYA6r.s:458    .text.startup.main:00000000 main
+     /tmp/cc0rYA6r.s:631    .text.startup.main:0000017c $d
+     /tmp/cc0rYA6r.s:794    .bss.sctimerClock:00000000 sctimerClock
+     /tmp/cc0rYA6r.s:662    .text.SysTick_Handler:00000000 $t
+     /tmp/cc0rYA6r.s:668    .text.SysTick_Handler:00000000 SysTick_Handler
+     /tmp/cc0rYA6r.s:685    .text.SysTick_Handler:00000010 $d
+     /tmp/cc0rYA6r.s:822    .bss.g_systickCounter:00000000 g_systickCounter
+     /tmp/cc0rYA6r.s:688    .text.delay_ms:00000000 $t
+     /tmp/cc0rYA6r.s:694    .text.delay_ms:00000000 delay_ms
+     /tmp/cc0rYA6r.s:709    .text.delay_ms:0000000c $d
+     /tmp/cc0rYA6r.s:716    .bss.state:00000000 $d
+     /tmp/cc0rYA6r.s:719    .bss.counter:00000000 $d
+     /tmp/cc0rYA6r.s:726    .data.timer:00000000 $d
+     /tmp/cc0rYA6r.s:741    .data.timerCounter:00000000 $d
+     /tmp/cc0rYA6r.s:748    .data.brightness:00000000 $d
+     /tmp/cc0rYA6r.s:758    .bss.brightnessCounter:00000000 $d
+     /tmp/cc0rYA6r.s:767    .bss.mrtIsrFlag:00000000 $d
+     /tmp/cc0rYA6r.s:770    .bss.yellowDutyCyclePercent:00000000 $d
+     /tmp/cc0rYA6r.s:777    .bss.greenDutyCyclePercent:00000000 $d
+     /tmp/cc0rYA6r.s:784    .data.redDutyCyclePercent:00000000 $d
+     /tmp/cc0rYA6r.s:791    .bss.sctimerClock:00000000 $d
+     /tmp/cc0rYA6r.s:798    .data.event2:00000000 $d
+     /tmp/cc0rYA6r.s:805    .data.event1:00000000 $d
+ARM GAS  /tmp/cc0rYA6r.s 			page 17
+
+
+     /tmp/cc0rYA6r.s:812    .bss.event0:00000000 $d
+     /tmp/cc0rYA6r.s:819    .bss.g_systickCounter:00000000 $d
+
+UNDEFINED SYMBOLS
+DbgConsole_Printf
+SCTIMER_UpdatePwmDutycycle
+CLOCK_GetMainClkFreq
+RESET_PeripheralReset
+DbgConsole_Init
+CLOCK_InitSystemPll
+CLOCK_SetMainClkSrc
+SystemCoreClockUpdate
+__aeabi_uidiv
+MRT_Init
+CLOCK_GetFreq
+InitPins
+SCTIMER_GetDefaultConfig
+SCTIMER_Init
+SCTIMER_SetupPwm
+SYSCON_AttachSignal
+PINT_PinInterruptConfig
+PINT_EnableCallbackByIndex
+SystemCoreClock
