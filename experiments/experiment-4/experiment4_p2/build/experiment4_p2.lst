@@ -1,0 +1,492 @@
+ARM GAS  /tmp/ccVIeCcA.s 			page 1
+
+
+   1              		.cpu cortex-m0plus
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"experiment4_p2.c"
+  14              		.text
+  15              		.align	1
+  16              		.global	ADC0_SEQA_IRQHandler
+  17              		.syntax unified
+  18              		.code	16
+  19              		.thumb_func
+  21              	ADC0_SEQA_IRQHandler:
+  22              		@ args = 0, pretend = 0, frame = 0
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24 0000 70B5     		push	{r4, r5, r6, lr}
+  25 0002 8026     		movs	r6, #128
+  26 0004 0D4D     		ldr	r5, .L6
+  27 0006 7605     		lsls	r6, r6, #21
+  28 0008 AB6E     		ldr	r3, [r5, #104]
+  29 000a 3342     		tst	r3, r6
+  30 000c 14D0     		beq	.L1
+  31 000e 0C4C     		ldr	r4, .L6+4
+  32 0010 0021     		movs	r1, #0
+  33 0012 2268     		ldr	r2, [r4]
+  34 0014 2800     		movs	r0, r5
+  35 0016 FFF7FEFF 		bl	ADC_GetChannelConversionResult
+  36 001a AE66     		str	r6, [r5, #104]
+  37 001c 2368     		ldr	r3, [r4]
+  38 001e 0121     		movs	r1, #1
+  39 0020 1B68     		ldr	r3, [r3]
+  40 0022 2800     		movs	r0, r5
+  41 0024 2268     		ldr	r2, [r4]
+  42 0026 6360     		str	r3, [r4, #4]
+  43 0028 FFF7FEFF 		bl	ADC_GetChannelConversionResult
+  44 002c AE66     		str	r6, [r5, #104]
+  45 002e 2368     		ldr	r3, [r4]
+  46 0030 1B68     		ldr	r3, [r3]
+  47 0032 A360     		str	r3, [r4, #8]
+  48 0034 0123     		movs	r3, #1
+  49 0036 2373     		strb	r3, [r4, #12]
+  50              	.L1:
+  51              		@ sp needed
+  52 0038 70BD     		pop	{r4, r5, r6, pc}
+  53              	.L7:
+  54 003a C046     		.align	2
+  55              	.L6:
+  56 003c 00C00140 		.word	1073856512
+  57 0040 00000000 		.word	.LANCHOR0
+  59              		.align	1
+ARM GAS  /tmp/ccVIeCcA.s 			page 2
+
+
+  60              		.global	ADC_Configuration
+  61              		.syntax unified
+  62              		.code	16
+  63              		.thumb_func
+  65              	ADC_Configuration:
+  66              		@ args = 0, pretend = 0, frame = 24
+  67              		@ frame_needed = 0, uses_anonymous_args = 0
+  68 0044 0123     		movs	r3, #1
+  69 0046 30B5     		push	{r4, r5, lr}
+  70 0048 87B0     		sub	sp, sp, #28
+  71 004a 0193     		str	r3, [sp, #4]
+  72 004c 0023     		movs	r3, #0
+  73 004e 174C     		ldr	r4, .L15
+  74 0050 01A9     		add	r1, sp, #4
+  75 0052 0500     		movs	r5, r0
+  76 0054 2000     		movs	r0, r4
+  77 0056 8B80     		strh	r3, [r1, #4]
+  78 0058 FFF7FEFF 		bl	ADC_Init
+  79 005c 0323     		movs	r3, #3
+  80 005e 0393     		str	r3, [sp, #12]
+  81 0060 0493     		str	r3, [sp, #16]
+  82 0062 134B     		ldr	r3, .L15+4
+  83 0064 2000     		movs	r0, r4
+  84 0066 03A9     		add	r1, sp, #12
+  85 0068 0593     		str	r3, [sp, #20]
+  86 006a FFF7FEFF 		bl	ADC_SetConvSeqAConfig
+  87 006e 8023     		movs	r3, #128
+  88 0070 A268     		ldr	r2, [r4, #8]
+  89 0072 1B06     		lsls	r3, r3, #24
+  90 0074 1343     		orrs	r3, r2
+  91 0076 A360     		str	r3, [r4, #8]
+  92 0078 8023     		movs	r3, #128
+  93 007a A268     		ldr	r2, [r4, #8]
+  94 007c DB04     		lsls	r3, r3, #19
+  95 007e 1343     		orrs	r3, r2
+  96 0080 A360     		str	r3, [r4, #8]
+  97              	.L9:
+  98 0082 2A00     		movs	r2, r5
+  99 0084 0021     		movs	r1, #0
+ 100 0086 0948     		ldr	r0, .L15
+ 101 0088 FFF7FEFF 		bl	ADC_GetChannelConversionResult
+ 102 008c 0028     		cmp	r0, #0
+ 103 008e F8D0     		beq	.L9
+ 104              	.L10:
+ 105 0090 2A00     		movs	r2, r5
+ 106 0092 0121     		movs	r1, #1
+ 107 0094 0548     		ldr	r0, .L15
+ 108 0096 FFF7FEFF 		bl	ADC_GetChannelConversionResult
+ 109 009a 0028     		cmp	r0, #0
+ 110 009c F8D0     		beq	.L10
+ 111 009e 2900     		movs	r1, r5
+ 112 00a0 0248     		ldr	r0, .L15
+ 113 00a2 FFF7FEFF 		bl	ADC_GetConvSeqAGlobalConversionResult
+ 114 00a6 07B0     		add	sp, sp, #28
+ 115              		@ sp needed
+ 116 00a8 30BD     		pop	{r4, r5, pc}
+ 117              	.L16:
+ARM GAS  /tmp/ccVIeCcA.s 			page 3
+
+
+ 118 00aa C046     		.align	2
+ 119              	.L15:
+ 120 00ac 00C00140 		.word	1073856512
+ 121 00b0 01000001 		.word	16777217
+ 123              		.align	1
+ 124              		.global	SCT_Configuration
+ 125              		.syntax unified
+ 126              		.code	16
+ 127              		.thumb_func
+ 129              	SCT_Configuration:
+ 130              		@ args = 0, pretend = 0, frame = 16
+ 131              		@ frame_needed = 0, uses_anonymous_args = 0
+ 132 00b4 70B5     		push	{r4, r5, r6, lr}
+ 133 00b6 86B0     		sub	sp, sp, #24
+ 134 00b8 03AD     		add	r5, sp, #12
+ 135 00ba 2800     		movs	r0, r5
+ 136 00bc FFF7FEFF 		bl	SCTIMER_GetDefaultConfig
+ 137 00c0 0026     		movs	r6, #0
+ 138 00c2 F923     		movs	r3, #249
+ 139 00c4 154C     		ldr	r4, .L18
+ 140 00c6 2900     		movs	r1, r5
+ 141 00c8 2000     		movs	r0, r4
+ 142 00ca 2E80     		strh	r6, [r5]
+ 143 00cc EE70     		strb	r6, [r5, #3]
+ 144 00ce 6B71     		strb	r3, [r5, #5]
+ 145 00d0 FFF7FEFF 		bl	SCTIMER_Init
+ 146 00d4 0125     		movs	r5, #1
+ 147 00d6 8021     		movs	r1, #128
+ 148 00d8 02AB     		add	r3, sp, #8
+ 149 00da 0193     		str	r3, [sp, #4]
+ 150 00dc 0095     		str	r5, [sp]
+ 151 00de 3300     		movs	r3, r6
+ 152 00e0 2000     		movs	r0, r4
+ 153 00e2 0F4A     		ldr	r2, .L18+4
+ 154 00e4 4901     		lsls	r1, r1, #5
+ 155 00e6 FFF7FEFF 		bl	SCTIMER_CreateAndScheduleEvent
+ 156 00ea 2000     		movs	r0, r4
+ 157 00ec 029A     		ldr	r2, [sp, #8]
+ 158 00ee 0321     		movs	r1, #3
+ 159 00f0 FFF7FEFF 		bl	SCTIMER_SetupOutputToggleAction
+ 160 00f4 029B     		ldr	r3, [sp, #8]
+ 161 00f6 C121     		movs	r1, #193
+ 162 00f8 9D40     		lsls	r5, r5, r3
+ 163 00fa 2289     		ldrh	r2, [r4, #8]
+ 164 00fc DB00     		lsls	r3, r3, #3
+ 165 00fe 2A43     		orrs	r2, r5
+ 166 0100 92B2     		uxth	r2, r2
+ 167 0102 2281     		strh	r2, [r4, #8]
+ 168 0104 1B19     		adds	r3, r3, r4
+ 169 0106 8900     		lsls	r1, r1, #2
+ 170 0108 5A58     		ldr	r2, [r3, r1]
+ 171 010a 0648     		ldr	r0, .L18+8
+ 172 010c 0240     		ands	r2, r0
+ 173 010e 5A50     		str	r2, [r3, r1]
+ 174 0110 0422     		movs	r2, #4
+ 175 0112 A388     		ldrh	r3, [r4, #4]
+ 176 0114 9343     		bics	r3, r2
+ARM GAS  /tmp/ccVIeCcA.s 			page 4
+
+
+ 177 0116 A380     		strh	r3, [r4, #4]
+ 178 0118 06B0     		add	sp, sp, #24
+ 179              		@ sp needed
+ 180 011a 70BD     		pop	{r4, r5, r6, pc}
+ 181              	.L19:
+ 182              		.align	2
+ 183              	.L18:
+ 184 011c 00400050 		.word	1342193664
+ 185 0120 C05D0000 		.word	24000
+ 186 0124 FFFF9FFF 		.word	-6291457
+ 188              		.section	.rodata.str1.1,"aMS",%progbits,1
+ 189              	.LC2:
+ 190 0000 45787065 		.ascii	"Experiment 4 - Part 2\015\012\012\000"
+ 190      72696D65 
+ 190      6E742034 
+ 190      202D2050 
+ 190      61727420 
+ 191              	.LC4:
+ 192 0019 41444320 		.ascii	"ADC Calibration Done.\015\012\000"
+ 192      43616C69 
+ 192      62726174 
+ 192      696F6E20 
+ 192      446F6E65 
+ 193              	.LC6:
+ 194 0031 41444320 		.ascii	"ADC Calibration Failed.\015\012\000"
+ 194      43616C69 
+ 194      62726174 
+ 194      696F6E20 
+ 194      4661696C 
+ 195              	.LC8:
+ 196 004b 436F6E66 		.ascii	"Configuration Done.\015\012\012\000"
+ 196      69677572 
+ 196      6174696F 
+ 196      6E20446F 
+ 196      6E652E0D 
+ 197              		.global	__aeabi_ui2d
+ 198              		.global	__aeabi_dmul
+ 199              		.global	__aeabi_d2iz
+ 200              	.LC10:
+ 201 0062 41444325 		.ascii	"ADC%d = %4d mV, \000"
+ 201      64203D20 
+ 201      25346420 
+ 201      6D562C20 
+ 201      00
+ 202              	.LC12:
+ 203 0073 41444325 		.ascii	"ADC%d = %4d mV\012\000"
+ 203      64203D20 
+ 203      25346420 
+ 203      6D560A00 
+ 204              		.section	.text.startup,"ax",%progbits
+ 205              		.align	1
+ 206              		.global	main
+ 207              		.syntax unified
+ 208              		.code	16
+ 209              		.thumb_func
+ 211              	main:
+ 212              		@ args = 0, pretend = 0, frame = 24
+ARM GAS  /tmp/ccVIeCcA.s 			page 5
+
+
+ 213              		@ frame_needed = 0, uses_anonymous_args = 0
+ 214 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 215 0002 454C     		ldr	r4, .L39
+ 216 0004 87B0     		sub	sp, sp, #28
+ 217 0006 02AB     		add	r3, sp, #8
+ 218 0008 2360     		str	r3, [r4]
+ 219 000a FFF7FEFF 		bl	BOARD_InitPins
+ 220 000e FFF7FEFF 		bl	BOARD_InitBootClocks
+ 221 0012 A020     		movs	r0, #160
+ 222 0014 0127     		movs	r7, #1
+ 223 0016 01AD     		add	r5, sp, #4
+ 224 0018 0021     		movs	r1, #0
+ 225 001a 0006     		lsls	r0, r0, #24
+ 226 001c 2F80     		strh	r7, [r5]
+ 227 001e FFF7FEFF 		bl	GPIO_PortInit
+ 228 0022 A020     		movs	r0, #160
+ 229 0024 0021     		movs	r1, #0
+ 230 0026 2B00     		movs	r3, r5
+ 231 0028 1122     		movs	r2, #17
+ 232 002a 0006     		lsls	r0, r0, #24
+ 233 002c FFF7FEFF 		bl	GPIO_PinInit
+ 234 0030 8023     		movs	r3, #128
+ 235 0032 3A4D     		ldr	r5, .L39+4
+ 236 0034 DB01     		lsls	r3, r3, #7
+ 237 0036 EA6F     		ldr	r2, [r5, #124]
+ 238 0038 394E     		ldr	r6, .L39+8
+ 239 003a 1343     		orrs	r3, r2
+ 240 003c EB67     		str	r3, [r5, #124]
+ 241 003e 394B     		ldr	r3, .L39+12
+ 242 0040 1F60     		str	r7, [r3]
+ 243 0042 FFF7FEFF 		bl	BOARD_InitDebugConsole
+ 244 0046 3848     		ldr	r0, .L39+16
+ 245 0048 FFF7FEFF 		bl	DbgConsole_Printf
+ 246 004c 8023     		movs	r3, #128
+ 247 004e EA6F     		ldr	r2, [r5, #124]
+ 248 0050 5B00     		lsls	r3, r3, #1
+ 249 0052 1343     		orrs	r3, r2
+ 250 0054 EB67     		str	r3, [r5, #124]
+ 251 0056 FFF7FEFF 		bl	SCT_Configuration
+ 252 005a 8023     		movs	r3, #128
+ 253 005c EA6F     		ldr	r2, [r5, #124]
+ 254 005e 5B04     		lsls	r3, r3, #17
+ 255 0060 1343     		orrs	r3, r2
+ 256 0062 8E22     		movs	r2, #142
+ 257 0064 1021     		movs	r1, #16
+ 258 0066 EB67     		str	r3, [r5, #124]
+ 259 0068 9200     		lsls	r2, r2, #2
+ 260 006a B358     		ldr	r3, [r6, r2]
+ 261 006c 0320     		movs	r0, #3
+ 262 006e 8B43     		bics	r3, r1
+ 263 0070 B350     		str	r3, [r6, r2]
+ 264 0072 FFF7FEFF 		bl	CLOCK_GetFreq
+ 265 0076 0100     		movs	r1, r0
+ 266 0078 2C48     		ldr	r0, .L39+20
+ 267 007a FFF7FEFF 		bl	ADC_DoSelfCalibration
+ 268 007e 0028     		cmp	r0, #0
+ 269 0080 3ED0     		beq	.L21
+ARM GAS  /tmp/ccVIeCcA.s 			page 6
+
+
+ 270 0082 2B48     		ldr	r0, .L39+24
+ 271              	.L37:
+ 272 0084 FFF7FEFF 		bl	DbgConsole_Printf
+ 273 0088 02A8     		add	r0, sp, #8
+ 274 008a FFF7FEFF 		bl	ADC_Configuration
+ 275 008e 0123     		movs	r3, #1
+ 276 0090 264A     		ldr	r2, .L39+20
+ 277 0092 516E     		ldr	r1, [r2, #100]
+ 278 0094 0B43     		orrs	r3, r1
+ 279 0096 5366     		str	r3, [r2, #100]
+ 280 0098 8022     		movs	r2, #128
+ 281 009a 264B     		ldr	r3, .L39+28
+ 282 009c 5202     		lsls	r2, r2, #9
+ 283 009e 1A60     		str	r2, [r3]
+ 284 00a0 A025     		movs	r5, #160
+ 285 00a2 2548     		ldr	r0, .L39+32
+ 286 00a4 FFF7FEFF 		bl	DbgConsole_Printf
+ 287 00a8 2D06     		lsls	r5, r5, #24
+ 288              	.L24:
+ 289 00aa 237B     		ldrb	r3, [r4, #12]
+ 290 00ac 002B     		cmp	r3, #0
+ 291 00ae 20D0     		beq	.L25
+ 292 00b0 6068     		ldr	r0, [r4, #4]
+ 293 00b2 FFF7FEFF 		bl	__aeabi_ui2d
+ 294 00b6 214B     		ldr	r3, .L39+36
+ 295 00b8 214A     		ldr	r2, .L39+40
+ 296 00ba FFF7FEFF 		bl	__aeabi_dmul
+ 297 00be FFF7FEFF 		bl	__aeabi_d2iz
+ 298 00c2 0021     		movs	r1, #0
+ 299 00c4 02B2     		sxth	r2, r0
+ 300 00c6 1F48     		ldr	r0, .L39+44
+ 301 00c8 FFF7FEFF 		bl	DbgConsole_Printf
+ 302 00cc A068     		ldr	r0, [r4, #8]
+ 303 00ce FFF7FEFF 		bl	__aeabi_ui2d
+ 304 00d2 1A4B     		ldr	r3, .L39+36
+ 305 00d4 1A4A     		ldr	r2, .L39+40
+ 306 00d6 FFF7FEFF 		bl	__aeabi_dmul
+ 307 00da FFF7FEFF 		bl	__aeabi_d2iz
+ 308 00de 0121     		movs	r1, #1
+ 309 00e0 02B2     		sxth	r2, r0
+ 310 00e2 1948     		ldr	r0, .L39+48
+ 311 00e4 FFF7FEFF 		bl	DbgConsole_Printf
+ 312 00e8 637B     		ldrb	r3, [r4, #13]
+ 313 00ea 0133     		adds	r3, r3, #1
+ 314 00ec 6373     		strb	r3, [r4, #13]
+ 315 00ee 0023     		movs	r3, #0
+ 316 00f0 2373     		strb	r3, [r4, #12]
+ 317              	.L25:
+ 318 00f2 607B     		ldrb	r0, [r4, #13]
+ 319 00f4 0428     		cmp	r0, #4
+ 320 00f6 05D1     		bne	.L26
+ 321 00f8 0023     		movs	r3, #0
+ 322 00fa 6373     		strb	r3, [r4, #13]
+ 323              	.L28:
+ 324 00fc 0023     		movs	r3, #0
+ 325 00fe 08E0     		b	.L38
+ 326              	.L21:
+ARM GAS  /tmp/ccVIeCcA.s 			page 7
+
+
+ 327 0100 1248     		ldr	r0, .L39+52
+ 328 0102 BFE7     		b	.L37
+ 329              	.L26:
+ 330 0104 0328     		cmp	r0, #3
+ 331 0106 D0D8     		bhi	.L24
+ 332 0108 FFF7FEFF 		bl	__gnu_thumb1_case_sqi
+ 333              	.L29:
+ 334 010c F8       		.byte	(.L28-.L29)/2
+ 335 010d 02       		.byte	(.L30-.L29)/2
+ 336 010e 02       		.byte	(.L30-.L29)/2
+ 337 010f F8       		.byte	(.L28-.L29)/2
+ 338              		.p2align 1
+ 339              	.L30:
+ 340 0110 0123     		movs	r3, #1
+ 341              	.L38:
+ 342 0112 6B74     		strb	r3, [r5, #17]
+ 343 0114 C9E7     		b	.L24
+ 344              	.L40:
+ 345 0116 C046     		.align	2
+ 346              	.L39:
+ 347 0118 00000000 		.word	.LANCHOR0
+ 348 011c 04800440 		.word	1074036740
+ 349 0120 00800440 		.word	1074036736
+ 350 0124 94800440 		.word	1074036884
+ 351 0128 00000000 		.word	.LC2
+ 352 012c 00C00140 		.word	1073856512
+ 353 0130 19000000 		.word	.LC4
+ 354 0134 00E100E0 		.word	-536813312
+ 355 0138 4B000000 		.word	.LC8
+ 356 013c 9CC9E93F 		.word	1072286108
+ 357 0140 B04D5399 		.word	-1722593872
+ 358 0144 62000000 		.word	.LC10
+ 359 0148 73000000 		.word	.LC12
+ 360 014c 31000000 		.word	.LC6
+ 362              		.text
+ 363              		.align	1
+ 364              		.global	convert12BitToMilliVolt
+ 365              		.syntax unified
+ 366              		.code	16
+ 367              		.thumb_func
+ 369              	convert12BitToMilliVolt:
+ 370              		@ args = 0, pretend = 0, frame = 0
+ 371              		@ frame_needed = 0, uses_anonymous_args = 0
+ 372 0128 10B5     		push	{r4, lr}
+ 373 012a FFF7FEFF 		bl	__aeabi_ui2d
+ 374              		@ sp needed
+ 375 012e 044A     		ldr	r2, .L42
+ 376 0130 044B     		ldr	r3, .L42+4
+ 377 0132 FFF7FEFF 		bl	__aeabi_dmul
+ 378 0136 FFF7FEFF 		bl	__aeabi_d2iz
+ 379 013a 00B2     		sxth	r0, r0
+ 380 013c 10BD     		pop	{r4, pc}
+ 381              	.L43:
+ 382 013e C046     		.align	2
+ 383              	.L42:
+ 384 0140 B04D5399 		.word	-1722593872
+ 385 0144 9CC9E93F 		.word	1072286108
+ARM GAS  /tmp/ccVIeCcA.s 			page 8
+
+
+ 387              		.global	channel_2_result
+ 388              		.global	channel_1_result
+ 389              		.global	mainCounter
+ 390              		.global	ADCConvCompleteFlag
+ 391              		.global	ADCResultPtr
+ 392              		.bss
+ 393              		.align	2
+ 394              		.set	.LANCHOR0,. + 0
+ 397              	ADCResultPtr:
+ 398 0000 00000000 		.space	4
+ 401              	channel_1_result:
+ 402 0004 00000000 		.space	4
+ 405              	channel_2_result:
+ 406 0008 00000000 		.space	4
+ 409              	ADCConvCompleteFlag:
+ 410 000c 00       		.space	1
+ 413              	mainCounter:
+ 414 000d 00       		.space	1
+ 415              		.ident	"GCC: (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 12.3.1 20230626"
+ARM GAS  /tmp/ccVIeCcA.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 experiment4_p2.c
+     /tmp/ccVIeCcA.s:15     .text:00000000 $t
+     /tmp/ccVIeCcA.s:21     .text:00000000 ADC0_SEQA_IRQHandler
+     /tmp/ccVIeCcA.s:56     .text:0000003c $d
+     /tmp/ccVIeCcA.s:59     .text:00000044 $t
+     /tmp/ccVIeCcA.s:65     .text:00000044 ADC_Configuration
+     /tmp/ccVIeCcA.s:120    .text:000000ac $d
+     /tmp/ccVIeCcA.s:123    .text:000000b4 $t
+     /tmp/ccVIeCcA.s:129    .text:000000b4 SCT_Configuration
+     /tmp/ccVIeCcA.s:184    .text:0000011c $d
+     /tmp/ccVIeCcA.s:205    .text.startup:00000000 $t
+     /tmp/ccVIeCcA.s:211    .text.startup:00000000 main
+     /tmp/ccVIeCcA.s:334    .text.startup:0000010c $d
+     /tmp/ccVIeCcA.s:338    .text.startup:00000110 $t
+     /tmp/ccVIeCcA.s:347    .text.startup:00000118 $d
+     /tmp/ccVIeCcA.s:363    .text:00000128 $t
+     /tmp/ccVIeCcA.s:369    .text:00000128 convert12BitToMilliVolt
+     /tmp/ccVIeCcA.s:384    .text:00000140 $d
+     /tmp/ccVIeCcA.s:405    .bss:00000008 channel_2_result
+     /tmp/ccVIeCcA.s:401    .bss:00000004 channel_1_result
+     /tmp/ccVIeCcA.s:413    .bss:0000000d mainCounter
+     /tmp/ccVIeCcA.s:409    .bss:0000000c ADCConvCompleteFlag
+     /tmp/ccVIeCcA.s:397    .bss:00000000 ADCResultPtr
+     /tmp/ccVIeCcA.s:393    .bss:00000000 $d
+
+UNDEFINED SYMBOLS
+ADC_GetChannelConversionResult
+ADC_Init
+ADC_SetConvSeqAConfig
+ADC_GetConvSeqAGlobalConversionResult
+SCTIMER_GetDefaultConfig
+SCTIMER_Init
+SCTIMER_CreateAndScheduleEvent
+SCTIMER_SetupOutputToggleAction
+__aeabi_ui2d
+__aeabi_dmul
+__aeabi_d2iz
+BOARD_InitPins
+BOARD_InitBootClocks
+GPIO_PortInit
+GPIO_PinInit
+BOARD_InitDebugConsole
+DbgConsole_Printf
+CLOCK_GetFreq
+ADC_DoSelfCalibration
+__gnu_thumb1_case_sqi
