@@ -1,0 +1,598 @@
+ARM GAS  /tmp/ccBVS6k5.s 			page 1
+
+
+   1              		.cpu cortex-m0plus
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"experiment5_bonus.c"
+  14              		.text
+  15              		.section	.text.i2c_master_callback,"ax",%progbits
+  16              		.align	1
+  17              		.syntax unified
+  18              		.code	16
+  19              		.thumb_func
+  21              	i2c_master_callback:
+  22              		@ args = 0, pretend = 0, frame = 0
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24              		@ link register save eliminated.
+  25 0000 002A     		cmp	r2, #0
+  26 0002 02D1     		bne	.L1
+  27 0004 014B     		ldr	r3, .L3
+  28 0006 0132     		adds	r2, r2, #1
+  29 0008 1A70     		strb	r2, [r3]
+  30              	.L1:
+  31              		@ sp needed
+  32 000a 7047     		bx	lr
+  33              	.L4:
+  34              		.align	2
+  35              	.L3:
+  36 000c 00000000 		.word	i2c_TX_complete
+  38              		.section	.text.uart_putch,"ax",%progbits
+  39              		.align	1
+  40              		.global	uart_putch
+  41              		.syntax unified
+  42              		.code	16
+  43              		.thumb_func
+  45              	uart_putch:
+  46              		@ args = 0, pretend = 0, frame = 0
+  47              		@ frame_needed = 0, uses_anonymous_args = 0
+  48              		@ link register save eliminated.
+  49 0000 0422     		movs	r2, #4
+  50 0002 034B     		ldr	r3, .L9
+  51              	.L6:
+  52 0004 9968     		ldr	r1, [r3, #8]
+  53 0006 1142     		tst	r1, r2
+  54 0008 FCD0     		beq	.L6
+  55              		@ sp needed
+  56 000a D861     		str	r0, [r3, #28]
+  57 000c 7047     		bx	lr
+  58              	.L10:
+  59 000e C046     		.align	2
+  60              	.L9:
+ARM GAS  /tmp/ccBVS6k5.s 			page 2
+
+
+  61 0010 00400640 		.word	1074151424
+  63              		.section	.text.MRT0_IRQHandler,"ax",%progbits
+  64              		.align	1
+  65              		.global	MRT0_IRQHandler
+  66              		.syntax unified
+  67              		.code	16
+  68              		.thumb_func
+  70              	MRT0_IRQHandler:
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+  73              		@ link register save eliminated.
+  74 0000 0123     		movs	r3, #1
+  75              		@ sp needed
+  76 0002 024A     		ldr	r2, .L12
+  77 0004 D360     		str	r3, [r2, #12]
+  78 0006 024A     		ldr	r2, .L12+4
+  79 0008 1370     		strb	r3, [r2]
+  80 000a 7047     		bx	lr
+  81              	.L13:
+  82              		.align	2
+  83              	.L12:
+  84 000c 00400040 		.word	1073758208
+  85 0010 00000000 		.word	mrtIsrFlag
+  87              		.section	.text.I2C_Write,"ax",%progbits
+  88              		.align	1
+  89              		.global	I2C_Write
+  90              		.syntax unified
+  91              		.code	16
+  92              		.thumb_func
+  94              	I2C_Write:
+  95              		@ args = 0, pretend = 0, frame = 32
+  96              		@ frame_needed = 0, uses_anonymous_args = 0
+  97 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  98 0002 0700     		movs	r7, r0
+  99 0004 89B0     		sub	sp, sp, #36
+ 100 0006 02AC     		add	r4, sp, #8
+ 101 0008 0D00     		movs	r5, r1
+ 102 000a 1600     		movs	r6, r2
+ 103 000c 0021     		movs	r1, #0
+ 104 000e 1022     		movs	r2, #16
+ 105 0010 2000     		movs	r0, r4
+ 106 0012 FFF7FEFF 		bl	memset
+ 107 0016 01AB     		add	r3, sp, #4
+ 108 0018 1F70     		strb	r7, [r3]
+ 109 001a 0693     		str	r3, [sp, #24]
+ 110 001c 0123     		movs	r3, #1
+ 111 001e 0793     		str	r3, [sp, #28]
+ 112 0020 0023     		movs	r3, #0
+ 113 0022 A580     		strh	r5, [r4, #4]
+ 114 0024 064D     		ldr	r5, .L18
+ 115 0026 2200     		movs	r2, r4
+ 116 0028 3100     		movs	r1, r6
+ 117 002a 0648     		ldr	r0, .L18+4
+ 118 002c 2B70     		strb	r3, [r5]
+ 119 002e FFF7FEFF 		bl	I2C_MasterTransferNonBlocking
+ 120              	.L15:
+ 121 0032 2B78     		ldrb	r3, [r5]
+ARM GAS  /tmp/ccBVS6k5.s 			page 3
+
+
+ 122 0034 002B     		cmp	r3, #0
+ 123 0036 FCD0     		beq	.L15
+ 124 0038 0023     		movs	r3, #0
+ 125 003a 2B70     		strb	r3, [r5]
+ 126 003c 09B0     		add	sp, sp, #36
+ 127              		@ sp needed
+ 128 003e F0BD     		pop	{r4, r5, r6, r7, pc}
+ 129              	.L19:
+ 130              		.align	2
+ 131              	.L18:
+ 132 0040 00000000 		.word	i2c_TX_complete
+ 133 0044 00000540 		.word	1074069504
+ 135              		.section	.text.clock_init,"ax",%progbits
+ 136              		.align	1
+ 137              		.global	clock_init
+ 138              		.syntax unified
+ 139              		.code	16
+ 140              		.thumb_func
+ 142              	clock_init:
+ 143              		@ args = 0, pretend = 0, frame = 8
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 145 0000 8E23     		movs	r3, #142
+ 146 0002 F7B5     		push	{r0, r1, r2, r4, r5, r6, r7, lr}
+ 147 0004 0125     		movs	r5, #1
+ 148              		@ sp needed
+ 149 0006 0221     		movs	r1, #2
+ 150 0008 0026     		movs	r6, #0
+ 151 000a 1A4C     		ldr	r4, .L21
+ 152 000c 9B00     		lsls	r3, r3, #2
+ 153 000e E258     		ldr	r2, [r4, r3]
+ 154 0010 6846     		mov	r0, sp
+ 155 0012 AA43     		bics	r2, r5
+ 156 0014 E250     		str	r2, [r4, r3]
+ 157 0016 E258     		ldr	r2, [r4, r3]
+ 158 0018 174F     		ldr	r7, .L21+4
+ 159 001a 8A43     		bics	r2, r1
+ 160 001c E250     		str	r2, [r4, r3]
+ 161 001e 174B     		ldr	r3, .L21+8
+ 162 0020 1E60     		str	r6, [r3]
+ 163 0022 6B46     		mov	r3, sp
+ 164 0024 1E71     		strb	r6, [r3, #4]
+ 165 0026 164B     		ldr	r3, .L21+12
+ 166 0028 0093     		str	r3, [sp]
+ 167 002a FFF7FEFF 		bl	CLOCK_InitSystemPll
+ 168 002e C020     		movs	r0, #192
+ 169 0030 8000     		lsls	r0, r0, #2
+ 170 0032 FFF7FEFF 		bl	CLOCK_SetMainClkSrc
+ 171 0036 0323     		movs	r3, #3
+ 172 0038 FF22     		movs	r2, #255
+ 173 003a 3B60     		str	r3, [r7]
+ 174 003c A36F     		ldr	r3, [r4, #120]
+ 175 003e 9343     		bics	r3, r2
+ 176 0040 2B43     		orrs	r3, r5
+ 177 0042 A367     		str	r3, [r4, #120]
+ 178 0044 FFF7FEFF 		bl	SystemCoreClockUpdate
+ 179 0048 0323     		movs	r3, #3
+ 180 004a 3B60     		str	r3, [r7]
+ARM GAS  /tmp/ccBVS6k5.s 			page 4
+
+
+ 181 004c 2300     		movs	r3, r4
+ 182 004e C822     		movs	r2, #200
+ 183 0050 E433     		adds	r3, r3, #228
+ 184 0052 1E60     		str	r6, [r3]
+ 185 0054 0434     		adds	r4, r4, #4
+ 186 0056 1D60     		str	r5, [r3]
+ 187 0058 5A60     		str	r2, [r3, #4]
+ 188 005a E36F     		ldr	r3, [r4, #124]
+ 189 005c 7F35     		adds	r5, r5, #127
+ 190 005e 2B43     		orrs	r3, r5
+ 191 0060 E367     		str	r3, [r4, #124]
+ 192 0062 2E21     		movs	r1, #46
+ 193 0064 0748     		ldr	r0, .L21+16
+ 194 0066 AE3A     		subs	r2, r2, #174
+ 195 0068 FFF7FEFF 		bl	SWM_SetMovablePinSelect
+ 196 006c E36F     		ldr	r3, [r4, #124]
+ 197 006e AB43     		bics	r3, r5
+ 198 0070 E367     		str	r3, [r4, #124]
+ 199 0072 F7BD     		pop	{r0, r1, r2, r4, r5, r6, r7, pc}
+ 200              	.L22:
+ 201              		.align	2
+ 202              	.L21:
+ 203 0074 00800440 		.word	1074036736
+ 204 0078 E0800440 		.word	1074036960
+ 205 007c 40800440 		.word	1074036800
+ 206 0080 00879303 		.word	60000000
+ 207 0084 00C00040 		.word	1073790976
+ 209              		.section	.text.config_uart0,"ax",%progbits
+ 210              		.align	1
+ 211              		.global	config_uart0
+ 212              		.syntax unified
+ 213              		.code	16
+ 214              		.thumb_func
+ 216              	config_uart0:
+ 217              		@ args = 0, pretend = 0, frame = 0
+ 218              		@ frame_needed = 0, uses_anonymous_args = 0
+ 219              		@ link register save eliminated.
+ 220 0000 8023     		movs	r3, #128
+ 221              		@ sp needed
+ 222 0002 074A     		ldr	r2, .L24
+ 223 0004 DB01     		lsls	r3, r3, #7
+ 224 0006 D16F     		ldr	r1, [r2, #124]
+ 225 0008 0B43     		orrs	r3, r1
+ 226 000a D367     		str	r3, [r2, #124]
+ 227 000c 0822     		movs	r2, #8
+ 228 000e 054B     		ldr	r3, .L24+4
+ 229 0010 1A60     		str	r2, [r3]
+ 230 0012 054B     		ldr	r3, .L24+8
+ 231 0014 053A     		subs	r2, r2, #5
+ 232 0016 1A62     		str	r2, [r3, #32]
+ 233 0018 0232     		adds	r2, r2, #2
+ 234 001a 1A60     		str	r2, [r3]
+ 235 001c 7047     		bx	lr
+ 236              	.L25:
+ 237 001e C046     		.align	2
+ 238              	.L24:
+ 239 0020 04800440 		.word	1074036740
+ARM GAS  /tmp/ccBVS6k5.s 			page 5
+
+
+ 240 0024 94800440 		.word	1074036884
+ 241 0028 00400640 		.word	1074151424
+ 243              		.section	.rodata.main.str1.1,"aMS",%progbits,1
+ 244              	.LC5:
+ 245 0000 0D0A0D0A 		.ascii	"\015\012\015\012\012\012EXPERIMENT 5 - PART 1\015\012"
+ 245      0A0A4558 
+ 245      50455249 
+ 245      4D454E54 
+ 245      2035202D 
+ 246 001d 00       		.ascii	"\000"
+ 247              	.LC7:
+ 248 001e 7E7E7E7E 		.ascii	"~~~~~~~~~~~~~~~~~~~~~~\012\012\012\000"
+ 248      7E7E7E7E 
+ 248      7E7E7E7E 
+ 248      7E7E7E7E 
+ 248      7E7E7E7E 
+ 249              	.LC10:
+ 250 0038 0A4C4D37 		.ascii	"\012LM75 Configuration\012\000"
+ 250      3520436F 
+ 250      6E666967 
+ 250      75726174 
+ 250      696F6E0A 
+ 251              	.LC12:
+ 252 004d 0A092A20 		.ascii	"\012\011* \000"
+ 252      00
+ 253              	.LC14:
+ 254 0052 0A0A416C 		.ascii	"\012\012Alarm Configuration\012\000"
+ 254      61726D20 
+ 254      436F6E66 
+ 254      69677572 
+ 254      6174696F 
+ 255              	.LC16:
+ 256 0069 0A092A20 		.ascii	"\012\011* Upper Alarm Temperature = \000"
+ 256      55707065 
+ 256      7220416C 
+ 256      61726D20 
+ 256      54656D70 
+ 257              	.LC18:
+ 258 0088 2043656C 		.ascii	" Celcius Degree\000"
+ 258      63697573 
+ 258      20446567 
+ 258      72656500 
+ 259              	.LC20:
+ 260 0098 0A092A20 		.ascii	"\012\011* Lower Alarm Temperature = \000"
+ 260      4C6F7765 
+ 260      7220416C 
+ 260      61726D20 
+ 260      54656D70 
+ 261              	.LC22:
+ 262 00b7 2043656C 		.ascii	" Celcius Degree\012\015\012\015\000"
+ 262      63697573 
+ 262      20446567 
+ 262      7265650A 
+ 262      0D0A0D00 
+ 263              	.LC24:
+ 264 00cb 0A5B494E 		.ascii	"\012[INFO]: I2C initialization complete.\015\012\000"
+ 264      464F5D3A 
+ARM GAS  /tmp/ccBVS6k5.s 			page 6
+
+
+ 264      20493243 
+ 264      20696E69 
+ 264      7469616C 
+ 265              	.LC26:
+ 266 00f3 0A0D0A0D 		.ascii	"\012\015\012\015\000"
+ 266      00
+ 267              	.LC30:
+ 268 00f8 543D00   		.ascii	"T=\000"
+ 269              	.LC32:
+ 270 00fb 20646567 		.ascii	" deg C\012\015\000"
+ 270      20430A0D 
+ 270      00
+ 271              		.section	.text.startup.main,"ax",%progbits
+ 272              		.align	1
+ 273              		.global	main
+ 274              		.syntax unified
+ 275              		.code	16
+ 276              		.thumb_func
+ 278              	main:
+ 279              		@ args = 0, pretend = 0, frame = 80
+ 280              		@ frame_needed = 0, uses_anonymous_args = 0
+ 281 0000 8022     		movs	r2, #128
+ 282 0002 F0B5     		push	{r4, r5, r6, r7, lr}
+ 283 0004 2024     		movs	r4, #32
+ 284 0006 5E4B     		ldr	r3, .L36
+ 285 0008 D201     		lsls	r2, r2, #7
+ 286 000a D96F     		ldr	r1, [r3, #124]
+ 287 000c 95B0     		sub	sp, sp, #84
+ 288 000e 0A43     		orrs	r2, r1
+ 289 0010 DA67     		str	r2, [r3, #124]
+ 290 0012 DA6F     		ldr	r2, [r3, #124]
+ 291 0014 A025     		movs	r5, #160
+ 292 0016 2243     		orrs	r2, r4
+ 293 0018 DA67     		str	r2, [r3, #124]
+ 294 001a FFF7FEFF 		bl	InitPins
+ 295 001e FFF7FEFF 		bl	clock_init
+ 296 0022 FFF7FEFF 		bl	config_uart0
+ 297 0026 574B     		ldr	r3, .L36+4
+ 298 0028 574A     		ldr	r2, .L36+8
+ 299 002a 5848     		ldr	r0, .L36+12
+ 300 002c 1A60     		str	r2, [r3]
+ 301 002e FFF7FEFF 		bl	xprintf
+ 302 0032 5748     		ldr	r0, .L36+16
+ 303 0034 FFF7FEFF 		bl	xprintf
+ 304 0038 8022     		movs	r2, #128
+ 305 003a 8023     		movs	r3, #128
+ 306 003c 9201     		lsls	r2, r2, #6
+ 307 003e 2D06     		lsls	r5, r5, #24
+ 308 0040 A958     		ldr	r1, [r5, r2]
+ 309 0042 5B02     		lsls	r3, r3, #9
+ 310 0044 0B43     		orrs	r3, r1
+ 311 0046 AB50     		str	r3, [r5, r2]
+ 312 0048 03A8     		add	r0, sp, #12
+ 313 004a FFF7FEFF 		bl	I2C_MasterGetDefaultConfig
+ 314 004e 514B     		ldr	r3, .L36+20
+ 315 0050 03A9     		add	r1, sp, #12
+ 316 0052 514A     		ldr	r2, .L36+24
+ARM GAS  /tmp/ccBVS6k5.s 			page 7
+
+
+ 317 0054 5148     		ldr	r0, .L36+28
+ 318 0056 0493     		str	r3, [sp, #16]
+ 319 0058 FFF7FEFF 		bl	I2C_MasterInit
+ 320 005c 06A9     		add	r1, sp, #24
+ 321 005e 0023     		movs	r3, #0
+ 322 0060 4F4A     		ldr	r2, .L36+32
+ 323 0062 4E48     		ldr	r0, .L36+28
+ 324 0064 FFF7FEFF 		bl	I2C_MasterTransferCreateHandle
+ 325 0068 6A46     		mov	r2, sp
+ 326 006a 1023     		movs	r3, #16
+ 327 006c 02A9     		add	r1, sp, #8
+ 328 006e 1381     		strh	r3, [r2, #8]
+ 329 0070 0120     		movs	r0, #1
+ 330 0072 06AB     		add	r3, sp, #24
+ 331 0074 0222     		movs	r2, #2
+ 332 0076 FFF7FEFF 		bl	LM75_Write_Reg
+ 333 007a 06AB     		add	r3, sp, #24
+ 334 007c 01A9     		add	r1, sp, #4
+ 335 007e 0222     		movs	r2, #2
+ 336 0080 0120     		movs	r0, #1
+ 337 0082 FFF7FEFF 		bl	LM75_Read_Reg
+ 338 0086 4748     		ldr	r0, .L36+36
+ 339 0088 FFF7FEFF 		bl	xprintf
+ 340 008c 4648     		ldr	r0, .L36+40
+ 341 008e FFF7FEFF 		bl	xprintf
+ 342 0092 01A8     		add	r0, sp, #4
+ 343 0094 FFF7FEFF 		bl	print_os_fault
+ 344 0098 6B46     		mov	r3, sp
+ 345 009a 02A9     		add	r1, sp, #8
+ 346 009c 1C81     		strh	r4, [r3, #8]
+ 347 009e 0222     		movs	r2, #2
+ 348 00a0 06AB     		add	r3, sp, #24
+ 349 00a2 0320     		movs	r0, #3
+ 350 00a4 FFF7FEFF 		bl	LM75_Write_Reg
+ 351 00a8 06AB     		add	r3, sp, #24
+ 352 00aa 01A9     		add	r1, sp, #4
+ 353 00ac 0222     		movs	r2, #2
+ 354 00ae 0320     		movs	r0, #3
+ 355 00b0 FFF7FEFF 		bl	LM75_Read_Reg
+ 356 00b4 3D48     		ldr	r0, .L36+44
+ 357 00b6 FFF7FEFF 		bl	xprintf
+ 358 00ba 3D48     		ldr	r0, .L36+48
+ 359 00bc FFF7FEFF 		bl	xprintf
+ 360 00c0 01A8     		add	r0, sp, #4
+ 361 00c2 FFF7FEFF 		bl	print_temp
+ 362 00c6 6A46     		mov	r2, sp
+ 363 00c8 1E23     		movs	r3, #30
+ 364 00ca 1381     		strh	r3, [r2, #8]
+ 365 00cc 0222     		movs	r2, #2
+ 366 00ce 06AB     		add	r3, sp, #24
+ 367 00d0 1000     		movs	r0, r2
+ 368 00d2 02A9     		add	r1, sp, #8
+ 369 00d4 FFF7FEFF 		bl	LM75_Write_Reg
+ 370 00d8 0222     		movs	r2, #2
+ 371 00da 06AB     		add	r3, sp, #24
+ 372 00dc 1000     		movs	r0, r2
+ 373 00de 01A9     		add	r1, sp, #4
+ARM GAS  /tmp/ccBVS6k5.s 			page 8
+
+
+ 374 00e0 FFF7FEFF 		bl	LM75_Read_Reg
+ 375 00e4 3348     		ldr	r0, .L36+52
+ 376 00e6 FFF7FEFF 		bl	xprintf
+ 377 00ea 3348     		ldr	r0, .L36+56
+ 378 00ec FFF7FEFF 		bl	xprintf
+ 379 00f0 01A8     		add	r0, sp, #4
+ 380 00f2 FFF7FEFF 		bl	print_temp
+ 381 00f6 3148     		ldr	r0, .L36+60
+ 382 00f8 314C     		ldr	r4, .L36+64
+ 383 00fa FFF7FEFF 		bl	xprintf
+ 384 00fe 3148     		ldr	r0, .L36+68
+ 385 0100 FFF7FEFF 		bl	xprintf
+ 386 0104 3048     		ldr	r0, .L36+72
+ 387 0106 FFF7FEFF 		bl	xprintf
+ 388 010a 6946     		mov	r1, sp
+ 389 010c 2000     		movs	r0, r4
+ 390 010e FFF7FEFF 		bl	MRT_Init
+ 391 0112 0622     		movs	r2, #6
+ 392 0114 A368     		ldr	r3, [r4, #8]
+ 393 0116 0020     		movs	r0, #0
+ 394 0118 9343     		bics	r3, r2
+ 395 011a A360     		str	r3, [r4, #8]
+ 396 011c FFF7FEFF 		bl	CLOCK_GetFreq
+ 397 0120 0126     		movs	r6, #1
+ 398 0122 4008     		lsrs	r0, r0, #1
+ 399 0124 2060     		str	r0, [r4]
+ 400 0126 A368     		ldr	r3, [r4, #8]
+ 401 0128 3343     		orrs	r3, r6
+ 402 012a A360     		str	r3, [r4, #8]
+ 403 012c 8022     		movs	r2, #128
+ 404 012e 274B     		ldr	r3, .L36+76
+ 405 0130 D200     		lsls	r2, r2, #3
+ 406 0132 1A60     		str	r2, [r3]
+ 407              	.L27:
+ 408 0134 264F     		ldr	r7, .L36+80
+ 409 0136 274C     		ldr	r4, .L36+84
+ 410 0138 3B78     		ldrb	r3, [r7]
+ 411 013a 002B     		cmp	r3, #0
+ 412 013c 13D0     		beq	.L28
+ 413 013e 2368     		ldr	r3, [r4]
+ 414 0140 0222     		movs	r2, #2
+ 415 0142 0133     		adds	r3, r3, #1
+ 416 0144 01A9     		add	r1, sp, #4
+ 417 0146 2360     		str	r3, [r4]
+ 418 0148 0020     		movs	r0, #0
+ 419 014a 06AB     		add	r3, sp, #24
+ 420 014c FFF7FEFF 		bl	LM75_Read_Reg
+ 421 0150 2148     		ldr	r0, .L36+88
+ 422 0152 FFF7FEFF 		bl	xprintf
+ 423 0156 01A8     		add	r0, sp, #4
+ 424 0158 FFF7FEFF 		bl	print_temp
+ 425 015c 1F48     		ldr	r0, .L36+92
+ 426 015e FFF7FEFF 		bl	xprintf
+ 427 0162 0023     		movs	r3, #0
+ 428 0164 3B70     		strb	r3, [r7]
+ 429              	.L28:
+ 430 0166 2368     		ldr	r3, [r4]
+ARM GAS  /tmp/ccBVS6k5.s 			page 9
+
+
+ 431 0168 012B     		cmp	r3, #1
+ 432 016a 03D9     		bls	.L29
+ 433 016c 0023     		movs	r3, #0
+ 434 016e 2360     		str	r3, [r4]
+ 435              	.L30:
+ 436 0170 2E74     		strb	r6, [r5, #16]
+ 437 0172 DFE7     		b	.L27
+ 438              	.L29:
+ 439 0174 002B     		cmp	r3, #0
+ 440 0176 FBD0     		beq	.L30
+ 441 0178 0023     		movs	r3, #0
+ 442 017a 2B74     		strb	r3, [r5, #16]
+ 443 017c DAE7     		b	.L27
+ 444              	.L37:
+ 445 017e C046     		.align	2
+ 446              	.L36:
+ 447 0180 04800440 		.word	1074036740
+ 448 0184 00000000 		.word	xfunc_output
+ 449 0188 00000000 		.word	uart_putch
+ 450 018c 00000000 		.word	.LC5
+ 451 0190 1E000000 		.word	.LC7
+ 452 0194 A0860100 		.word	100000
+ 453 0198 001BB700 		.word	12000000
+ 454 019c 00000540 		.word	1074069504
+ 455 01a0 00000000 		.word	i2c_master_callback
+ 456 01a4 38000000 		.word	.LC10
+ 457 01a8 4D000000 		.word	.LC12
+ 458 01ac 52000000 		.word	.LC14
+ 459 01b0 69000000 		.word	.LC16
+ 460 01b4 88000000 		.word	.LC18
+ 461 01b8 98000000 		.word	.LC20
+ 462 01bc B7000000 		.word	.LC22
+ 463 01c0 00400040 		.word	1073758208
+ 464 01c4 CB000000 		.word	.LC24
+ 465 01c8 F3000000 		.word	.LC26
+ 466 01cc 00E100E0 		.word	-536813312
+ 467 01d0 00000000 		.word	mrtIsrFlag
+ 468 01d4 00000000 		.word	counter
+ 469 01d8 F8000000 		.word	.LC30
+ 470 01dc FB000000 		.word	.LC32
+ 472              		.global	SystickCounter
+ 473              		.section	.bss.SystickCounter,"aw",%nobits
+ 474              		.align	2
+ 477              	SystickCounter:
+ 478 0000 00000000 		.space	4
+ 479              		.global	i2c_TX_complete
+ 480              		.section	.bss.i2c_TX_complete,"aw",%nobits
+ 483              	i2c_TX_complete:
+ 484 0000 00       		.space	1
+ 485              		.global	counter
+ 486              		.section	.bss.counter,"aw",%nobits
+ 487              		.align	2
+ 490              	counter:
+ 491 0000 00000000 		.space	4
+ 492              		.section	.bss.mrtIsrFlag,"aw",%nobits
+ 495              	mrtIsrFlag:
+ 496 0000 00       		.space	1
+ARM GAS  /tmp/ccBVS6k5.s 			page 10
+
+
+ 497              		.ident	"GCC: (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 12.3.1 20230626"
+ARM GAS  /tmp/ccBVS6k5.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 experiment5_bonus.c
+     /tmp/ccBVS6k5.s:16     .text.i2c_master_callback:00000000 $t
+     /tmp/ccBVS6k5.s:21     .text.i2c_master_callback:00000000 i2c_master_callback
+     /tmp/ccBVS6k5.s:36     .text.i2c_master_callback:0000000c $d
+     /tmp/ccBVS6k5.s:483    .bss.i2c_TX_complete:00000000 i2c_TX_complete
+     /tmp/ccBVS6k5.s:39     .text.uart_putch:00000000 $t
+     /tmp/ccBVS6k5.s:45     .text.uart_putch:00000000 uart_putch
+     /tmp/ccBVS6k5.s:61     .text.uart_putch:00000010 $d
+     /tmp/ccBVS6k5.s:64     .text.MRT0_IRQHandler:00000000 $t
+     /tmp/ccBVS6k5.s:70     .text.MRT0_IRQHandler:00000000 MRT0_IRQHandler
+     /tmp/ccBVS6k5.s:84     .text.MRT0_IRQHandler:0000000c $d
+     /tmp/ccBVS6k5.s:495    .bss.mrtIsrFlag:00000000 mrtIsrFlag
+     /tmp/ccBVS6k5.s:88     .text.I2C_Write:00000000 $t
+     /tmp/ccBVS6k5.s:94     .text.I2C_Write:00000000 I2C_Write
+     /tmp/ccBVS6k5.s:132    .text.I2C_Write:00000040 $d
+     /tmp/ccBVS6k5.s:136    .text.clock_init:00000000 $t
+     /tmp/ccBVS6k5.s:142    .text.clock_init:00000000 clock_init
+     /tmp/ccBVS6k5.s:203    .text.clock_init:00000074 $d
+     /tmp/ccBVS6k5.s:210    .text.config_uart0:00000000 $t
+     /tmp/ccBVS6k5.s:216    .text.config_uart0:00000000 config_uart0
+     /tmp/ccBVS6k5.s:239    .text.config_uart0:00000020 $d
+     /tmp/ccBVS6k5.s:272    .text.startup.main:00000000 $t
+     /tmp/ccBVS6k5.s:278    .text.startup.main:00000000 main
+     /tmp/ccBVS6k5.s:447    .text.startup.main:00000180 $d
+     /tmp/ccBVS6k5.s:490    .bss.counter:00000000 counter
+     /tmp/ccBVS6k5.s:477    .bss.SystickCounter:00000000 SystickCounter
+     /tmp/ccBVS6k5.s:474    .bss.SystickCounter:00000000 $d
+     /tmp/ccBVS6k5.s:484    .bss.i2c_TX_complete:00000000 $d
+     /tmp/ccBVS6k5.s:487    .bss.counter:00000000 $d
+     /tmp/ccBVS6k5.s:496    .bss.mrtIsrFlag:00000000 $d
+
+UNDEFINED SYMBOLS
+memset
+I2C_MasterTransferNonBlocking
+CLOCK_InitSystemPll
+CLOCK_SetMainClkSrc
+SystemCoreClockUpdate
+SWM_SetMovablePinSelect
+InitPins
+xprintf
+I2C_MasterGetDefaultConfig
+I2C_MasterInit
+I2C_MasterTransferCreateHandle
+LM75_Write_Reg
+LM75_Read_Reg
+print_os_fault
+print_temp
+MRT_Init
+CLOCK_GetFreq
+xfunc_output

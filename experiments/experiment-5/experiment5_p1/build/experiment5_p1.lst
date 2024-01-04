@@ -1,0 +1,260 @@
+ARM GAS  /tmp/ccA97OeV.s 			page 1
+
+
+   1              		.cpu cortex-m0plus
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lm75.c"
+  14              		.text
+  15              		.section	.text.LM75_Write_Reg,"ax",%progbits
+  16              		.align	1
+  17              		.global	LM75_Write_Reg
+  18              		.syntax unified
+  19              		.code	16
+  20              		.thumb_func
+  22              	LM75_Write_Reg:
+  23              		@ args = 0, pretend = 0, frame = 24
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  26 0002 87B0     		sub	sp, sp, #28
+  27 0004 1400     		movs	r4, r2
+  28 0006 0700     		movs	r7, r0
+  29 0008 0E00     		movs	r6, r1
+  30 000a 0822     		movs	r2, #8
+  31 000c 0021     		movs	r1, #0
+  32 000e 6846     		mov	r0, sp
+  33 0010 1D00     		movs	r5, r3
+  34 0012 FFF7FEFF 		bl	memset
+  35 0016 4823     		movs	r3, #72
+  36 0018 6A46     		mov	r2, sp
+  37 001a 9380     		strh	r3, [r2, #4]
+  38 001c 473B     		subs	r3, r3, #71
+  39 001e 0393     		str	r3, [sp, #12]
+  40 0020 0023     		movs	r3, #0
+  41 0022 0594     		str	r4, [sp, #20]
+  42 0024 074C     		ldr	r4, .L5
+  43 0026 2900     		movs	r1, r5
+  44 0028 0748     		ldr	r0, .L5+4
+  45 002a 0297     		str	r7, [sp, #8]
+  46 002c 0496     		str	r6, [sp, #16]
+  47 002e 2370     		strb	r3, [r4]
+  48 0030 FFF7FEFF 		bl	I2C_MasterTransferNonBlocking
+  49              	.L2:
+  50 0034 2378     		ldrb	r3, [r4]
+  51 0036 002B     		cmp	r3, #0
+  52 0038 FCD0     		beq	.L2
+  53 003a 0023     		movs	r3, #0
+  54 003c 2370     		strb	r3, [r4]
+  55 003e 07B0     		add	sp, sp, #28
+  56              		@ sp needed
+  57 0040 F0BD     		pop	{r4, r5, r6, r7, pc}
+  58              	.L6:
+ARM GAS  /tmp/ccA97OeV.s 			page 2
+
+
+  59 0042 C046     		.align	2
+  60              	.L5:
+  61 0044 00000000 		.word	i2c_TX_complete
+  62 0048 00000540 		.word	1074069504
+  64              		.section	.text.LM75_Read_Reg,"ax",%progbits
+  65              		.align	1
+  66              		.global	LM75_Read_Reg
+  67              		.syntax unified
+  68              		.code	16
+  69              		.thumb_func
+  71              	LM75_Read_Reg:
+  72              		@ args = 0, pretend = 0, frame = 24
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74 0000 30B5     		push	{r4, r5, lr}
+  75 0002 0C00     		movs	r4, r1
+  76 0004 1900     		movs	r1, r3
+  77 0006 114B     		ldr	r3, .L13
+  78 0008 87B0     		sub	sp, sp, #28
+  79 000a 0025     		movs	r5, #0
+  80 000c 0193     		str	r3, [sp, #4]
+  81 000e 0123     		movs	r3, #1
+  82 0010 0290     		str	r0, [sp, #8]
+  83 0012 0592     		str	r2, [sp, #20]
+  84 0014 0E48     		ldr	r0, .L13+4
+  85 0016 6A46     		mov	r2, sp
+  86 0018 0393     		str	r3, [sp, #12]
+  87 001a 0095     		str	r5, [sp]
+  88 001c 0494     		str	r4, [sp, #16]
+  89 001e FFF7FEFF 		bl	I2C_MasterTransferNonBlocking
+  90 0022 0C4B     		ldr	r3, .L13+8
+  91 0024 1D70     		strb	r5, [r3]
+  92 0026 A842     		cmp	r0, r5
+  93 0028 0DD1     		bne	.L10
+  94              	.L9:
+  95 002a 1A78     		ldrb	r2, [r3]
+  96 002c 002A     		cmp	r2, #0
+  97 002e FCD0     		beq	.L9
+  98 0030 0022     		movs	r2, #0
+  99 0032 6078     		ldrb	r0, [r4, #1]
+ 100 0034 1A70     		strb	r2, [r3]
+ 101 0036 2378     		ldrb	r3, [r4]
+ 102 0038 0002     		lsls	r0, r0, #8
+ 103 003a 1843     		orrs	r0, r3
+ 104 003c 40BA     		rev16	r0, r0
+ 105 003e 80B2     		uxth	r0, r0
+ 106 0040 4009     		lsrs	r0, r0, #5
+ 107              	.L8:
+ 108 0042 07B0     		add	sp, sp, #28
+ 109              		@ sp needed
+ 110 0044 30BD     		pop	{r4, r5, pc}
+ 111              	.L10:
+ 112 0046 0120     		movs	r0, #1
+ 113 0048 4042     		rsbs	r0, r0, #0
+ 114 004a FAE7     		b	.L8
+ 115              	.L14:
+ 116              		.align	2
+ 117              	.L13:
+ARM GAS  /tmp/ccA97OeV.s 			page 3
+
+
+ 118 004c 48000100 		.word	65608
+ 119 0050 00000540 		.word	1074069504
+ 120 0054 00000000 		.word	i2c_TX_complete
+ 122              		.section	.rodata.print_temp.str1.1,"aMS",%progbits,1
+ 123              	.LC2:
+ 124 0000 25642E00 		.ascii	"%d.\000"
+ 125              	.LC4:
+ 126 0004 256400   		.ascii	"%d\000"
+ 127              	.LC6:
+ 128 0007 303000   		.ascii	"00\000"
+ 129              		.section	.text.print_temp,"ax",%progbits
+ 130              		.align	1
+ 131              		.global	print_temp
+ 132              		.syntax unified
+ 133              		.code	16
+ 134              		.thumb_func
+ 136              	print_temp:
+ 137              		@ args = 0, pretend = 0, frame = 0
+ 138              		@ frame_needed = 0, uses_anonymous_args = 0
+ 139 0000 10B5     		push	{r4, lr}
+ 140 0002 0400     		movs	r4, r0
+ 141 0004 0178     		ldrb	r1, [r0]
+ 142 0006 0948     		ldr	r0, .L17
+ 143 0008 FFF7FEFF 		bl	xprintf
+ 144 000c 7D21     		movs	r1, #125
+ 145 000e 6378     		ldrb	r3, [r4, #1]
+ 146 0010 0748     		ldr	r0, .L17+4
+ 147 0012 5B09     		lsrs	r3, r3, #5
+ 148 0014 5943     		muls	r1, r3
+ 149 0016 6370     		strb	r3, [r4, #1]
+ 150 0018 FFF7FEFF 		bl	xprintf
+ 151 001c 6378     		ldrb	r3, [r4, #1]
+ 152 001e 002B     		cmp	r3, #0
+ 153 0020 02D1     		bne	.L15
+ 154 0022 0448     		ldr	r0, .L17+8
+ 155 0024 FFF7FEFF 		bl	xprintf
+ 156              	.L15:
+ 157              		@ sp needed
+ 158 0028 10BD     		pop	{r4, pc}
+ 159              	.L18:
+ 160 002a C046     		.align	2
+ 161              	.L17:
+ 162 002c 00000000 		.word	.LC2
+ 163 0030 04000000 		.word	.LC4
+ 164 0034 07000000 		.word	.LC6
+ 166              		.section	.rodata.print_os_fault.str1.1,"aMS",%progbits,1
+ 167              	.LC8:
+ 168 0000 51756575 		.ascii	"Queue Value = 1\012\000"
+ 168      65205661 
+ 168      6C756520 
+ 168      3D20310A 
+ 168      00
+ 169              	.LC10:
+ 170 0011 51756575 		.ascii	"Queue Value = 2\012\000"
+ 170      65205661 
+ 170      6C756520 
+ 170      3D20320A 
+ARM GAS  /tmp/ccA97OeV.s 			page 4
+
+
+ 170      00
+ 171              	.LC12:
+ 172 0022 51756575 		.ascii	"Queue Value = 4\012\000"
+ 172      65205661 
+ 172      6C756520 
+ 172      3D20340A 
+ 172      00
+ 173              	.LC14:
+ 174 0033 51756575 		.ascii	"Queue Value = 6\012\000"
+ 174      65205661 
+ 174      6C756520 
+ 174      3D20360A 
+ 174      00
+ 175              		.section	.text.print_os_fault,"ax",%progbits
+ 176              		.align	1
+ 177              		.global	print_os_fault
+ 178              		.syntax unified
+ 179              		.code	16
+ 180              		.thumb_func
+ 182              	print_os_fault:
+ 183              		@ args = 0, pretend = 0, frame = 0
+ 184              		@ frame_needed = 0, uses_anonymous_args = 0
+ 185 0000 1823     		movs	r3, #24
+ 186 0002 10B5     		push	{r4, lr}
+ 187 0004 0278     		ldrb	r2, [r0]
+ 188 0006 0948     		ldr	r0, .L28
+ 189 0008 1A42     		tst	r2, r3
+ 190 000a 0BD0     		beq	.L27
+ 191 000c 0823     		movs	r3, #8
+ 192 000e 1340     		ands	r3, r2
+ 193 0010 D206     		lsls	r2, r2, #27
+ 194 0012 03D4     		bmi	.L22
+ 195 0014 0648     		ldr	r0, .L28+4
+ 196 0016 002B     		cmp	r3, #0
+ 197 0018 04D1     		bne	.L27
+ 198              	.L19:
+ 199              		@ sp needed
+ 200 001a 10BD     		pop	{r4, pc}
+ 201              	.L22:
+ 202 001c 0548     		ldr	r0, .L28+8
+ 203 001e 002B     		cmp	r3, #0
+ 204 0020 00D0     		beq	.L27
+ 205 0022 0548     		ldr	r0, .L28+12
+ 206              	.L27:
+ 207 0024 FFF7FEFF 		bl	xprintf
+ 208 0028 F7E7     		b	.L19
+ 209              	.L29:
+ 210 002a C046     		.align	2
+ 211              	.L28:
+ 212 002c 00000000 		.word	.LC8
+ 213 0030 11000000 		.word	.LC10
+ 214 0034 22000000 		.word	.LC12
+ 215 0038 33000000 		.word	.LC14
+ 217              		.ident	"GCC: (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 12.3.1 20230626"
+ARM GAS  /tmp/ccA97OeV.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lm75.c
+     /tmp/ccA97OeV.s:16     .text.LM75_Write_Reg:00000000 $t
+     /tmp/ccA97OeV.s:22     .text.LM75_Write_Reg:00000000 LM75_Write_Reg
+     /tmp/ccA97OeV.s:61     .text.LM75_Write_Reg:00000044 $d
+     /tmp/ccA97OeV.s:65     .text.LM75_Read_Reg:00000000 $t
+     /tmp/ccA97OeV.s:71     .text.LM75_Read_Reg:00000000 LM75_Read_Reg
+     /tmp/ccA97OeV.s:118    .text.LM75_Read_Reg:0000004c $d
+     /tmp/ccA97OeV.s:130    .text.print_temp:00000000 $t
+     /tmp/ccA97OeV.s:136    .text.print_temp:00000000 print_temp
+     /tmp/ccA97OeV.s:162    .text.print_temp:0000002c $d
+     /tmp/ccA97OeV.s:176    .text.print_os_fault:00000000 $t
+     /tmp/ccA97OeV.s:182    .text.print_os_fault:00000000 print_os_fault
+     /tmp/ccA97OeV.s:212    .text.print_os_fault:0000002c $d
+
+UNDEFINED SYMBOLS
+memset
+I2C_MasterTransferNonBlocking
+i2c_TX_complete
+xprintf
