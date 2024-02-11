@@ -146,16 +146,11 @@ int main(void)
 
     while (1)
     {
-        GPIO->B[GPIO_PORT][BLUE_LED_PIN] = 0;
-
         LM75_Read_Reg(LM75_REG_TEMP, i2c_rxbuf, LM75_READ_LEN,  &i2c_handle);
         xprintf("T=");
         print_temp(i2c_rxbuf);
         xprintf(" deg C\n\r");
 
-        SysTick_DelayTicks(500U);
-
-        GPIO->B[GPIO_PORT][BLUE_LED_PIN] = 1;
         SysTick_DelayTicks(500U);
     }
 }

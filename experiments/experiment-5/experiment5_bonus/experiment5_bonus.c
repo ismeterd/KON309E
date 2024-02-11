@@ -90,7 +90,7 @@ int main(void)
 //    Set the hardware interface function for xprintf
     xdev_out(uart_putch);
 
-    xprintf("\r\n\r\n\n\nEXPERIMENT 5 - PART 1\r\n");
+    xprintf("\r\n\r\n\n\nEXPERIMENT 5 - BONUS\r\n");
     xprintf("~~~~~~~~~~~~~~~~~~~~~~\n\n\n");
 
 
