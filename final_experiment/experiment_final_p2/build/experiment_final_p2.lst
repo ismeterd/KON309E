@@ -1,0 +1,677 @@
+ARM GAS  /tmp/cczmywiE.s 			page 1
+
+
+   1              		.cpu cortex-m0plus
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"experiment_final_p2.c"
+  14              		.text
+  15              		.section	.text.uart_putch,"ax",%progbits
+  16              		.align	1
+  17              		.global	uart_putch
+  18              		.syntax unified
+  19              		.code	16
+  20              		.thumb_func
+  22              	uart_putch:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25              		@ link register save eliminated.
+  26 0000 0422     		movs	r2, #4
+  27 0002 034B     		ldr	r3, .L5
+  28              	.L2:
+  29 0004 9968     		ldr	r1, [r3, #8]
+  30 0006 1142     		tst	r1, r2
+  31 0008 FCD0     		beq	.L2
+  32              		@ sp needed
+  33 000a D861     		str	r0, [r3, #28]
+  34 000c 7047     		bx	lr
+  35              	.L6:
+  36 000e C046     		.align	2
+  37              	.L5:
+  38 0010 00400640 		.word	1074151424
+  40              		.global	__aeabi_ui2f
+  41              		.global	__aeabi_f2d
+  42              		.global	__aeabi_dmul
+  43              		.global	__aeabi_d2f
+  44              		.global	__aeabi_f2iz
+  45              		.section	.text.convert12BitToControllerInput_forPrint,"ax",%progbits
+  46              		.align	1
+  47              		.global	convert12BitToControllerInput_forPrint
+  48              		.syntax unified
+  49              		.code	16
+  50              		.thumb_func
+  52              	convert12BitToControllerInput_forPrint:
+  53              		@ args = 0, pretend = 0, frame = 0
+  54              		@ frame_needed = 0, uses_anonymous_args = 0
+  55 0000 074B     		ldr	r3, .L8
+  56 0002 10B5     		push	{r4, lr}
+  57 0004 C018     		adds	r0, r0, r3
+  58 0006 FFF7FEFF 		bl	__aeabi_ui2f
+  59              		@ sp needed
+  60 000a FFF7FEFF 		bl	__aeabi_f2d
+ARM GAS  /tmp/cczmywiE.s 			page 2
+
+
+  61 000e 054A     		ldr	r2, .L8+4
+  62 0010 054B     		ldr	r3, .L8+8
+  63 0012 FFF7FEFF 		bl	__aeabi_dmul
+  64 0016 FFF7FEFF 		bl	__aeabi_d2f
+  65 001a FFF7FEFF 		bl	__aeabi_f2iz
+  66 001e 10BD     		pop	{r4, pc}
+  67              	.L9:
+  68              		.align	2
+  69              	.L8:
+  70 0020 01F8FFFF 		.word	-2047
+  71 0024 4310316F 		.word	1865486403
+  72 0028 1F03B93F 		.word	1069089567
+  74              		.global	__aeabi_ui2d
+  75              		.global	__aeabi_d2iz
+  76              		.section	.text.convert12BitToControllerInput,"ax",%progbits
+  77              		.align	1
+  78              		.global	convert12BitToControllerInput
+  79              		.syntax unified
+  80              		.code	16
+  81              		.thumb_func
+  83              	convert12BitToControllerInput:
+  84              		@ args = 0, pretend = 0, frame = 0
+  85              		@ frame_needed = 0, uses_anonymous_args = 0
+  86 0000 10B5     		push	{r4, lr}
+  87 0002 FFF7FEFF 		bl	__aeabi_ui2d
+  88              		@ sp needed
+  89 0006 0022     		movs	r2, #0
+  90 0008 034B     		ldr	r3, .L11
+  91 000a FFF7FEFF 		bl	__aeabi_dmul
+  92 000e FFF7FEFF 		bl	__aeabi_d2iz
+  93 0012 C838     		subs	r0, r0, #200
+  94 0014 10BD     		pop	{r4, pc}
+  95              	.L12:
+  96 0016 C046     		.align	2
+  97              	.L11:
+  98 0018 0000B93F 		.word	1069088768
+ 100              		.section	.text.convert12BitToPWMDutyCyclePercent,"ax",%progbits
+ 101              		.align	1
+ 102              		.global	convert12BitToPWMDutyCyclePercent
+ 103              		.syntax unified
+ 104              		.code	16
+ 105              		.thumb_func
+ 107              	convert12BitToPWMDutyCyclePercent:
+ 108              		@ args = 0, pretend = 0, frame = 0
+ 109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 110 0000 10B5     		push	{r4, lr}
+ 111 0002 FFF7FEFF 		bl	__aeabi_ui2d
+ 112              		@ sp needed
+ 113 0006 0022     		movs	r2, #0
+ 114 0008 034B     		ldr	r3, .L14
+ 115 000a FFF7FEFF 		bl	__aeabi_dmul
+ 116 000e FFF7FEFF 		bl	__aeabi_d2iz
+ 117 0012 00B2     		sxth	r0, r0
+ 118 0014 10BD     		pop	{r4, pc}
+ 119              	.L15:
+ 120 0016 C046     		.align	2
+ 121              	.L14:
+ARM GAS  /tmp/cczmywiE.s 			page 3
+
+
+ 122 0018 0000993F 		.word	1066991616
+ 124              		.section	.text.ADC_Configuration,"ax",%progbits
+ 125              		.align	1
+ 126              		.global	ADC_Configuration
+ 127              		.syntax unified
+ 128              		.code	16
+ 129              		.thumb_func
+ 131              	ADC_Configuration:
+ 132              		@ args = 0, pretend = 0, frame = 24
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 135 0002 0127     		movs	r7, #1
+ 136 0004 0026     		movs	r6, #0
+ 137 0006 144C     		ldr	r4, .L20
+ 138 0008 87B0     		sub	sp, sp, #28
+ 139 000a 01A9     		add	r1, sp, #4
+ 140 000c 0500     		movs	r5, r0
+ 141 000e 2000     		movs	r0, r4
+ 142 0010 8E80     		strh	r6, [r1, #4]
+ 143 0012 0197     		str	r7, [sp, #4]
+ 144 0014 FFF7FEFF 		bl	ADC_Init
+ 145 0018 104B     		ldr	r3, .L20+4
+ 146 001a 2000     		movs	r0, r4
+ 147 001c 03A9     		add	r1, sp, #12
+ 148 001e 0593     		str	r3, [sp, #20]
+ 149 0020 0397     		str	r7, [sp, #12]
+ 150 0022 0496     		str	r6, [sp, #16]
+ 151 0024 FFF7FEFF 		bl	ADC_SetConvSeqAConfig
+ 152 0028 8023     		movs	r3, #128
+ 153 002a A268     		ldr	r2, [r4, #8]
+ 154 002c 1B06     		lsls	r3, r3, #24
+ 155 002e 1343     		orrs	r3, r2
+ 156 0030 A360     		str	r3, [r4, #8]
+ 157 0032 8023     		movs	r3, #128
+ 158 0034 A268     		ldr	r2, [r4, #8]
+ 159 0036 DB04     		lsls	r3, r3, #19
+ 160 0038 1343     		orrs	r3, r2
+ 161 003a A360     		str	r3, [r4, #8]
+ 162              	.L17:
+ 163 003c 2A00     		movs	r2, r5
+ 164 003e 0021     		movs	r1, #0
+ 165 0040 0548     		ldr	r0, .L20
+ 166 0042 FFF7FEFF 		bl	ADC_GetChannelConversionResult
+ 167 0046 0028     		cmp	r0, #0
+ 168 0048 F8D0     		beq	.L17
+ 169 004a 2900     		movs	r1, r5
+ 170 004c 0248     		ldr	r0, .L20
+ 171 004e FFF7FEFF 		bl	ADC_GetConvSeqAGlobalConversionResult
+ 172 0052 07B0     		add	sp, sp, #28
+ 173              		@ sp needed
+ 174 0054 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 175              	.L21:
+ 176 0056 C046     		.align	2
+ 177              	.L20:
+ 178 0058 00C00140 		.word	1073856512
+ 179 005c 01000001 		.word	16777217
+ 181              		.section	.text.clock_init,"ax",%progbits
+ARM GAS  /tmp/cczmywiE.s 			page 4
+
+
+ 182              		.align	1
+ 183              		.global	clock_init
+ 184              		.syntax unified
+ 185              		.code	16
+ 186              		.thumb_func
+ 188              	clock_init:
+ 189              		@ args = 0, pretend = 0, frame = 8
+ 190              		@ frame_needed = 0, uses_anonymous_args = 0
+ 191 0000 8E23     		movs	r3, #142
+ 192 0002 F7B5     		push	{r0, r1, r2, r4, r5, r6, r7, lr}
+ 193 0004 0125     		movs	r5, #1
+ 194              		@ sp needed
+ 195 0006 0221     		movs	r1, #2
+ 196 0008 0026     		movs	r6, #0
+ 197 000a 1A4C     		ldr	r4, .L23
+ 198 000c 9B00     		lsls	r3, r3, #2
+ 199 000e E258     		ldr	r2, [r4, r3]
+ 200 0010 6846     		mov	r0, sp
+ 201 0012 AA43     		bics	r2, r5
+ 202 0014 E250     		str	r2, [r4, r3]
+ 203 0016 E258     		ldr	r2, [r4, r3]
+ 204 0018 174F     		ldr	r7, .L23+4
+ 205 001a 8A43     		bics	r2, r1
+ 206 001c E250     		str	r2, [r4, r3]
+ 207 001e 174B     		ldr	r3, .L23+8
+ 208 0020 1E60     		str	r6, [r3]
+ 209 0022 6B46     		mov	r3, sp
+ 210 0024 1E71     		strb	r6, [r3, #4]
+ 211 0026 164B     		ldr	r3, .L23+12
+ 212 0028 0093     		str	r3, [sp]
+ 213 002a FFF7FEFF 		bl	CLOCK_InitSystemPll
+ 214 002e C020     		movs	r0, #192
+ 215 0030 8000     		lsls	r0, r0, #2
+ 216 0032 FFF7FEFF 		bl	CLOCK_SetMainClkSrc
+ 217 0036 0323     		movs	r3, #3
+ 218 0038 FF22     		movs	r2, #255
+ 219 003a 3B60     		str	r3, [r7]
+ 220 003c A36F     		ldr	r3, [r4, #120]
+ 221 003e 9343     		bics	r3, r2
+ 222 0040 2B43     		orrs	r3, r5
+ 223 0042 A367     		str	r3, [r4, #120]
+ 224 0044 FFF7FEFF 		bl	SystemCoreClockUpdate
+ 225 0048 0323     		movs	r3, #3
+ 226 004a 3B60     		str	r3, [r7]
+ 227 004c 2300     		movs	r3, r4
+ 228 004e C822     		movs	r2, #200
+ 229 0050 E433     		adds	r3, r3, #228
+ 230 0052 1E60     		str	r6, [r3]
+ 231 0054 0434     		adds	r4, r4, #4
+ 232 0056 1D60     		str	r5, [r3]
+ 233 0058 5A60     		str	r2, [r3, #4]
+ 234 005a E36F     		ldr	r3, [r4, #124]
+ 235 005c 7F35     		adds	r5, r5, #127
+ 236 005e 2B43     		orrs	r3, r5
+ 237 0060 E367     		str	r3, [r4, #124]
+ 238 0062 2E21     		movs	r1, #46
+ 239 0064 0748     		ldr	r0, .L23+16
+ARM GAS  /tmp/cczmywiE.s 			page 5
+
+
+ 240 0066 AE3A     		subs	r2, r2, #174
+ 241 0068 FFF7FEFF 		bl	SWM_SetMovablePinSelect
+ 242 006c E36F     		ldr	r3, [r4, #124]
+ 243 006e AB43     		bics	r3, r5
+ 244 0070 E367     		str	r3, [r4, #124]
+ 245 0072 F7BD     		pop	{r0, r1, r2, r4, r5, r6, r7, pc}
+ 246              	.L24:
+ 247              		.align	2
+ 248              	.L23:
+ 249 0074 00800440 		.word	1074036736
+ 250 0078 E0800440 		.word	1074036960
+ 251 007c 40800440 		.word	1074036800
+ 252 0080 00879303 		.word	60000000
+ 253 0084 00C00040 		.word	1073790976
+ 255              		.section	.text.config_uart0,"ax",%progbits
+ 256              		.align	1
+ 257              		.global	config_uart0
+ 258              		.syntax unified
+ 259              		.code	16
+ 260              		.thumb_func
+ 262              	config_uart0:
+ 263              		@ args = 0, pretend = 0, frame = 0
+ 264              		@ frame_needed = 0, uses_anonymous_args = 0
+ 265              		@ link register save eliminated.
+ 266 0000 8023     		movs	r3, #128
+ 267              		@ sp needed
+ 268 0002 074A     		ldr	r2, .L26
+ 269 0004 DB01     		lsls	r3, r3, #7
+ 270 0006 D16F     		ldr	r1, [r2, #124]
+ 271 0008 0B43     		orrs	r3, r1
+ 272 000a D367     		str	r3, [r2, #124]
+ 273 000c 0822     		movs	r2, #8
+ 274 000e 054B     		ldr	r3, .L26+4
+ 275 0010 1A60     		str	r2, [r3]
+ 276 0012 054B     		ldr	r3, .L26+8
+ 277 0014 053A     		subs	r2, r2, #5
+ 278 0016 1A62     		str	r2, [r3, #32]
+ 279 0018 0232     		adds	r2, r2, #2
+ 280 001a 1A60     		str	r2, [r3]
+ 281 001c 7047     		bx	lr
+ 282              	.L27:
+ 283 001e C046     		.align	2
+ 284              	.L26:
+ 285 0020 04800440 		.word	1074036740
+ 286 0024 94800440 		.word	1074036884
+ 287 0028 00400640 		.word	1074151424
+ 289              		.section	.text.SysTick_Handler,"ax",%progbits
+ 290              		.align	1
+ 291              		.global	SysTick_Handler
+ 292              		.syntax unified
+ 293              		.code	16
+ 294              		.thumb_func
+ 296              	SysTick_Handler:
+ 297              		@ args = 0, pretend = 0, frame = 0
+ 298              		@ frame_needed = 0, uses_anonymous_args = 0
+ 299              		@ link register save eliminated.
+ 300 0000 034B     		ldr	r3, .L33
+ARM GAS  /tmp/cczmywiE.s 			page 6
+
+
+ 301 0002 1A68     		ldr	r2, [r3]
+ 302 0004 002A     		cmp	r2, #0
+ 303 0006 02D0     		beq	.L28
+ 304 0008 1A68     		ldr	r2, [r3]
+ 305 000a 013A     		subs	r2, r2, #1
+ 306 000c 1A60     		str	r2, [r3]
+ 307              	.L28:
+ 308              		@ sp needed
+ 309 000e 7047     		bx	lr
+ 310              	.L34:
+ 311              		.align	2
+ 312              	.L33:
+ 313 0010 00000000 		.word	SystickCounter
+ 315              		.section	.text.SysTick_DelayTicks,"ax",%progbits
+ 316              		.align	1
+ 317              		.global	SysTick_DelayTicks
+ 318              		.syntax unified
+ 319              		.code	16
+ 320              		.thumb_func
+ 322              	SysTick_DelayTicks:
+ 323              		@ args = 0, pretend = 0, frame = 0
+ 324              		@ frame_needed = 0, uses_anonymous_args = 0
+ 325              		@ link register save eliminated.
+ 326 0000 024B     		ldr	r3, .L38
+ 327 0002 1860     		str	r0, [r3]
+ 328              	.L36:
+ 329 0004 1A68     		ldr	r2, [r3]
+ 330 0006 002A     		cmp	r2, #0
+ 331 0008 FCD1     		bne	.L36
+ 332              		@ sp needed
+ 333 000a 7047     		bx	lr
+ 334              	.L39:
+ 335              		.align	2
+ 336              	.L38:
+ 337 000c 00000000 		.word	SystickCounter
+ 339              		.global	__aeabi_uidiv
+ 340              		.section	.rodata.main.str1.1,"aMS",%progbits,1
+ 341              	.LC7:
+ 342 0000 0D0A0D0A 		.ascii	"\015\012\015\012\012\012EXPERIMENT 5 - PART 2\015\012"
+ 342      0A0A4558 
+ 342      50455249 
+ 342      4D454E54 
+ 342      2035202D 
+ 343 001d 00       		.ascii	"\000"
+ 344              	.LC9:
+ 345 001e 7E7E7E7E 		.ascii	"~~~~~~~~~~~~~~~~~~~~~~\012\012\012\000"
+ 345      7E7E7E7E 
+ 345      7E7E7E7E 
+ 345      7E7E7E7E 
+ 345      7E7E7E7E 
+ 346              	.LC11:
+ 347 0038 2320496E 		.ascii	"# Initialization\015\012\012\000"
+ 347      69746961 
+ 347      6C697A61 
+ 347      74696F6E 
+ 347      0D0A0A00 
+ 348              	.LC13:
+ARM GAS  /tmp/cczmywiE.s 			page 7
+
+
+ 349 004c 09202A5B 		.ascii	"\011 *[INFO]: ADC Calibration Done.\015\012\000"
+ 349      494E464F 
+ 349      5D3A2041 
+ 349      44432043 
+ 349      616C6962 
+ 350              	.LC15:
+ 351 006f 09202A5B 		.ascii	"\011 *[INFO]: ADC Calibration Failed.\015\012\000"
+ 351      494E464F 
+ 351      5D3A2041 
+ 351      44432043 
+ 351      616C6962 
+ 352              	.LC17:
+ 353 0094 09202A5B 		.ascii	"\011 *[INFO]: ADC Configuration Done.\015\012\012\012"
+ 353      494E464F 
+ 353      5D3A2041 
+ 353      44432043 
+ 353      6F6E6669 
+ 354 00ba 00       		.ascii	"\000"
+ 355              	.LC19:
+ 356 00bb 5B494E46 		.ascii	"[INFO]: ADC Ch %d -> %d\015\012\000"
+ 356      4F5D3A20 
+ 356      41444320 
+ 356      43682025 
+ 356      64202D3E 
+ 357              	.LC21:
+ 358 00d5 5B494E46 		.ascii	"[INFO]: PWM Duty Percent -> %d\015\012\000"
+ 358      4F5D3A20 
+ 358      50574D20 
+ 358      44757479 
+ 358      20506572 
+ 359              	.LC23:
+ 360 00f6 5B494E46 		.ascii	"[INFO]: Controller Input -> %d\015\012\000"
+ 360      4F5D3A20 
+ 360      436F6E74 
+ 360      726F6C6C 
+ 360      65722049 
+ 361              		.section	.text.startup.main,"ax",%progbits
+ 362              		.align	1
+ 363              		.global	main
+ 364              		.syntax unified
+ 365              		.code	16
+ 366              		.thumb_func
+ 368              	main:
+ 369              		@ args = 0, pretend = 0, frame = 32
+ 370              		@ frame_needed = 0, uses_anonymous_args = 0
+ 371 0000 8022     		movs	r2, #128
+ 372 0002 70B5     		push	{r4, r5, r6, lr}
+ 373 0004 8024     		movs	r4, #128
+ 374 0006 514B     		ldr	r3, .L52
+ 375 0008 D201     		lsls	r2, r2, #7
+ 376 000a D86F     		ldr	r0, [r3, #124]
+ 377 000c 6404     		lsls	r4, r4, #17
+ 378 000e 0243     		orrs	r2, r0
+ 379 0010 DA67     		str	r2, [r3, #124]
+ 380 0012 DA6F     		ldr	r2, [r3, #124]
+ 381 0014 4E49     		ldr	r1, .L52+4
+ 382 0016 2243     		orrs	r2, r4
+ARM GAS  /tmp/cczmywiE.s 			page 8
+
+
+ 383 0018 DA67     		str	r2, [r3, #124]
+ 384 001a 8022     		movs	r2, #128
+ 385 001c D86F     		ldr	r0, [r3, #124]
+ 386 001e 5200     		lsls	r2, r2, #1
+ 387 0020 0243     		orrs	r2, r0
+ 388 0022 DA67     		str	r2, [r3, #124]
+ 389 0024 8E22     		movs	r2, #142
+ 390 0026 1020     		movs	r0, #16
+ 391 0028 9200     		lsls	r2, r2, #2
+ 392 002a 8B58     		ldr	r3, [r1, r2]
+ 393 002c 8AB0     		sub	sp, sp, #40
+ 394 002e 8343     		bics	r3, r0
+ 395 0030 8B50     		str	r3, [r1, r2]
+ 396 0032 FFF7FEFF 		bl	BOARD_InitPins
+ 397 0036 FFF7FEFF 		bl	clock_init
+ 398 003a FFF7FEFF 		bl	config_uart0
+ 399 003e FA21     		movs	r1, #250
+ 400 0040 444B     		ldr	r3, .L52+8
+ 401 0042 454A     		ldr	r2, .L52+12
+ 402 0044 8900     		lsls	r1, r1, #2
+ 403 0046 1A60     		str	r2, [r3]
+ 404 0048 444B     		ldr	r3, .L52+16
+ 405 004a 1868     		ldr	r0, [r3]
+ 406 004c FFF7FEFF 		bl	__aeabi_uidiv
+ 407 0050 0138     		subs	r0, r0, #1
+ 408 0052 A042     		cmp	r0, r4
+ 409 0054 3CD2     		bcs	.L41
+ 410 0056 C021     		movs	r1, #192
+ 411 0058 414A     		ldr	r2, .L52+20
+ 412 005a 0906     		lsls	r1, r1, #24
+ 413 005c 5060     		str	r0, [r2, #4]
+ 414 005e 4148     		ldr	r0, .L52+24
+ 415 0060 0025     		movs	r5, #0
+ 416 0062 036A     		ldr	r3, [r0, #32]
+ 417 0064 1B02     		lsls	r3, r3, #8
+ 418 0066 1B0A     		lsrs	r3, r3, #8
+ 419 0068 0B43     		orrs	r3, r1
+ 420 006a 0362     		str	r3, [r0, #32]
+ 421 006c 0723     		movs	r3, #7
+ 422 006e 9560     		str	r5, [r2, #8]
+ 423 0070 0320     		movs	r0, #3
+ 424 0072 1360     		str	r3, [r2]
+ 425 0074 FFF7FEFF 		bl	CLOCK_GetFreq
+ 426 0078 3B4C     		ldr	r4, .L52+28
+ 427 007a 2060     		str	r0, [r4]
+ 428 007c 03A8     		add	r0, sp, #12
+ 429 007e FFF7FEFF 		bl	SCTIMER_GetDefaultConfig
+ 430 0082 03A9     		add	r1, sp, #12
+ 431 0084 3948     		ldr	r0, .L52+32
+ 432 0086 FFF7FEFF 		bl	SCTIMER_Init
+ 433 008a 6A46     		mov	r2, sp
+ 434 008c 8123     		movs	r3, #129
+ 435 008e 9572     		strb	r5, [r2, #10]
+ 436 0090 374D     		ldr	r5, .L52+36
+ 437 0092 5B00     		lsls	r3, r3, #1
+ 438 0094 1381     		strh	r3, [r2, #8]
+ 439 0096 0195     		str	r5, [sp, #4]
+ARM GAS  /tmp/cczmywiE.s 			page 9
+
+
+ 440 0098 2368     		ldr	r3, [r4]
+ 441 009a 02A9     		add	r1, sp, #8
+ 442 009c 0122     		movs	r2, #1
+ 443 009e 0093     		str	r3, [sp]
+ 444 00a0 3248     		ldr	r0, .L52+32
+ 445 00a2 344B     		ldr	r3, .L52+40
+ 446 00a4 FFF7FEFF 		bl	SCTIMER_SetupPwm
+ 447 00a8 3348     		ldr	r0, .L52+44
+ 448 00aa FFF7FEFF 		bl	xprintf
+ 449 00ae 3348     		ldr	r0, .L52+48
+ 450 00b0 FFF7FEFF 		bl	xprintf
+ 451 00b4 3248     		ldr	r0, .L52+52
+ 452 00b6 FFF7FEFF 		bl	xprintf
+ 453 00ba 0320     		movs	r0, #3
+ 454 00bc FFF7FEFF 		bl	CLOCK_GetFreq
+ 455 00c0 0100     		movs	r1, r0
+ 456 00c2 3048     		ldr	r0, .L52+56
+ 457 00c4 FFF7FEFF 		bl	ADC_DoSelfCalibration
+ 458 00c8 0028     		cmp	r0, #0
+ 459 00ca 02D1     		bne	.L42
+ 460 00cc 2E48     		ldr	r0, .L52+60
+ 461 00ce 01E0     		b	.L51
+ 462              	.L41:
+ 463 00d0 FEE7     		b	.L41
+ 464              	.L42:
+ 465 00d2 2E48     		ldr	r0, .L52+64
+ 466              	.L51:
+ 467 00d4 FFF7FEFF 		bl	xprintf
+ 468 00d8 06A8     		add	r0, sp, #24
+ 469 00da FFF7FEFF 		bl	ADC_Configuration
+ 470 00de 2C48     		ldr	r0, .L52+68
+ 471 00e0 FFF7FEFF 		bl	xprintf
+ 472              	.L46:
+ 473 00e4 8023     		movs	r3, #128
+ 474 00e6 274A     		ldr	r2, .L52+56
+ 475 00e8 DB04     		lsls	r3, r3, #19
+ 476 00ea 9168     		ldr	r1, [r2, #8]
+ 477 00ec 0B43     		orrs	r3, r1
+ 478 00ee 9360     		str	r3, [r2, #8]
+ 479              	.L45:
+ 480 00f0 0021     		movs	r1, #0
+ 481 00f2 2448     		ldr	r0, .L52+56
+ 482 00f4 06AA     		add	r2, sp, #24
+ 483 00f6 FFF7FEFF 		bl	ADC_GetChannelConversionResult
+ 484 00fa 0028     		cmp	r0, #0
+ 485 00fc F8D0     		beq	.L45
+ 486 00fe 069A     		ldr	r2, [sp, #24]
+ 487 0100 0899     		ldr	r1, [sp, #32]
+ 488 0102 2448     		ldr	r0, .L52+72
+ 489 0104 FFF7FEFF 		bl	xprintf
+ 490 0108 069E     		ldr	r6, [sp, #24]
+ 491 010a B0B2     		uxth	r0, r6
+ 492 010c FFF7FEFF 		bl	__aeabi_ui2d
+ 493 0110 0022     		movs	r2, #0
+ 494 0112 214B     		ldr	r3, .L52+76
+ 495 0114 FFF7FEFF 		bl	__aeabi_dmul
+ 496 0118 FFF7FEFF 		bl	__aeabi_d2iz
+ARM GAS  /tmp/cczmywiE.s 			page 10
+
+
+ 497 011c C4B2     		uxtb	r4, r0
+ 498 011e 3000     		movs	r0, r6
+ 499 0120 FFF7FEFF 		bl	convert12BitToControllerInput
+ 500 0124 0600     		movs	r6, r0
+ 501 0126 2100     		movs	r1, r4
+ 502 0128 1C48     		ldr	r0, .L52+80
+ 503 012a FFF7FEFF 		bl	xprintf
+ 504 012e 3100     		movs	r1, r6
+ 505 0130 1B48     		ldr	r0, .L52+84
+ 506 0132 FFF7FEFF 		bl	xprintf
+ 507 0136 2200     		movs	r2, r4
+ 508 0138 0221     		movs	r1, #2
+ 509 013a 2B68     		ldr	r3, [r5]
+ 510 013c 0B48     		ldr	r0, .L52+32
+ 511 013e FFF7FEFF 		bl	SCTIMER_UpdatePwmDutycycle
+ 512 0142 6420     		movs	r0, #100
+ 513 0144 FFF7FEFF 		bl	SysTick_DelayTicks
+ 514 0148 CCE7     		b	.L46
+ 515              	.L53:
+ 516 014a C046     		.align	2
+ 517              	.L52:
+ 518 014c 04800440 		.word	1074036740
+ 519 0150 00800440 		.word	1074036736
+ 520 0154 00000000 		.word	xfunc_output
+ 521 0158 00000000 		.word	uart_putch
+ 522 015c 00000000 		.word	SystemCoreClock
+ 523 0160 10E000E0 		.word	-536813552
+ 524 0164 00ED00E0 		.word	-536810240
+ 525 0168 00000000 		.word	sctimerClock
+ 526 016c 00400050 		.word	1342193664
+ 527 0170 00000000 		.word	event0
+ 528 0174 A0860100 		.word	100000
+ 529 0178 00000000 		.word	.LC7
+ 530 017c 1E000000 		.word	.LC9
+ 531 0180 38000000 		.word	.LC11
+ 532 0184 00C00140 		.word	1073856512
+ 533 0188 6F000000 		.word	.LC15
+ 534 018c 4C000000 		.word	.LC13
+ 535 0190 94000000 		.word	.LC17
+ 536 0194 BB000000 		.word	.LC19
+ 537 0198 0000993F 		.word	1066991616
+ 538 019c D5000000 		.word	.LC21
+ 539 01a0 F6000000 		.word	.LC23
+ 541              		.global	sctimerClock
+ 542              		.section	.bss.sctimerClock,"aw",%nobits
+ 543              		.align	2
+ 546              	sctimerClock:
+ 547 0000 00000000 		.space	4
+ 548              		.global	event0
+ 549              		.section	.bss.event0,"aw",%nobits
+ 550              		.align	2
+ 553              	event0:
+ 554 0000 00000000 		.space	4
+ 555              		.global	SystickCounter
+ 556              		.section	.bss.SystickCounter,"aw",%nobits
+ 557              		.align	2
+ 560              	SystickCounter:
+ARM GAS  /tmp/cczmywiE.s 			page 11
+
+
+ 561 0000 00000000 		.space	4
+ 562              		.ident	"GCC: (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 12.3.1 20230626"
+ARM GAS  /tmp/cczmywiE.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 experiment_final_p2.c
+     /tmp/cczmywiE.s:16     .text.uart_putch:00000000 $t
+     /tmp/cczmywiE.s:22     .text.uart_putch:00000000 uart_putch
+     /tmp/cczmywiE.s:38     .text.uart_putch:00000010 $d
+     /tmp/cczmywiE.s:46     .text.convert12BitToControllerInput_forPrint:00000000 $t
+     /tmp/cczmywiE.s:52     .text.convert12BitToControllerInput_forPrint:00000000 convert12BitToControllerInput_forPrint
+     /tmp/cczmywiE.s:70     .text.convert12BitToControllerInput_forPrint:00000020 $d
+     /tmp/cczmywiE.s:77     .text.convert12BitToControllerInput:00000000 $t
+     /tmp/cczmywiE.s:83     .text.convert12BitToControllerInput:00000000 convert12BitToControllerInput
+     /tmp/cczmywiE.s:98     .text.convert12BitToControllerInput:00000018 $d
+     /tmp/cczmywiE.s:101    .text.convert12BitToPWMDutyCyclePercent:00000000 $t
+     /tmp/cczmywiE.s:107    .text.convert12BitToPWMDutyCyclePercent:00000000 convert12BitToPWMDutyCyclePercent
+     /tmp/cczmywiE.s:122    .text.convert12BitToPWMDutyCyclePercent:00000018 $d
+     /tmp/cczmywiE.s:125    .text.ADC_Configuration:00000000 $t
+     /tmp/cczmywiE.s:131    .text.ADC_Configuration:00000000 ADC_Configuration
+     /tmp/cczmywiE.s:178    .text.ADC_Configuration:00000058 $d
+     /tmp/cczmywiE.s:182    .text.clock_init:00000000 $t
+     /tmp/cczmywiE.s:188    .text.clock_init:00000000 clock_init
+     /tmp/cczmywiE.s:249    .text.clock_init:00000074 $d
+     /tmp/cczmywiE.s:256    .text.config_uart0:00000000 $t
+     /tmp/cczmywiE.s:262    .text.config_uart0:00000000 config_uart0
+     /tmp/cczmywiE.s:285    .text.config_uart0:00000020 $d
+     /tmp/cczmywiE.s:290    .text.SysTick_Handler:00000000 $t
+     /tmp/cczmywiE.s:296    .text.SysTick_Handler:00000000 SysTick_Handler
+     /tmp/cczmywiE.s:313    .text.SysTick_Handler:00000010 $d
+     /tmp/cczmywiE.s:560    .bss.SystickCounter:00000000 SystickCounter
+     /tmp/cczmywiE.s:316    .text.SysTick_DelayTicks:00000000 $t
+     /tmp/cczmywiE.s:322    .text.SysTick_DelayTicks:00000000 SysTick_DelayTicks
+     /tmp/cczmywiE.s:337    .text.SysTick_DelayTicks:0000000c $d
+     /tmp/cczmywiE.s:362    .text.startup.main:00000000 $t
+     /tmp/cczmywiE.s:368    .text.startup.main:00000000 main
+     /tmp/cczmywiE.s:518    .text.startup.main:0000014c $d
+     /tmp/cczmywiE.s:546    .bss.sctimerClock:00000000 sctimerClock
+     /tmp/cczmywiE.s:553    .bss.event0:00000000 event0
+     /tmp/cczmywiE.s:543    .bss.sctimerClock:00000000 $d
+     /tmp/cczmywiE.s:550    .bss.event0:00000000 $d
+     /tmp/cczmywiE.s:557    .bss.SystickCounter:00000000 $d
+
+UNDEFINED SYMBOLS
+__aeabi_ui2f
+__aeabi_f2d
+__aeabi_dmul
+__aeabi_d2f
+__aeabi_f2iz
+__aeabi_ui2d
+__aeabi_d2iz
+ADC_Init
+ADC_SetConvSeqAConfig
+ADC_GetChannelConversionResult
+ADC_GetConvSeqAGlobalConversionResult
+CLOCK_InitSystemPll
+CLOCK_SetMainClkSrc
+SystemCoreClockUpdate
+SWM_SetMovablePinSelect
+__aeabi_uidiv
+BOARD_InitPins
+ARM GAS  /tmp/cczmywiE.s 			page 13
+
+
+CLOCK_GetFreq
+SCTIMER_GetDefaultConfig
+SCTIMER_Init
+SCTIMER_SetupPwm
+xprintf
+ADC_DoSelfCalibration
+SCTIMER_UpdatePwmDutycycle
+xfunc_output
+SystemCoreClock

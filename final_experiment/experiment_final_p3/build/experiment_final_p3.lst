@@ -1,0 +1,614 @@
+ARM GAS  /tmp/ccGApaAk.s 			page 1
+
+
+   1              		.cpu cortex-m0plus
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"experiment_final_p3.c"
+  14              		.text
+  15              		.align	1
+  16              		.global	SysTick_Handler
+  17              		.syntax unified
+  18              		.code	16
+  19              		.thumb_func
+  21              	SysTick_Handler:
+  22              		@ args = 0, pretend = 0, frame = 0
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24              		@ link register save eliminated.
+  25 0000 034B     		ldr	r3, .L6
+  26 0002 1A68     		ldr	r2, [r3]
+  27 0004 002A     		cmp	r2, #0
+  28 0006 02D0     		beq	.L1
+  29 0008 1A68     		ldr	r2, [r3]
+  30 000a 013A     		subs	r2, r2, #1
+  31 000c 1A60     		str	r2, [r3]
+  32              	.L1:
+  33              		@ sp needed
+  34 000e 7047     		bx	lr
+  35              	.L7:
+  36              		.align	2
+  37              	.L6:
+  38 0010 00000000 		.word	.LANCHOR0
+  40              		.align	1
+  41              		.global	SysTick_DelayTicks
+  42              		.syntax unified
+  43              		.code	16
+  44              		.thumb_func
+  46              	SysTick_DelayTicks:
+  47              		@ args = 0, pretend = 0, frame = 0
+  48              		@ frame_needed = 0, uses_anonymous_args = 0
+  49              		@ link register save eliminated.
+  50 0014 024B     		ldr	r3, .L11
+  51 0016 1860     		str	r0, [r3]
+  52              	.L9:
+  53 0018 1A68     		ldr	r2, [r3]
+  54 001a 002A     		cmp	r2, #0
+  55 001c FCD1     		bne	.L9
+  56              		@ sp needed
+  57 001e 7047     		bx	lr
+  58              	.L12:
+  59              		.align	2
+  60              	.L11:
+ARM GAS  /tmp/ccGApaAk.s 			page 2
+
+
+  61 0020 00000000 		.word	.LANCHOR0
+  63              		.section	.rodata.str1.1,"aMS",%progbits,1
+  64              	.LC4:
+  65 0000 0A0A0A0D 		.ascii	"\012\012\012\015\000"
+  65      00
+  66              	.LC6:
+  67 0005 2A2A2A2A 		.ascii	"**********************************\012\015\000"
+  67      2A2A2A2A 
+  67      2A2A2A2A 
+  67      2A2A2A2A 
+  67      2A2A2A2A 
+  68              	.LC8:
+  69 002a 46696E61 		.ascii	"Final Experiment - PART 3 .\015\012\000"
+  69      6C204578 
+  69      70657269 
+  69      6D656E74 
+  69      202D2050 
+  70              	.LC10:
+  71 0048 2A2A2A2A 		.ascii	"**********************************\012\012\012\012\015"
+  71      2A2A2A2A 
+  71      2A2A2A2A 
+  71      2A2A2A2A 
+  71      2A2A2A2A 
+  72 006f 00       		.ascii	"\000"
+  73              		.global	__aeabi_uidiv
+  74              		.global	__aeabi_i2f
+  75              		.global	__aeabi_f2d
+  76              		.global	__aeabi_dmul
+  77              		.global	__aeabi_d2f
+  78              		.global	__aeabi_fsub
+  79              		.global	__aeabi_fmul
+  80              		.global	__aeabi_fdiv
+  81              		.global	__aeabi_fadd
+  82              		.global	__aeabi_dadd
+  83              		.global	__aeabi_fcmplt
+  84              		.global	__aeabi_fcmpgt
+  85              		.global	__aeabi_f2uiz
+  86              	.LC15:
+  87 0070 5B494E46 		.ascii	"[INFO]: ADC Ch %d -> %d\015\012\000"
+  87      4F5D3A20 
+  87      41444320 
+  87      43682025 
+  87      64202D3E 
+  88              		.global	__aeabi_f2iz
+  89              	.LC17:
+  90 008a 5B494E46 		.ascii	"[INFO]: r(kT) -> %d (x100 Scale)\015\012\000"
+  90      4F5D3A20 
+  90      72286B54 
+  90      29202D3E 
+  90      20256420 
+  91              	.LC19:
+  92 00ad 5B494E46 		.ascii	"[INFO]: y(kT) -> %d (x100 Scale)\015\012\000"
+  92      4F5D3A20 
+  92      79286B54 
+  92      29202D3E 
+  92      20256420 
+  93              	.LC21:
+ARM GAS  /tmp/ccGApaAk.s 			page 3
+
+
+  94 00d0 5B494E46 		.ascii	"[INFO]: e(kT) -> %d (x100 Scale)\015\012\000"
+  94      4F5D3A20 
+  94      65286B54 
+  94      29202D3E 
+  94      20256420 
+  95              	.LC23:
+  96 00f3 5B494E46 		.ascii	"[INFO]: u(kT) -> %d\015\012\000"
+  96      4F5D3A20 
+  96      75286B54 
+  96      29202D3E 
+  96      2025640D 
+  97              	.LC25:
+  98 0109 5B494E46 		.ascii	"[INFO]: PWM Duty Count -> %d\015\012\000"
+  98      4F5D3A20 
+  98      50574D20 
+  98      44757479 
+  98      20436F75 
+  99              	.LC27:
+ 100 0128 095B494E 		.ascii	"\011[INFO]: Proportional -> %d (x10 Scale)\015\012\000"
+ 100      464F5D3A 
+ 100      2050726F 
+ 100      706F7274 
+ 100      696F6E61 
+ 101              	.LC29:
+ 102 0152 095B494E 		.ascii	"\011[INFO]: Integral -> %d (x10 Scale)\015\012\000"
+ 102      464F5D3A 
+ 102      20496E74 
+ 102      65677261 
+ 102      6C202D3E 
+ 103              	.LC31:
+ 104 0178 095B494E 		.ascii	"\011[INFO]: Derivative -> %d (x10 Scale)\015\012\000"
+ 104      464F5D3A 
+ 104      20446572 
+ 104      69766174 
+ 104      69766520 
+ 105              		.section	.text.startup,"ax",%progbits
+ 106              		.align	1
+ 107              		.global	main
+ 108              		.syntax unified
+ 109              		.code	16
+ 110              		.thumb_func
+ 112              	main:
+ 113              		@ args = 0, pretend = 0, frame = 40
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 116 0002 8BB0     		sub	sp, sp, #44
+ 117 0004 FFF7FEFF 		bl	InitPins
+ 118 0008 FFF7FEFF 		bl	clock_init
+ 119 000c FFF7FEFF 		bl	config_uart0
+ 120 0010 9B4B     		ldr	r3, .L27
+ 121 0012 9C4A     		ldr	r2, .L27+4
+ 122 0014 9C48     		ldr	r0, .L27+8
+ 123 0016 1A60     		str	r2, [r3]
+ 124 0018 FFF7FEFF 		bl	xprintf
+ 125 001c 9B48     		ldr	r0, .L27+12
+ 126 001e FFF7FEFF 		bl	xprintf
+ 127 0022 9B48     		ldr	r0, .L27+16
+ARM GAS  /tmp/ccGApaAk.s 			page 4
+
+
+ 128 0024 FFF7FEFF 		bl	xprintf
+ 129 0028 9A48     		ldr	r0, .L27+20
+ 130 002a FFF7FEFF 		bl	xprintf
+ 131 002e 8023     		movs	r3, #128
+ 132 0030 994C     		ldr	r4, .L27+24
+ 133 0032 5B00     		lsls	r3, r3, #1
+ 134 0034 E26F     		ldr	r2, [r4, #124]
+ 135 0036 8025     		movs	r5, #128
+ 136 0038 1343     		orrs	r3, r2
+ 137 003a E367     		str	r3, [r4, #124]
+ 138 003c FFF7FEFF 		bl	SCT_Config_PWM
+ 139 0040 8E22     		movs	r2, #142
+ 140 0042 1021     		movs	r1, #16
+ 141 0044 E36F     		ldr	r3, [r4, #124]
+ 142 0046 6D04     		lsls	r5, r5, #17
+ 143 0048 944E     		ldr	r6, .L27+28
+ 144 004a 2B43     		orrs	r3, r5
+ 145 004c E367     		str	r3, [r4, #124]
+ 146 004e 9200     		lsls	r2, r2, #2
+ 147 0050 B358     		ldr	r3, [r6, r2]
+ 148 0052 8B43     		bics	r3, r1
+ 149 0054 FA21     		movs	r1, #250
+ 150 0056 B350     		str	r3, [r6, r2]
+ 151 0058 914B     		ldr	r3, .L27+32
+ 152 005a 8900     		lsls	r1, r1, #2
+ 153 005c 1868     		ldr	r0, [r3]
+ 154 005e FFF7FEFF 		bl	__aeabi_uidiv
+ 155 0062 0138     		subs	r0, r0, #1
+ 156 0064 A842     		cmp	r0, r5
+ 157 0066 00D3     		bcc	.LCB95
+ 158 0068 FEE0     		b	.L14	@long jump
+ 159              	.LCB95:
+ 160 006a C021     		movs	r1, #192
+ 161 006c 8D4A     		ldr	r2, .L27+36
+ 162 006e 0906     		lsls	r1, r1, #24
+ 163 0070 5060     		str	r0, [r2, #4]
+ 164 0072 8D48     		ldr	r0, .L27+40
+ 165 0074 036A     		ldr	r3, [r0, #32]
+ 166 0076 1B02     		lsls	r3, r3, #8
+ 167 0078 1B0A     		lsrs	r3, r3, #8
+ 168 007a 0B43     		orrs	r3, r1
+ 169 007c 0362     		str	r3, [r0, #32]
+ 170 007e 0023     		movs	r3, #0
+ 171 0080 9360     		str	r3, [r2, #8]
+ 172 0082 0733     		adds	r3, r3, #7
+ 173 0084 1360     		str	r3, [r2]
+ 174 0086 0320     		movs	r0, #3
+ 175 0088 FFF7FEFF 		bl	CLOCK_GetFreq
+ 176 008c 0100     		movs	r1, r0
+ 177 008e 8748     		ldr	r0, .L27+44
+ 178 0090 FFF7FEFF 		bl	ADC_DoSelfCalibration
+ 179 0094 06A8     		add	r0, sp, #24
+ 180 0096 FFF7FEFF 		bl	ADC_Configuration
+ 181              	.L15:
+ 182 009a 854C     		ldr	r4, .L27+48
+ 183 009c A388     		ldrh	r3, [r4, #4]
+ 184 009e C72B     		cmp	r3, #199
+ARM GAS  /tmp/ccGApaAk.s 			page 5
+
+
+ 185 00a0 01D9     		bls	.L16
+ 186 00a2 0023     		movs	r3, #0
+ 187 00a4 A380     		strh	r3, [r4, #4]
+ 188              	.L16:
+ 189 00a6 A388     		ldrh	r3, [r4, #4]
+ 190 00a8 632B     		cmp	r3, #99
+ 191 00aa 00D9     		bls	.LCB130
+ 192 00ac DDE0     		b	.L17	@long jump
+ 193              	.LCB130:
+ 194 00ae 0023     		movs	r3, #0
+ 195              	.L26:
+ 196 00b0 A360     		str	r3, [r4, #8]
+ 197              	.L18:
+ 198 00b2 8023     		movs	r3, #128
+ 199 00b4 7D4A     		ldr	r2, .L27+44
+ 200 00b6 DB04     		lsls	r3, r3, #19
+ 201 00b8 9168     		ldr	r1, [r2, #8]
+ 202 00ba 0B43     		orrs	r3, r1
+ 203 00bc 9360     		str	r3, [r2, #8]
+ 204              	.L19:
+ 205 00be 0021     		movs	r1, #0
+ 206 00c0 7A48     		ldr	r0, .L27+44
+ 207 00c2 06AA     		add	r2, sp, #24
+ 208 00c4 FFF7FEFF 		bl	ADC_GetChannelConversionResult
+ 209 00c8 0028     		cmp	r0, #0
+ 210 00ca F8D0     		beq	.L19
+ 211 00cc 069B     		ldr	r3, [sp, #24]
+ 212 00ce 0093     		str	r3, [sp]
+ 213 00d0 6B46     		mov	r3, sp
+ 214 00d2 0020     		movs	r0, #0
+ 215 00d4 185E     		ldrsh	r0, [r3, r0]
+ 216 00d6 774B     		ldr	r3, .L27+52
+ 217 00d8 C018     		adds	r0, r0, r3
+ 218 00da FFF7FEFF 		bl	__aeabi_i2f
+ 219 00de FFF7FEFF 		bl	__aeabi_f2d
+ 220 00e2 754A     		ldr	r2, .L27+56
+ 221 00e4 754B     		ldr	r3, .L27+60
+ 222 00e6 FFF7FEFF 		bl	__aeabi_dmul
+ 223 00ea FFF7FEFF 		bl	__aeabi_d2f
+ 224 00ee 704D     		ldr	r5, .L27+48
+ 225 00f0 011C     		adds	r1, r0, #0
+ 226 00f2 E860     		str	r0, [r5, #12]
+ 227 00f4 A868     		ldr	r0, [r5, #8]
+ 228 00f6 FFF7FEFF 		bl	__aeabi_fsub
+ 229 00fa 714F     		ldr	r7, .L27+64
+ 230 00fc 2861     		str	r0, [r5, #16]
+ 231 00fe 3968     		ldr	r1, [r7]
+ 232 0100 061C     		adds	r6, r0, #0
+ 233 0102 FFF7FEFF 		bl	__aeabi_fmul
+ 234 0106 AB69     		ldr	r3, [r5, #24]
+ 235 0108 6861     		str	r0, [r5, #20]
+ 236 010a 0193     		str	r3, [sp, #4]
+ 237 010c 7B68     		ldr	r3, [r7, #4]
+ 238 010e 0199     		ldr	r1, [sp, #4]
+ 239 0110 0490     		str	r0, [sp, #16]
+ 240 0112 301C     		adds	r0, r6, #0
+ 241 0114 0293     		str	r3, [sp, #8]
+ARM GAS  /tmp/ccGApaAk.s 			page 6
+
+
+ 242 0116 FFF7FEFF 		bl	__aeabi_fsub
+ 243 011a 0299     		ldr	r1, [sp, #8]
+ 244 011c FFF7FEFF 		bl	__aeabi_fdiv
+ 245 0120 B968     		ldr	r1, [r7, #8]
+ 246 0122 FFF7FEFF 		bl	__aeabi_fmul
+ 247 0126 F968     		ldr	r1, [r7, #12]
+ 248 0128 E861     		str	r0, [r5, #28]
+ 249 012a 0590     		str	r0, [sp, #20]
+ 250 012c 0298     		ldr	r0, [sp, #8]
+ 251 012e FFF7FEFF 		bl	__aeabi_fmul
+ 252 0132 FFF7FEFF 		bl	__aeabi_f2d
+ 253 0136 0290     		str	r0, [sp, #8]
+ 254 0138 0391     		str	r1, [sp, #12]
+ 255 013a 0199     		ldr	r1, [sp, #4]
+ 256 013c 301C     		adds	r0, r6, #0
+ 257 013e FFF7FEFF 		bl	__aeabi_fadd
+ 258 0142 FFF7FEFF 		bl	__aeabi_f2d
+ 259 0146 0022     		movs	r2, #0
+ 260 0148 5E4B     		ldr	r3, .L27+68
+ 261 014a FFF7FEFF 		bl	__aeabi_dmul
+ 262 014e 0200     		movs	r2, r0
+ 263 0150 0B00     		movs	r3, r1
+ 264 0152 0298     		ldr	r0, [sp, #8]
+ 265 0154 0399     		ldr	r1, [sp, #12]
+ 266 0156 FFF7FEFF 		bl	__aeabi_dmul
+ 267 015a 0600     		movs	r6, r0
+ 268 015c 286A     		ldr	r0, [r5, #32]
+ 269 015e 0F00     		movs	r7, r1
+ 270 0160 FFF7FEFF 		bl	__aeabi_f2d
+ 271 0164 0200     		movs	r2, r0
+ 272 0166 0B00     		movs	r3, r1
+ 273 0168 3000     		movs	r0, r6
+ 274 016a 3900     		movs	r1, r7
+ 275 016c FFF7FEFF 		bl	__aeabi_dadd
+ 276 0170 FFF7FEFF 		bl	__aeabi_d2f
+ 277 0174 0599     		ldr	r1, [sp, #20]
+ 278 0176 051C     		adds	r5, r0, #0
+ 279 0178 0498     		ldr	r0, [sp, #16]
+ 280 017a FFF7FEFF 		bl	__aeabi_fadd
+ 281 017e 291C     		adds	r1, r5, #0
+ 282 0180 FFF7FEFF 		bl	__aeabi_fadd
+ 283 0184 5049     		ldr	r1, .L27+72
+ 284 0186 061C     		adds	r6, r0, #0
+ 285 0188 FFF7FEFF 		bl	__aeabi_fcmplt
+ 286 018c 0028     		cmp	r0, #0
+ 287 018e 73D1     		bne	.L21
+ 288 0190 4E49     		ldr	r1, .L27+76
+ 289 0192 301C     		adds	r0, r6, #0
+ 290 0194 FFF7FEFF 		bl	__aeabi_fcmpgt
+ 291 0198 0028     		cmp	r0, #0
+ 292 019a 6FD1     		bne	.L22
+ 293              	.L20:
+ 294 019c 4B49     		ldr	r1, .L27+76
+ 295 019e 6562     		str	r5, [r4, #36]
+ 296 01a0 A662     		str	r6, [r4, #40]
+ 297 01a2 301C     		adds	r0, r6, #0
+ 298 01a4 FFF7FEFF 		bl	__aeabi_fadd
+ARM GAS  /tmp/ccGApaAk.s 			page 7
+
+
+ 299 01a8 4949     		ldr	r1, .L27+80
+ 300 01aa FFF7FEFF 		bl	__aeabi_fmul
+ 301 01ae FFF7FEFF 		bl	__aeabi_f2uiz
+ 302 01b2 009A     		ldr	r2, [sp]
+ 303 01b4 0899     		ldr	r1, [sp, #32]
+ 304 01b6 A085     		strh	r0, [r4, #44]
+ 305 01b8 4648     		ldr	r0, .L27+84
+ 306 01ba FFF7FEFF 		bl	xprintf
+ 307 01be 4649     		ldr	r1, .L27+88
+ 308 01c0 A068     		ldr	r0, [r4, #8]
+ 309 01c2 FFF7FEFF 		bl	__aeabi_fmul
+ 310 01c6 FFF7FEFF 		bl	__aeabi_f2iz
+ 311 01ca 01B2     		sxth	r1, r0
+ 312 01cc 4348     		ldr	r0, .L27+92
+ 313 01ce FFF7FEFF 		bl	xprintf
+ 314 01d2 4149     		ldr	r1, .L27+88
+ 315 01d4 E068     		ldr	r0, [r4, #12]
+ 316 01d6 FFF7FEFF 		bl	__aeabi_fmul
+ 317 01da FFF7FEFF 		bl	__aeabi_f2iz
+ 318 01de 01B2     		sxth	r1, r0
+ 319 01e0 3F48     		ldr	r0, .L27+96
+ 320 01e2 FFF7FEFF 		bl	xprintf
+ 321 01e6 3C49     		ldr	r1, .L27+88
+ 322 01e8 2069     		ldr	r0, [r4, #16]
+ 323 01ea FFF7FEFF 		bl	__aeabi_fmul
+ 324 01ee FFF7FEFF 		bl	__aeabi_f2iz
+ 325 01f2 01B2     		sxth	r1, r0
+ 326 01f4 3B48     		ldr	r0, .L27+100
+ 327 01f6 FFF7FEFF 		bl	xprintf
+ 328 01fa A06A     		ldr	r0, [r4, #40]
+ 329 01fc FFF7FEFF 		bl	__aeabi_f2iz
+ 330 0200 01B2     		sxth	r1, r0
+ 331 0202 3948     		ldr	r0, .L27+104
+ 332 0204 FFF7FEFF 		bl	xprintf
+ 333 0208 A18D     		ldrh	r1, [r4, #44]
+ 334 020a 3848     		ldr	r0, .L27+108
+ 335 020c FFF7FEFF 		bl	xprintf
+ 336 0210 3749     		ldr	r1, .L27+112
+ 337 0212 6069     		ldr	r0, [r4, #20]
+ 338 0214 FFF7FEFF 		bl	__aeabi_fmul
+ 339 0218 FFF7FEFF 		bl	__aeabi_f2iz
+ 340 021c 01B2     		sxth	r1, r0
+ 341 021e 3548     		ldr	r0, .L27+116
+ 342 0220 FFF7FEFF 		bl	xprintf
+ 343 0224 3249     		ldr	r1, .L27+112
+ 344 0226 606A     		ldr	r0, [r4, #36]
+ 345 0228 FFF7FEFF 		bl	__aeabi_fmul
+ 346 022c FFF7FEFF 		bl	__aeabi_f2iz
+ 347 0230 01B2     		sxth	r1, r0
+ 348 0232 3148     		ldr	r0, .L27+120
+ 349 0234 FFF7FEFF 		bl	xprintf
+ 350 0238 2D49     		ldr	r1, .L27+112
+ 351 023a E069     		ldr	r0, [r4, #28]
+ 352 023c FFF7FEFF 		bl	__aeabi_fmul
+ 353 0240 FFF7FEFF 		bl	__aeabi_f2iz
+ 354 0244 01B2     		sxth	r1, r0
+ 355 0246 2D48     		ldr	r0, .L27+124
+ARM GAS  /tmp/ccGApaAk.s 			page 8
+
+
+ 356 0248 FFF7FEFF 		bl	xprintf
+ 357 024c A08D     		ldrh	r0, [r4, #44]
+ 358 024e FFF7FEFF 		bl	SCT_Set_PWM
+ 359 0252 2369     		ldr	r3, [r4, #16]
+ 360 0254 0A20     		movs	r0, #10
+ 361 0256 A361     		str	r3, [r4, #24]
+ 362 0258 636A     		ldr	r3, [r4, #36]
+ 363 025a 2362     		str	r3, [r4, #32]
+ 364 025c A388     		ldrh	r3, [r4, #4]
+ 365 025e 0133     		adds	r3, r3, #1
+ 366 0260 A380     		strh	r3, [r4, #4]
+ 367 0262 FFF7FEFF 		bl	SysTick_DelayTicks
+ 368 0266 18E7     		b	.L15
+ 369              	.L14:
+ 370 0268 FEE7     		b	.L14
+ 371              	.L17:
+ 372 026a 643B     		subs	r3, r3, #100
+ 373 026c 632B     		cmp	r3, #99
+ 374 026e 00D9     		bls	.LCB327
+ 375 0270 1FE7     		b	.L18	@long jump
+ 376              	.LCB327:
+ 377 0272 FE23     		movs	r3, #254
+ 378 0274 9B05     		lsls	r3, r3, #22
+ 379 0276 1BE7     		b	.L26
+ 380              	.L21:
+ 381 0278 134E     		ldr	r6, .L27+72
+ 382 027a 8FE7     		b	.L20
+ 383              	.L22:
+ 384 027c 134E     		ldr	r6, .L27+76
+ 385 027e 8DE7     		b	.L20
+ 386              	.L28:
+ 387              		.align	2
+ 388              	.L27:
+ 389 0280 00000000 		.word	xfunc_output
+ 390 0284 00000000 		.word	uart_putch
+ 391 0288 00000000 		.word	.LC4
+ 392 028c 05000000 		.word	.LC6
+ 393 0290 2A000000 		.word	.LC8
+ 394 0294 48000000 		.word	.LC10
+ 395 0298 04800440 		.word	1074036740
+ 396 029c 00800440 		.word	1074036736
+ 397 02a0 00000000 		.word	SystemCoreClock
+ 398 02a4 10E000E0 		.word	-536813552
+ 399 02a8 00ED00E0 		.word	-536810240
+ 400 02ac 00C00140 		.word	1073856512
+ 401 02b0 00000000 		.word	.LANCHOR0
+ 402 02b4 01F8FFFF 		.word	-2047
+ 403 02b8 51FA42C8 		.word	-935134639
+ 404 02bc 79FF4F3F 		.word	1062207353
+ 405 02c0 00000000 		.word	.LANCHOR1
+ 406 02c4 0000E03F 		.word	1071644672
+ 407 02c8 0000C8C1 		.word	-1043857408
+ 408 02cc 0000C841 		.word	1103626240
+ 409 02d0 0000C040 		.word	1086324736
+ 410 02d4 70000000 		.word	.LC15
+ 411 02d8 0000C842 		.word	1120403456
+ 412 02dc 8A000000 		.word	.LC17
+ARM GAS  /tmp/ccGApaAk.s 			page 9
+
+
+ 413 02e0 AD000000 		.word	.LC19
+ 414 02e4 D0000000 		.word	.LC21
+ 415 02e8 F3000000 		.word	.LC23
+ 416 02ec 09010000 		.word	.LC25
+ 417 02f0 00002041 		.word	1092616192
+ 418 02f4 28010000 		.word	.LC27
+ 419 02f8 52010000 		.word	.LC29
+ 420 02fc 78010000 		.word	.LC31
+ 422              		.global	pwmDutyCount
+ 423              		.global	samplingTime
+ 424              		.global	derivative
+ 425              		.global	proportional
+ 426              		.global	kd
+ 427              		.global	ki
+ 428              		.global	kp
+ 429              		.global	i_prev
+ 430              		.global	i
+ 431              		.global	e_kt_prev
+ 432              		.global	e_kt
+ 433              		.global	r_kt
+ 434              		.global	u_kt
+ 435              		.global	y_kt
+ 436              		.global	counter
+ 437              		.global	SysTickCounter
+ 438              		.data
+ 439              		.align	2
+ 440              		.set	.LANCHOR1,. + 0
+ 443              	kp:
+ 444 0000 00007041 		.word	1097859072
+ 447              	samplingTime:
+ 448 0004 0AD7233C 		.word	1008981770
+ 451              	kd:
+ 452 0008 CDCC4C3D 		.word	1028443341
+ 455              	ki:
+ 456 000c 00007042 		.word	1114636288
+ 457              		.bss
+ 458              		.align	2
+ 459              		.set	.LANCHOR0,. + 0
+ 462              	SysTickCounter:
+ 463 0000 00000000 		.space	4
+ 466              	counter:
+ 467 0004 0000     		.space	2
+ 468 0006 0000     		.space	2
+ 471              	r_kt:
+ 472 0008 00000000 		.space	4
+ 475              	y_kt:
+ 476 000c 00000000 		.space	4
+ 479              	e_kt:
+ 480 0010 00000000 		.space	4
+ 483              	proportional:
+ 484 0014 00000000 		.space	4
+ 487              	e_kt_prev:
+ 488 0018 00000000 		.space	4
+ 491              	derivative:
+ 492 001c 00000000 		.space	4
+ 495              	i_prev:
+ 496 0020 00000000 		.space	4
+ARM GAS  /tmp/ccGApaAk.s 			page 10
+
+
+ 499              	i:
+ 500 0024 00000000 		.space	4
+ 503              	u_kt:
+ 504 0028 00000000 		.space	4
+ 507              	pwmDutyCount:
+ 508 002c 0000     		.space	2
+ 509              		.ident	"GCC: (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 12.3.1 20230626"
+ARM GAS  /tmp/ccGApaAk.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 experiment_final_p3.c
+     /tmp/ccGApaAk.s:15     .text:00000000 $t
+     /tmp/ccGApaAk.s:21     .text:00000000 SysTick_Handler
+     /tmp/ccGApaAk.s:38     .text:00000010 $d
+     /tmp/ccGApaAk.s:40     .text:00000014 $t
+     /tmp/ccGApaAk.s:46     .text:00000014 SysTick_DelayTicks
+     /tmp/ccGApaAk.s:61     .text:00000020 $d
+     /tmp/ccGApaAk.s:106    .text.startup:00000000 $t
+     /tmp/ccGApaAk.s:112    .text.startup:00000000 main
+     /tmp/ccGApaAk.s:389    .text.startup:00000280 $d
+     /tmp/ccGApaAk.s:507    .bss:0000002c pwmDutyCount
+     /tmp/ccGApaAk.s:447    .data:00000004 samplingTime
+     /tmp/ccGApaAk.s:491    .bss:0000001c derivative
+     /tmp/ccGApaAk.s:483    .bss:00000014 proportional
+     /tmp/ccGApaAk.s:451    .data:00000008 kd
+     /tmp/ccGApaAk.s:455    .data:0000000c ki
+     /tmp/ccGApaAk.s:443    .data:00000000 kp
+     /tmp/ccGApaAk.s:495    .bss:00000020 i_prev
+     /tmp/ccGApaAk.s:499    .bss:00000024 i
+     /tmp/ccGApaAk.s:487    .bss:00000018 e_kt_prev
+     /tmp/ccGApaAk.s:479    .bss:00000010 e_kt
+     /tmp/ccGApaAk.s:471    .bss:00000008 r_kt
+     /tmp/ccGApaAk.s:503    .bss:00000028 u_kt
+     /tmp/ccGApaAk.s:475    .bss:0000000c y_kt
+     /tmp/ccGApaAk.s:466    .bss:00000004 counter
+     /tmp/ccGApaAk.s:462    .bss:00000000 SysTickCounter
+     /tmp/ccGApaAk.s:439    .data:00000000 $d
+     /tmp/ccGApaAk.s:458    .bss:00000000 $d
+
+UNDEFINED SYMBOLS
+__aeabi_uidiv
+__aeabi_i2f
+__aeabi_f2d
+__aeabi_dmul
+__aeabi_d2f
+__aeabi_fsub
+__aeabi_fmul
+__aeabi_fdiv
+__aeabi_fadd
+__aeabi_dadd
+__aeabi_fcmplt
+__aeabi_fcmpgt
+__aeabi_f2uiz
+__aeabi_f2iz
+InitPins
+clock_init
+config_uart0
+xprintf
+SCT_Config_PWM
+CLOCK_GetFreq
+ADC_DoSelfCalibration
+ADC_Configuration
+ADC_GetChannelConversionResult
+SCT_Set_PWM
+xfunc_output
+uart_putch
+ARM GAS  /tmp/ccGApaAk.s 			page 12
+
+
+SystemCoreClock

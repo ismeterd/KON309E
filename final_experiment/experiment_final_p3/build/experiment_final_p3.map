@@ -1,0 +1,1285 @@
+Archive member included to satisfy reference by file (symbol)
+
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_uqi.o)
+                              build/fsl_clock.o (__gnu_thumb1_case_uqi)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_shi.o)
+                              build/xprintf.o (__gnu_thumb1_case_shi)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+                              build/experiment_final_p3.o (__aeabi_uidiv)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+                              build/system_LPC824.o (__aeabi_idiv)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
+                              build/experiment_final_p3.o (__aeabi_fcmplt)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_ldivmod.o)
+                              build/fsl_clock.o (__aeabi_ldivmod)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+                              build/fsl_common_arm.o (__aeabi_uldivmod)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+                              build/fsl_common_arm.o (__aeabi_lmul)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_fixunssfsi.o)
+                              build/experiment_final_p3.o (__aeabi_f2uiz)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivmoddi4.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_uldivmod.o) (__udivmoddi4)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(bpabi.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_ldivmod.o) (__gnu_ldivmod_helper)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(addsf3.o)
+                              build/experiment_final_p3.o (__aeabi_fadd)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+                              build/experiment_final_p3.o (__aeabi_fdiv)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o) (__eqsf2)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o) (__gesf2)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o) (__lesf2)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+                              build/experiment_final_p3.o (__aeabi_fmul)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(subsf3.o)
+                              build/experiment_final_p3.o (__aeabi_fsub)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(fixsfsi.o)
+                              build/experiment_final_p3.o (__aeabi_f2iz)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
+                              build/experiment_final_p3.o (__aeabi_i2f)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(adddf3.o)
+                              build/experiment_final_p3.o (__aeabi_dadd)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+                              build/experiment_final_p3.o (__aeabi_dmul)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(extendsfdf2.o)
+                              build/experiment_final_p3.o (__aeabi_f2d)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(truncdfsf2.o)
+                              build/experiment_final_p3.o (__aeabi_d2f)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(addsf3.o) (__clzsi2)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_clzdi2.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivmoddi4.o) (__clzdi2)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divdi3.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(bpabi.o) (__divdi3)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-exit.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o (exit)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-init.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o (__libc_init_array)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-malloc.o)
+                              build/fsl_common.o (malloc)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mallocr.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-malloc.o) (_malloc_r)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-exit.o) (__stdio_exit_handler)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-stdio.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o) (__sread)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mlock.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mallocr.o) (__malloc_lock)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-sbrkr.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mallocr.o) (_sbrk_r)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-stdio.o) (_write_r)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fwalk.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o) (_fwalk_sglue)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-memset.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o (memset)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-freer.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-malloc.o) (_free_r)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o) (__retarget_lock_init_recursive)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-stdio.o) (_close_r)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-reent.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-sbrkr.o) (errno)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-impure.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-malloc.o) (_impure_ptr)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fflush.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o) (_fflush_r)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-stdio.o) (_lseek_r)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-stdio.o) (_read_r)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(close.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o) (_close)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(lseek.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o) (_lseek)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(read.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o) (_read)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-sbrkr.o) (_sbrk)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(write.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o) (_write)
+/home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
+                              /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-exit.o) (_exit)
+
+Discarded input sections
+
+ .gnu.warning._close
+                0x00000000        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(close.o)
+ .gnu.warning._lseek
+                0x00000000        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(lseek.o)
+ .gnu.warning._read
+                0x00000000        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(read.o)
+ .gnu.warning._write
+                0x00000000        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(write.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+m_interrupts     0x00000000         0x00000200         xr
+m_crp            0x000002fc         0x00000004         xr
+m_text           0x00000300         0x00007d00         xr
+m_data           0x10000000         0x00001fe0         rw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crti.o
+LOAD /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+LOAD /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+LOAD build/experiment_final_p3.o
+LOAD build/peripherals.o
+LOAD build/xprintf.o
+LOAD build/pin_mux.o
+LOAD build/system_LPC824.o
+LOAD build/fsl_common.o
+LOAD build/fsl_common_arm.o
+LOAD build/fsl_gpio.o
+LOAD build/fsl_power.o
+LOAD build/fsl_clock.o
+LOAD build/fsl_reset.o
+LOAD build/fsl_swm.o
+LOAD build/fsl_syscon.o
+LOAD build/fsl_adc.o
+LOAD build/fsl_sctimer.o
+LOAD build/fsl_usart.o
+LOAD build/startup_LPC824.o
+START GROUP
+LOAD /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a
+LOAD /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a
+END GROUP
+START GROUP
+LOAD /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a
+LOAD /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a
+LOAD /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a
+END GROUP
+START GROUP
+LOAD /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a
+LOAD /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a
+LOAD /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a
+END GROUP
+LOAD /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+LOAD /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtn.o
+                0x00000400                        HEAP_SIZE = DEFINED (__heap_size__)?__heap_size__:0x400
+                0x00000800                        STACK_SIZE = DEFINED (__stack_size__)?__stack_size__:0x800
+
+.interrupts     0x00000000       0xc0
+                0x00000000                        . = ALIGN (0x4)
+ *(.isr_vector)
+ .isr_vector    0x00000000       0xc0 build/startup_LPC824.o
+                0x00000000                __Vectors
+                0x000000c0                        . = ALIGN (0x4)
+
+.crp            0x000002fc        0x4
+                0x000002fc                        . = ALIGN (0x4)
+ *(.crp)
+ .crp           0x000002fc        0x4 build/startup_LPC824.o
+                0x00000300                        . = ALIGN (0x4)
+
+.text           0x00000300     0x508c
+                0x00000300                        . = ALIGN (0x4)
+ *(.text)
+ .text          0x00000300        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crti.o
+ .text          0x00000300        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .text          0x00000300       0x80 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+                0x00000300                _stack_init
+                0x0000030c                _mainCRTStartup
+                0x0000030c                _start
+ .text          0x00000380       0x24 build/experiment_final_p3.o
+                0x00000380                SysTick_Handler
+                0x00000394                SysTick_DelayTicks
+ .text          0x000003a4      0x1d0 build/peripherals.o
+                0x000003a4                ADC_Configuration
+                0x00000404                SCT_Set_PWM
+                0x00000438                SCT_Config_PWM
+                0x000004ac                clock_init
+                0x00000534                uart_putch
+                0x00000548                config_uart0
+ .text          0x00000574      0x358 build/xprintf.o
+                0x00000574                strlen
+                0x00000576                xfputc
+                0x00000598                xputc
+                0x00000840                xfputs
+                0x00000858                xputs
+                0x0000086c                xprintf
+                0x0000088c                xfprintf
+                0x000008a2                xsprintf
+ .text          0x000008cc       0x68 build/pin_mux.o
+                0x000008cc                InitPins
+ .text          0x00000934       0xb8 build/system_LPC824.o
+                0x00000934                SystemCoreClockUpdate
+                0x000009c4                SystemInitHook
+                0x000009c6                SystemInit
+ .text          0x000009ec       0x60 build/fsl_common.o
+                0x000009ec                SDK_Malloc
+                0x00000a30                SDK_Free
+ .text          0x00000a4c       0x28 build/fsl_common_arm.o
+                0x00000a4c                SDK_DelayAtLeastUs
+ .text          0x00000a74       0x64 build/fsl_gpio.o
+                0x00000a74                GPIO_PortInit
+                0x00000a8c                GPIO_PinInit
+ .text          0x00000ad8      0x178 build/fsl_power.o
+                0x00000ad8                POWER_EnterSleep
+                0x00000b04                POWER_EnterDeepSleep
+                0x00000b4c                POWER_EnterPowerDown
+                0x00000b94                POWER_EnterDeepPowerDownMode
+                0x00000bc8                EnableDeepSleepIRQ
+                0x00000c0c                DisableDeepSleepIRQ
+ .text          0x00000c50      0x428 build/fsl_clock.o
+                0x00000c64                CLOCK_GetIrcFreq
+                0x00000c6c                CLOCK_GetSysOscFreq
+                0x00000c88                CLOCK_GetSystemPLLInClockRate
+                0x00000cc0                CLOCK_GetMainClkFreq
+                0x00000d04                CLOCK_GetClockOutClkFreq
+                0x00000d54                CLOCK_GetUartClkFreq
+                0x00000d8c                CLOCK_GetUart0ClkFreq
+                0x00000d94                CLOCK_GetUart2ClkFreq
+                0x00000d9c                CLOCK_GetUart1ClkFreq
+                0x00000da4                CLOCK_GetFreq
+                0x00000e00                CLOCK_InitSystemPll
+                0x00000e9c                CLOCK_InitExtClkin
+                0x00000ecc                CLOCK_InitXtalin
+                0x00000f24                CLOCK_InitSysOsc
+                0x00000f94                CLOCK_InitWdtOsc
+                0x00000fd8                CLOCK_SetMainClkSrc
+                0x0000100c                CLOCK_SetUARTFRGClkFreq
+                0x00001068                CLOCK_UpdateClkOUTsrc
+ .text          0x00001078       0x18 build/fsl_reset.o
+                0x00001078                RESET_PeripheralReset
+ .text          0x00001090       0x42 build/fsl_swm.o
+                0x00001090                SWM_SetMovablePinSelect
+                0x000010ae                SWM_SetFixedPinSelect
+ .text          0x000010d2        0xe build/fsl_syscon.o
+                0x000010d2                SYSCON_AttachSignal
+ .text          0x000010e0      0x1bc build/fsl_adc.o
+                0x000010e0                ADC_Init
+                0x00001120                ADC_GetDefaultConfig
+                0x0000112c                ADC_Deinit
+                0x00001140                ADC_DoSelfCalibration
+                0x00001198                ADC_SetConvSeqAConfig
+                0x000011de                ADC_SetConvSeqBConfig
+                0x00001224                ADC_GetConvSeqAGlobalConversionResult
+                0x0000124a                ADC_GetConvSeqBGlobalConversionResult
+                0x00001270                ADC_GetChannelConversionResult
+ .text          0x0000129c      0x54c build/fsl_sctimer.o
+                0x0000129c                SCTIMER_EventHandleIRQ
+                0x000012dc                SCTIMER_Init
+                0x00001384                SCTIMER_Deinit
+                0x000013a4                SCTIMER_GetDefaultConfig
+                0x000013bc                SCTIMER_UpdatePwmDutycycle
+                0x0000143c                SCTIMER_CreateAndScheduleEvent
+                0x0000155c                SCTIMER_SetupPwm
+                0x000016c4                SCTIMER_ScheduleEvent
+                0x000016e4                SCTIMER_IncreaseState
+                0x000016fc                SCTIMER_GetCurrentState
+                0x00001708                SCTIMER_SetupOutputToggleAction
+                0x00001738                SCTIMER_SetupCaptureAction
+                0x000017c8                SCTIMER_SetCallback
+                0x000017d4                SCT0_DriverIRQHandler
+ .text          0x000017e8      0x64c build/fsl_usart.o
+                0x000017e8                USART_GetInstance
+                0x00001814                USART_TransferGetRxRingBufferLength
+                0x0000182e                USART_TransferHandleIRQ
+                0x0000198c                USART_TransferStartRingBuffer
+                0x0000199e                USART_TransferStopRingBuffer
+                0x000019ba                USART_Deinit
+                0x000019e8                USART_GetDefaultConfig
+                0x00001a02                USART_SetBaudRate
+                0x00001a98                USART_Init
+                0x00001b94                USART_WriteBlocking
+                0x00001bb8                USART_ReadBlocking
+                0x00001c30                USART_TransferCreateHandle
+                0x00001c90                USART_TransferSendNonBlocking
+                0x00001cc4                USART_TransferAbortSend
+                0x00001cda                USART_TransferGetSendCount
+                0x00001cf2                USART_TransferReceiveNonBlocking
+                0x00001dbc                USART_TransferAbortReceive
+                0x00001dd4                USART_TransferGetReceiveCount
+                0x00001dec                USART0_DriverIRQHandler
+                0x00001e04                USART1_DriverIRQHandler
+                0x00001e1c                USART2_DriverIRQHandler
+ .text          0x00001e34      0x164 build/startup_LPC824.o
+                0x00001e34                Reset_Handler
+                0x00001e68                Reserved39_DriverIRQHandler
+                0x00001e68                ADC0_OVR_DriverIRQHandler
+                0x00001e68                DMA0_DriverIRQHandler
+                0x00001e68                SPI1_DriverIRQHandler
+                0x00001e68                I2C3_DriverIRQHandler
+                0x00001e68                PIN_INT3_DriverIRQHandler
+                0x00001e68                PIN_INT2_DriverIRQHandler
+                0x00001e68                I2C2_DriverIRQHandler
+                0x00001e68                PIN_INT0_DriverIRQHandler
+                0x00001e68                DefaultISR
+                0x00001e68                WKT_DriverIRQHandler
+                0x00001e68                MRT0_DriverIRQHandler
+                0x00001e68                PIN_INT4_DriverIRQHandler
+                0x00001e68                PIN_INT5_DriverIRQHandler
+                0x00001e68                ADC0_THCMP_DriverIRQHandler
+                0x00001e68                PIN_INT7_DriverIRQHandler
+                0x00001e68                Reserved22_DriverIRQHandler
+                0x00001e68                FLASH_DriverIRQHandler
+                0x00001e68                ADC0_SEQB_DriverIRQHandler
+                0x00001e68                PIN_INT6_DriverIRQHandler
+                0x00001e68                Reserved18_DriverIRQHandler
+                0x00001e68                WDT_DriverIRQHandler
+                0x00001e68                PIN_INT1_DriverIRQHandler
+                0x00001e68                BOD_DriverIRQHandler
+                0x00001e68                I2C1_DriverIRQHandler
+                0x00001e68                CMP_DriverIRQHandler
+                0x00001e68                ADC0_SEQA_DriverIRQHandler
+                0x00001e68                SPI0_DriverIRQHandler
+                0x00001e68                I2C0_DriverIRQHandler
+                0x00001e6c                NMI_Handler
+                0x00001e70                HardFault_Handler
+                0x00001e74                SVC_Handler
+                0x00001e78                PendSV_Handler
+                0x00001e80                SPI0_IRQHandler
+                0x00001e84                SPI1_IRQHandler
+                0x00001e88                Reserved18_IRQHandler
+                0x00001e8c                USART0_IRQHandler
+                0x00001e90                USART1_IRQHandler
+                0x00001e94                USART2_IRQHandler
+                0x00001e98                Reserved22_IRQHandler
+                0x00001e9c                I2C1_IRQHandler
+                0x00001ea0                I2C0_IRQHandler
+                0x00001ea4                SCT0_IRQHandler
+                0x00001ea8                MRT0_IRQHandler
+                0x00001eac                CMP_IRQHandler
+                0x00001eb0                WDT_IRQHandler
+                0x00001eb4                BOD_IRQHandler
+                0x00001eb8                FLASH_IRQHandler
+                0x00001ebc                WKT_IRQHandler
+                0x00001ec0                ADC0_SEQA_IRQHandler
+                0x00001ec4                ADC0_SEQB_IRQHandler
+                0x00001ec8                ADC0_THCMP_IRQHandler
+                0x00001ecc                ADC0_OVR_IRQHandler
+                0x00001ed0                DMA0_IRQHandler
+                0x00001ed4                I2C2_IRQHandler
+                0x00001ed8                I2C3_IRQHandler
+                0x00001edc                Reserved39_IRQHandler
+                0x00001ee0                PIN_INT0_IRQHandler
+                0x00001ee4                PIN_INT1_IRQHandler
+                0x00001ee8                PIN_INT2_IRQHandler
+                0x00001eec                PIN_INT3_IRQHandler
+                0x00001ef0                PIN_INT4_IRQHandler
+                0x00001ef4                PIN_INT5_IRQHandler
+                0x00001ef8                PIN_INT6_IRQHandler
+                0x00001efc                PIN_INT7_IRQHandler
+ .text          0x00001f98       0x14 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_uqi.o)
+                0x00001f98                __gnu_thumb1_case_uqi
+ .text          0x00001fac       0x14 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_shi.o)
+                0x00001fac                __gnu_thumb1_case_shi
+ .text          0x00001fc0      0x114 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+                0x00001fc0                __udivsi3
+                0x00001fc0                __aeabi_uidiv
+                0x000020cc                __aeabi_uidivmod
+ .text          0x000020d4      0x1d4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+                0x000020d4                __aeabi_idiv
+                0x000020d4                __divsi3
+                0x000022a0                __aeabi_idivmod
+ .text          0x000022a8        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x000022a8                __aeabi_ldiv0
+                0x000022a8                __aeabi_idiv0
+ .text          0x000022ac       0x74 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
+                0x000022ac                __aeabi_cfrcmple
+                0x000022b4                __aeabi_cfcmple
+                0x000022b4                __aeabi_cfcmpeq
+                0x000022c4                __aeabi_fcmpeq
+                0x000022d0                __aeabi_fcmplt
+                0x000022e4                __aeabi_fcmple
+                0x000022f8                __aeabi_fcmpgt
+                0x0000230c                __aeabi_fcmpge
+ .text          0x00002320       0x48 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_ldivmod.o)
+                0x00002320                __aeabi_ldivmod
+ .text          0x00002368       0x40 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+                0x00002368                __aeabi_uldivmod
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_fixunssfsi.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivmoddi4.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(bpabi.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(addsf3.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(subsf3.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(fixsfsi.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(adddf3.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(extendsfdf2.o)
+ .text          0x000023a8        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(truncdfsf2.o)
+ .text          0x000023a8       0x3c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+                0x000023a8                __clzsi2
+ .text          0x000023e4       0x18 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_clzdi2.o)
+                0x000023e4                __clzdi2
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divdi3.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-exit.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-init.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-malloc.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mallocr.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-stdio.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mlock.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-sbrkr.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fwalk.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-memset.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-freer.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-reent.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-impure.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fflush.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(close.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(lseek.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(read.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(write.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+ .text          0x000023fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtn.o
+ *(.text*)
+ .text.deregister_tm_clones
+                0x000023fc       0x20 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .text.register_tm_clones
+                0x0000241c       0x28 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .text.__do_global_dtors_aux
+                0x00002444       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .text.frame_dummy
+                0x00002470       0x24 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .text.startup  0x00002494      0x300 build/experiment_final_p3.o
+                0x00002494                main
+ .text.__muldi3
+                0x00002794       0x5c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+                0x00002794                __aeabi_lmul
+                0x00002794                __muldi3
+ .text.__fixunssfsi
+                0x000027f0       0x30 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_fixunssfsi.o)
+                0x000027f0                __aeabi_f2uiz
+                0x000027f0                __fixunssfsi
+ .text.__udivmoddi4
+                0x00002820      0x198 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivmoddi4.o)
+                0x00002820                __udivmoddi4
+ .text.__gnu_ldivmod_helper
+                0x000029b8       0x3c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(bpabi.o)
+                0x000029b8                __gnu_ldivmod_helper
+ .text.__aeabi_fadd
+                0x000029f4      0x314 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(addsf3.o)
+                0x000029f4                __aeabi_fadd
+ .text.__aeabi_fdiv
+                0x00002d08      0x240 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+                0x00002d08                __aeabi_fdiv
+ .text.__eqsf2  0x00002f48       0x50 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
+                0x00002f48                __nesf2
+                0x00002f48                __eqsf2
+ .text.__gesf2  0x00002f98       0xa0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
+                0x00002f98                __gtsf2
+                0x00002f98                __gesf2
+ .text.__lesf2  0x00003038       0x9c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
+                0x00003038                __lesf2
+                0x00003038                __ltsf2
+ .text.__aeabi_fmul
+                0x000030d4      0x27c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+                0x000030d4                __aeabi_fmul
+ .text.__aeabi_fsub
+                0x00003350      0x348 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(subsf3.o)
+                0x00003350                __aeabi_fsub
+ .text.__aeabi_f2iz
+                0x00003698       0x40 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(fixsfsi.o)
+                0x00003698                __aeabi_f2iz
+ .text.__aeabi_i2f
+                0x000036d8       0x98 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
+                0x000036d8                __aeabi_i2f
+ .text.__aeabi_dadd
+                0x00003770      0x6c8 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(adddf3.o)
+                0x00003770                __aeabi_dadd
+ .text.__aeabi_dmul
+                0x00003e38      0x590 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+                0x00003e38                __aeabi_dmul
+ .text.__aeabi_f2d
+                0x000043c8       0x90 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(extendsfdf2.o)
+                0x000043c8                __aeabi_f2d
+ .text.__aeabi_d2f
+                0x00004458      0x118 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(truncdfsf2.o)
+                0x00004458                __aeabi_d2f
+ .text.__divdi3
+                0x00004570      0x1e4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divdi3.o)
+                0x00004570                __divdi3
+ .text.exit     0x00004754       0x28 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-exit.o)
+                0x00004754                exit
+ .text.__libc_init_array
+                0x0000477c       0x48 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-init.o)
+                0x0000477c                __libc_init_array
+ .text.malloc   0x000047c4       0x14 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-malloc.o)
+                0x000047c4                malloc
+ .text.free     0x000047d8       0x14 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-malloc.o)
+                0x000047d8                free
+ .text.sbrk_aligned
+                0x000047ec       0x44 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mallocr.o)
+ .text._malloc_r
+                0x00004830      0x100 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mallocr.o)
+                0x00004830                _malloc_r
+ .text.std      0x00004930       0x6c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+ .text.stdio_exit_handler
+                0x0000499c       0x1c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+ .text.cleanup_stdio
+                0x000049b8       0x3c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+ .text.__fp_lock
+                0x000049f4       0x18 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+ .text.__fp_unlock
+                0x00004a0c       0x18 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+ .text.global_stdio_init.part.0
+                0x00004a24       0x3c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+ .text.__sfp_lock_acquire
+                0x00004a60       0x10 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+                0x00004a60                __sfp_lock_acquire
+ .text.__sfp_lock_release
+                0x00004a70       0x10 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+                0x00004a70                __sfp_lock_release
+ .text.__sfp    0x00004a80       0xa8 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+                0x00004a80                __sfp
+ .text.__sinit  0x00004b28       0x30 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+                0x00004b28                __sinit
+ .text.__fp_lock_all
+                0x00004b58       0x1c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+                0x00004b58                __fp_lock_all
+ .text.__fp_unlock_all
+                0x00004b74       0x1c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+                0x00004b74                __fp_unlock_all
+ .text.__sread  0x00004b90       0x28 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-stdio.o)
+                0x00004b90                __sread
+ .text.__seofread
+                0x00004bb8        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-stdio.o)
+                0x00004bb8                __seofread
+ .text.__swrite
+                0x00004bbc       0x38 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-stdio.o)
+                0x00004bbc                __swrite
+ .text.__sseek  0x00004bf4       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-stdio.o)
+                0x00004bf4                __sseek
+ .text.__sclose
+                0x00004c20        0xc /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-stdio.o)
+                0x00004c20                __sclose
+ .text.__malloc_lock
+                0x00004c2c       0x10 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mlock.o)
+                0x00004c2c                __malloc_lock
+ .text.__malloc_unlock
+                0x00004c3c       0x10 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mlock.o)
+                0x00004c3c                __malloc_unlock
+ .text._sbrk_r  0x00004c4c       0x24 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-sbrkr.o)
+                0x00004c4c                _sbrk_r
+ .text._write_r
+                0x00004c70       0x28 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o)
+                0x00004c70                _write_r
+ .text._fwalk_sglue
+                0x00004c98       0x38 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fwalk.o)
+                0x00004c98                _fwalk_sglue
+ .text.memset   0x00004cd0       0x10 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-memset.o)
+                0x00004cd0                memset
+ .text._free_r  0x00004ce0       0x94 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-freer.o)
+                0x00004ce0                _free_r
+ .text.__retarget_lock_init
+                0x00004d74        0x2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x00004d74                __retarget_lock_init
+ .text.__retarget_lock_init_recursive
+                0x00004d76        0x2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x00004d76                __retarget_lock_init_recursive
+ .text.__retarget_lock_close
+                0x00004d78        0x2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x00004d78                __retarget_lock_close
+ .text.__retarget_lock_close_recursive
+                0x00004d7a        0x2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x00004d7a                __retarget_lock_close_recursive
+ .text.__retarget_lock_acquire
+                0x00004d7c        0x2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x00004d7c                __retarget_lock_acquire
+ .text.__retarget_lock_acquire_recursive
+                0x00004d7e        0x2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x00004d7e                __retarget_lock_acquire_recursive
+ .text.__retarget_lock_try_acquire
+                0x00004d80        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x00004d80                __retarget_lock_try_acquire
+ .text.__retarget_lock_try_acquire_recursive
+                0x00004d84        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x00004d84                __retarget_lock_try_acquire_recursive
+ .text.__retarget_lock_release
+                0x00004d88        0x2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x00004d88                __retarget_lock_release
+ .text.__retarget_lock_release_recursive
+                0x00004d8a        0x2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x00004d8a                __retarget_lock_release_recursive
+ .text._close_r
+                0x00004d8c       0x24 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o)
+                0x00004d8c                _close_r
+ .text._reclaim_reent
+                0x00004db0       0xc0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-reent.o)
+                0x00004db0                _reclaim_reent
+ .text.__sflush_r
+                0x00004e70      0x11c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fflush.o)
+                0x00004e70                __sflush_r
+ .text._fflush_r
+                0x00004f8c       0x56 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fflush.o)
+                0x00004f8c                _fflush_r
+ *fill*         0x00004fe2        0x2 
+ .text.fflush   0x00004fe4       0x30 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fflush.o)
+                0x00004fe4                fflush
+ .text._lseek_r
+                0x00005014       0x28 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o)
+                0x00005014                _lseek_r
+ .text._read_r  0x0000503c       0x28 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o)
+                0x0000503c                _read_r
+ .text._close   0x00005064       0x10 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(close.o)
+                0x00005064                _close
+ .text._lseek   0x00005074       0x10 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(lseek.o)
+                0x00005074                _lseek
+ .text._read    0x00005084       0x10 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(read.o)
+                0x00005084                _read
+ .text._sbrk    0x00005094       0x1c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+                0x00005094                _sbrk
+ .text._write   0x000050b0       0x10 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(write.o)
+                0x000050b0                _write
+ .text._exit    0x000050c0        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
+                0x000050c0                _exit
+ *(.rodata)
+ .rodata        0x000050c4       0x3c build/system_LPC824.o
+ .rodata        0x00005100        0x9 build/fsl_usart.o
+ *(.rodata*)
+ *fill*         0x00005109        0x3 
+ .rodata.all_implied_fbits
+                0x0000510c       0x24 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .rodata.str1.1
+                0x00005130      0x19b build/experiment_final_p3.o
+                                0x1a0 (size before relaxing)
+ *fill*         0x000052cb        0x1 
+ .rodata.cst2   0x000052cc        0x2 build/peripherals.o
+ .rodata.str1.1
+                0x000052ce      0x19b build/xprintf.o
+                                  0x1 (size before relaxing)
+ *fill*         0x000052ce        0x2 
+ .rodata.__aeabi_fdiv
+                0x000052d0       0x7c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+ .rodata.all_implied_fbits
+                0x0000534c       0x24 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+ *(.glue_7)
+ .glue_7        0x00005370        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x00005370        0x0 linker stubs
+ *(.eh_frame)
+ .eh_frame      0x00005370        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .eh_frame      0x00005370        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+ *(.init)
+ .init          0x00005374        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crti.o
+                0x00005374                _init
+ .init          0x00005378        0x8 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtn.o
+ *(.fini)
+ .fini          0x00005380        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crti.o
+                0x00005380                _fini
+ .fini          0x00005384        0x8 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtn.o
+                0x0000538c                        . = ALIGN (0x4)
+
+.vfp11_veneer   0x0000538c        0x0
+ .vfp11_veneer  0x0000538c        0x0 linker stubs
+
+.v4_bx          0x0000538c        0x0
+ .v4_bx         0x0000538c        0x0 linker stubs
+
+.iplt           0x0000538c        0x0
+ .iplt          0x0000538c        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+
+.ARM.extab      0x0000538c        0x0
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ .ARM.extab     0x0000538c        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .ARM.extab.text.__udivmoddi4
+                0x0000538c        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivmoddi4.o)
+ .ARM.extab.text.__divdi3
+                0x0000538c        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divdi3.o)
+
+.ARM            0x0000538c        0x8
+                0x0000538c                        __exidx_start = .
+ *(.ARM.exidx*)
+ .ARM.exidx     0x0000538c        0x8 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+                                 0x10 (size before relaxing)
+ .ARM.exidx.text.__udivmoddi4
+                0x00005394        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivmoddi4.o)
+                                  0x8 (size before relaxing)
+ .ARM.exidx.text.__divdi3
+                0x00005394        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divdi3.o)
+                                  0x8 (size before relaxing)
+                0x00005394                        __exidx_end = .
+
+.rel.dyn        0x00005394        0x0
+ .rel.iplt      0x00005394        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+
+.ctors          0x00005394        0x0
+                0x00005394                        __CTOR_LIST__ = .
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+                0x00005394                        __CTOR_END__ = .
+
+.dtors          0x00005394        0x0
+                0x00005394                        __DTOR_LIST__ = .
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+                0x00005394                        __DTOR_END__ = .
+
+.preinit_array  0x00005394        0x0
+                0x00005394                        PROVIDE (__preinit_array_start = .)
+ *(.preinit_array*)
+                0x00005394                        PROVIDE (__preinit_array_end = .)
+
+.init_array     0x00005394        0x4
+                0x00005394                        PROVIDE (__init_array_start = .)
+ *(SORT_BY_NAME(.init_array.*))
+ *(.init_array*)
+ .init_array    0x00005394        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+                0x00005398                        PROVIDE (__init_array_end = .)
+
+.fini_array     0x00005398        0x4
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array*)
+ .fini_array    0x00005398        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+                [!provide]                        PROVIDE (__fini_array_end = .)
+                0x0000539c                        __etext = .
+                0x0000539c                        __DATA_ROM = .
+
+.data           0x10000000       0x74 load address 0x0000539c
+                0x10000000                        . = ALIGN (0x4)
+                0x10000000                        __DATA_RAM = .
+                0x10000000                        __data_start__ = .
+ *(.ramfunc*)
+ *(.data)
+ .data          0x10000000        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crti.o
+ .data          0x10000000        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .data          0x10000000        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .data          0x10000000       0x10 build/experiment_final_p3.o
+                0x10000000                kp
+                0x10000004                samplingTime
+                0x10000008                kd
+                0x1000000c                ki
+ .data          0x10000010        0x0 build/peripherals.o
+ .data          0x10000010        0x0 build/xprintf.o
+ .data          0x10000010        0x0 build/pin_mux.o
+ .data          0x10000010        0x4 build/system_LPC824.o
+                0x10000010                SystemCoreClock
+ .data          0x10000014        0x0 build/fsl_common.o
+ .data          0x10000014        0x0 build/fsl_common_arm.o
+ .data          0x10000014        0x0 build/fsl_gpio.o
+ .data          0x10000014        0x0 build/fsl_power.o
+ .data          0x10000014        0x0 build/fsl_clock.o
+ .data          0x10000014        0x0 build/fsl_reset.o
+ .data          0x10000014        0x0 build/fsl_swm.o
+ .data          0x10000014        0x0 build/fsl_syscon.o
+ .data          0x10000014        0x0 build/fsl_adc.o
+ .data          0x10000014        0x0 build/fsl_sctimer.o
+ .data          0x10000014        0x0 build/fsl_usart.o
+ .data          0x10000014        0x0 build/startup_LPC824.o
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_uqi.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_shi.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_ldivmod.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_fixunssfsi.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivmoddi4.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(bpabi.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(addsf3.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(subsf3.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(fixsfsi.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(adddf3.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(extendsfdf2.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(truncdfsf2.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_clzdi2.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divdi3.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-exit.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-init.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-malloc.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mallocr.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-stdio.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mlock.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-sbrkr.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fwalk.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-memset.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-freer.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-reent.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-impure.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fflush.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(close.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(lseek.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(read.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(write.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+ .data          0x10000014        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtn.o
+ *(.data*)
+ .data.__dso_handle
+                0x10000014        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+                0x10000014                __dso_handle
+ .data.__sglue  0x10000018        0xc /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+                0x10000018                __sglue
+ .data._impure_ptr
+                0x10000024        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-impure.o)
+                0x10000024                _impure_ptr
+ .data._impure_data
+                0x10000028       0x4c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-impure.o)
+                0x10000028                _impure_data
+ *(.jcr*)
+                0x10000074                        . = ALIGN (0x4)
+                0x10000074                        __data_end__ = .
+                0x00005410                        __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
+                0x00008000                        text_end = (ORIGIN (m_text) + LENGTH (m_text))
+                0x00000001                        ASSERT ((__DATA_END <= text_end), region m_text overflowed with text and data)
+
+.tm_clone_table
+                0x10000074        0x0 load address 0x00005410
+ .tm_clone_table
+                0x10000074        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .tm_clone_table
+                0x10000074        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+
+.igot.plt       0x10000074        0x0 load address 0x00005410
+ .igot.plt      0x10000074        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+
+.bss            0x10000074      0x1f8 load address 0x00005410
+                0x10000074                        . = ALIGN (0x4)
+                0x10000074                        __START_BSS = .
+                0x10000074                        __bss_start__ = .
+ *(.bss)
+ .bss           0x10000074        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crti.o
+ .bss           0x10000074        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .bss           0x10000074        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .bss           0x10000074       0x2e build/experiment_final_p3.o
+                0x10000074                SysTickCounter
+                0x10000078                counter
+                0x1000007c                r_kt
+                0x10000080                y_kt
+                0x10000084                e_kt
+                0x10000088                proportional
+                0x1000008c                e_kt_prev
+                0x10000090                derivative
+                0x10000094                i_prev
+                0x10000098                i
+                0x1000009c                u_kt
+                0x100000a0                pwmDutyCount
+ .bss           0x100000a2        0x0 build/peripherals.o
+ *fill*         0x100000a2        0x2 
+ .bss           0x100000a4        0x8 build/xprintf.o
+                0x100000a8                xfunc_output
+ .bss           0x100000ac        0x0 build/pin_mux.o
+ .bss           0x100000ac        0x0 build/system_LPC824.o
+ .bss           0x100000ac        0x0 build/fsl_common.o
+ .bss           0x100000ac        0x0 build/fsl_common_arm.o
+ .bss           0x100000ac        0x0 build/fsl_gpio.o
+ .bss           0x100000ac        0x0 build/fsl_power.o
+ .bss           0x100000ac        0xc build/fsl_clock.o
+                0x100000ac                g_Ext_Clk_Freq
+                0x100000b0                g_Wdt_Osc_Freq
+ .bss           0x100000b8        0x0 build/fsl_reset.o
+ .bss           0x100000b8        0x0 build/fsl_swm.o
+ .bss           0x100000b8        0x0 build/fsl_syscon.o
+ .bss           0x100000b8        0x0 build/fsl_adc.o
+ .bss           0x100000b8       0x34 build/fsl_sctimer.o
+ .bss           0x100000ec       0x10 build/fsl_usart.o
+ .bss           0x100000fc        0x0 build/startup_LPC824.o
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_uqi.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_shi.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_ldivmod.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_fixunssfsi.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivmoddi4.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(bpabi.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(addsf3.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(subsf3.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(fixsfsi.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(adddf3.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(extendsfdf2.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(truncdfsf2.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_clzdi2.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divdi3.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-exit.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-init.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-malloc.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mallocr.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-stdio.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mlock.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-sbrkr.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fwalk.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-memset.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-freer.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-reent.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-impure.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fflush.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(close.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(lseek.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(read.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(write.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+ .bss           0x100000fc        0x0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtn.o
+ *(.bss*)
+ .bss.completed.1
+                0x100000fc        0x1 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ *fill*         0x100000fd        0x3 
+ .bss.object.0  0x10000100       0x18 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .bss.__malloc_sbrk_start
+                0x10000118        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mallocr.o)
+                0x10000118                __malloc_sbrk_start
+ .bss.__malloc_free_list
+                0x1000011c        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mallocr.o)
+                0x1000011c                __malloc_free_list
+ .bss.__sf      0x10000120      0x138 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+                0x10000120                __sf
+ .bss.__stdio_exit_handler
+                0x10000258        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+                0x10000258                __stdio_exit_handler
+ .bss.__lock___arc4random_mutex
+                0x1000025c        0x1 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x1000025c                __lock___arc4random_mutex
+ .bss.__lock___dd_hash_mutex
+                0x1000025d        0x1 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x1000025d                __lock___dd_hash_mutex
+ .bss.__lock___tz_mutex
+                0x1000025e        0x1 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x1000025e                __lock___tz_mutex
+ .bss.__lock___env_recursive_mutex
+                0x1000025f        0x1 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x1000025f                __lock___env_recursive_mutex
+ .bss.__lock___malloc_recursive_mutex
+                0x10000260        0x1 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x10000260                __lock___malloc_recursive_mutex
+ .bss.__lock___at_quick_exit_mutex
+                0x10000261        0x1 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x10000261                __lock___at_quick_exit_mutex
+ .bss.__lock___atexit_recursive_mutex
+                0x10000262        0x1 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x10000262                __lock___atexit_recursive_mutex
+ .bss.__lock___sfp_recursive_mutex
+                0x10000263        0x1 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+                0x10000263                __lock___sfp_recursive_mutex
+ .bss.errno     0x10000264        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-reent.o)
+                0x10000264                errno
+ .bss.heap_end.0
+                0x10000268        0x4 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+ *(COMMON)
+                0x1000026c                        . = ALIGN (0x4)
+                0x1000026c                        __bss_end__ = .
+                0x1000026c                        __END_BSS = .
+
+.heap           0x1000026c      0x404 load address 0x00005608
+                0x10000270                        . = ALIGN (0x8)
+ *fill*         0x1000026c        0x4 
+                0x10000270                        __end__ = .
+                0x10000270                        PROVIDE (end = .)
+                0x10000270                        __HeapBase = .
+                0x10000670                        . = (. + HEAP_SIZE)
+ *fill*         0x10000270      0x400 
+                0x10000670                        __HeapLimit = .
+                0x10000670                        __heap_limit = .
+
+.stack          0x10000670      0x800 load address 0x00005a0c
+                0x10000670                        . = ALIGN (0x8)
+                0x10000e70                        . = (. + STACK_SIZE)
+ *fill*         0x10000670      0x800 
+                0x10001fe0                        __StackTop = (ORIGIN (m_data) + LENGTH (m_data))
+                0x100017e0                        __StackLimit = (__StackTop - STACK_SIZE)
+                0x10001fe0                        PROVIDE (__stack = __StackTop)
+
+.ARM.attributes
+                0x00000000       0x28
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x1e /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crti.o
+ .ARM.attributes
+                0x0000001e       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .ARM.attributes
+                0x0000004a       0x1b /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .ARM.attributes
+                0x00000065       0x2c build/experiment_final_p3.o
+ .ARM.attributes
+                0x00000091       0x2c build/peripherals.o
+ .ARM.attributes
+                0x000000bd       0x2c build/xprintf.o
+ .ARM.attributes
+                0x000000e9       0x2c build/pin_mux.o
+ .ARM.attributes
+                0x00000115       0x2c build/system_LPC824.o
+ .ARM.attributes
+                0x00000141       0x2c build/fsl_common.o
+ .ARM.attributes
+                0x0000016d       0x2c build/fsl_common_arm.o
+ .ARM.attributes
+                0x00000199       0x2c build/fsl_gpio.o
+ .ARM.attributes
+                0x000001c5       0x2c build/fsl_power.o
+ .ARM.attributes
+                0x000001f1       0x2c build/fsl_clock.o
+ .ARM.attributes
+                0x0000021d       0x2c build/fsl_reset.o
+ .ARM.attributes
+                0x00000249       0x2c build/fsl_swm.o
+ .ARM.attributes
+                0x00000275       0x2c build/fsl_syscon.o
+ .ARM.attributes
+                0x000002a1       0x2c build/fsl_adc.o
+ .ARM.attributes
+                0x000002cd       0x2c build/fsl_sctimer.o
+ .ARM.attributes
+                0x000002f9       0x2c build/fsl_usart.o
+ .ARM.attributes
+                0x00000325       0x1b build/startup_LPC824.o
+ .ARM.attributes
+                0x00000340       0x1e /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_uqi.o)
+ .ARM.attributes
+                0x0000035e       0x1e /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_shi.o)
+ .ARM.attributes
+                0x0000037c       0x1e /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x0000039a       0x1e /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x000003b8       0x1e /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x000003d6       0x1e /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
+ .ARM.attributes
+                0x000003f4       0x1e /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_ldivmod.o)
+ .ARM.attributes
+                0x00000412       0x1e /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+ .ARM.attributes
+                0x00000430       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+ .ARM.attributes
+                0x0000045c       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_fixunssfsi.o)
+ .ARM.attributes
+                0x00000488       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivmoddi4.o)
+ .ARM.attributes
+                0x000004b4       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(bpabi.o)
+ .ARM.attributes
+                0x000004e0       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(addsf3.o)
+ .ARM.attributes
+                0x0000050c       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+ .ARM.attributes
+                0x00000538       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
+ .ARM.attributes
+                0x00000564       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
+ .ARM.attributes
+                0x00000590       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
+ .ARM.attributes
+                0x000005bc       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .ARM.attributes
+                0x000005e8       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(subsf3.o)
+ .ARM.attributes
+                0x00000614       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(fixsfsi.o)
+ .ARM.attributes
+                0x00000640       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
+ .ARM.attributes
+                0x0000066c       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(adddf3.o)
+ .ARM.attributes
+                0x00000698       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+ .ARM.attributes
+                0x000006c4       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(extendsfdf2.o)
+ .ARM.attributes
+                0x000006f0       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(truncdfsf2.o)
+ .ARM.attributes
+                0x0000071c       0x1e /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+ .ARM.attributes
+                0x0000073a       0x1e /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_clzdi2.o)
+ .ARM.attributes
+                0x00000758       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divdi3.o)
+ .ARM.attributes
+                0x00000784       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-exit.o)
+ .ARM.attributes
+                0x000007b0       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-init.o)
+ .ARM.attributes
+                0x000007dc       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-malloc.o)
+ .ARM.attributes
+                0x00000808       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mallocr.o)
+ .ARM.attributes
+                0x00000834       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+ .ARM.attributes
+                0x00000860       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-stdio.o)
+ .ARM.attributes
+                0x0000088c       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mlock.o)
+ .ARM.attributes
+                0x000008b8       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-sbrkr.o)
+ .ARM.attributes
+                0x000008e4       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o)
+ .ARM.attributes
+                0x00000910       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fwalk.o)
+ .ARM.attributes
+                0x0000093c       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-memset.o)
+ .ARM.attributes
+                0x00000968       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-freer.o)
+ .ARM.attributes
+                0x00000994       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+ .ARM.attributes
+                0x000009c0       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o)
+ .ARM.attributes
+                0x000009ec       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-reent.o)
+ .ARM.attributes
+                0x00000a18       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-impure.o)
+ .ARM.attributes
+                0x00000a44       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fflush.o)
+ .ARM.attributes
+                0x00000a70       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o)
+ .ARM.attributes
+                0x00000a9c       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o)
+ .ARM.attributes
+                0x00000ac8       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(close.o)
+ .ARM.attributes
+                0x00000af4       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(lseek.o)
+ .ARM.attributes
+                0x00000b20       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(read.o)
+ .ARM.attributes
+                0x00000b4c       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+ .ARM.attributes
+                0x00000b78       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(write.o)
+ .ARM.attributes
+                0x00000ba4       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
+ .ARM.attributes
+                0x00000bd0       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+ .ARM.attributes
+                0x00000bfc       0x1e /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtn.o
+                0x00000001                        ASSERT ((__StackLimit >= __HeapLimit), region m_data overflowed with stack and heap)
+OUTPUT(build/experiment_final_p3.elf elf32-littlearm)
+LOAD linker stubs
+
+.debug_line_str
+                0x00000000      0x199
+ .debug_line_str
+                0x00000000       0xcb /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .debug_line_str
+                0x000000cb       0xc2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_uqi.o)
+ .debug_line_str
+                0x0000018d       0xc2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_shi.o)
+ .debug_line_str
+                0x0000018d       0xc2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .debug_line_str
+                0x0000018d       0xc2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .debug_line_str
+                0x0000018d       0xc2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_line_str
+                0x0000018d        0xc /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
+                                 0xc2 (size before relaxing)
+ .debug_line_str
+                0x00000199       0xc2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_ldivmod.o)
+ .debug_line_str
+                0x00000199       0xc2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+ .debug_line_str
+                0x00000199       0xc2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+ .debug_line_str
+                0x00000199       0xc2 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_clzdi2.o)
+
+.comment        0x00000000       0x45
+ .comment       0x00000000       0x45 build/experiment_final_p3.o
+                                 0x46 (size before relaxing)
+ .comment       0x00000045       0x46 build/peripherals.o
+ .comment       0x00000045       0x46 build/xprintf.o
+ .comment       0x00000045       0x46 build/pin_mux.o
+ .comment       0x00000045       0x46 build/system_LPC824.o
+ .comment       0x00000045       0x46 build/fsl_common.o
+ .comment       0x00000045       0x46 build/fsl_common_arm.o
+ .comment       0x00000045       0x46 build/fsl_gpio.o
+ .comment       0x00000045       0x46 build/fsl_power.o
+ .comment       0x00000045       0x46 build/fsl_clock.o
+ .comment       0x00000045       0x46 build/fsl_reset.o
+ .comment       0x00000045       0x46 build/fsl_swm.o
+ .comment       0x00000045       0x46 build/fsl_syscon.o
+ .comment       0x00000045       0x46 build/fsl_adc.o
+ .comment       0x00000045       0x46 build/fsl_sctimer.o
+ .comment       0x00000045       0x46 build/fsl_usart.o
+
+.debug_frame    0x00000000      0xa1c
+ .debug_frame   0x00000000       0x20 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .debug_frame   0x00000020       0x20 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .debug_frame   0x00000040       0x34 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+ .debug_frame   0x00000074       0x28 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_fixunssfsi.o)
+ .debug_frame   0x0000009c       0x3c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x000000d8       0x38 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(bpabi.o)
+ .debug_frame   0x00000110       0x38 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(addsf3.o)
+ .debug_frame   0x00000148       0x38 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+ .debug_frame   0x00000180       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
+ .debug_frame   0x000001ac       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
+ .debug_frame   0x000001d8       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
+ .debug_frame   0x00000204       0x38 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .debug_frame   0x0000023c       0x38 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(subsf3.o)
+ .debug_frame   0x00000274       0x20 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(fixsfsi.o)
+ .debug_frame   0x00000294       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
+ .debug_frame   0x000002c0       0x3c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(adddf3.o)
+ .debug_frame   0x000002fc       0x3c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+ .debug_frame   0x00000338       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(extendsfdf2.o)
+ .debug_frame   0x00000364       0x30 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(truncdfsf2.o)
+ .debug_frame   0x00000394       0x3c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/libgcc.a(_divdi3.o)
+ .debug_frame   0x000003d0       0x28 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-exit.o)
+ .debug_frame   0x000003f8       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-init.o)
+ .debug_frame   0x00000424       0x40 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-malloc.o)
+ .debug_frame   0x00000464       0x50 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mallocr.o)
+ .debug_frame   0x000004b4      0x138 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-findfp.o)
+ .debug_frame   0x000005ec       0x90 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-stdio.o)
+ .debug_frame   0x0000067c       0x40 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-mlock.o)
+ .debug_frame   0x000006bc       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-sbrkr.o)
+ .debug_frame   0x000006e8       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o)
+ .debug_frame   0x00000714       0x34 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fwalk.o)
+ .debug_frame   0x00000748       0x20 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-memset.o)
+ .debug_frame   0x00000768       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-freer.o)
+ .debug_frame   0x00000794       0xb0 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lock.o)
+ .debug_frame   0x00000844       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o)
+ .debug_frame   0x00000870       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-reent.o)
+ .debug_frame   0x0000089c       0x68 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fflush.o)
+ .debug_frame   0x00000904       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o)
+ .debug_frame   0x00000930       0x2c /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o)
+ .debug_frame   0x0000095c       0x20 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(close.o)
+ .debug_frame   0x0000097c       0x20 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(lseek.o)
+ .debug_frame   0x0000099c       0x20 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(read.o)
+ .debug_frame   0x000009bc       0x20 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+ .debug_frame   0x000009dc       0x20 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(write.o)
+ .debug_frame   0x000009fc       0x20 /home/ismet/Documents/KON309/NXP/Compiler/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
